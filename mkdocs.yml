@@ -1,0 +1,71 @@
+site_name: Angualr 文档
+site_description: Angular 中文文档
+site_author: Nosy
+copyright: "版权 &copy; 2022 -  wdk-docs.github.io"
+
+repo_name: wdk-docs/angular-docs
+repo_url: https://github.com/wdk-docs/angular-docs
+edit_uri: https://github.com/wdk-docs/angular-docs
+
+docs_dir: source
+site_dir: docs
+
+theme:
+  name: material
+
+  include_search_page: false
+  search_index_only: true
+
+  language: zh
+  feature:
+    tabs: true
+  palette:
+    primary: indigo
+    accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/images/favicon.png
+  # logo:
+  # icon: "\uE80C"
+  icon:
+    logo: material/library
+  # extra_css: [assets/stylesheets/extra.css]
+  features:
+    - content.code.annotate 
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: http://wdk-docs.github.io
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/wdk-docs
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/wdk-docs
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/wdk-docs
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      linenums: false
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      auto_title: true
+      linenums: true
+      linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+nav:
+  - 前言: index.md
+  - SSR:
+      - gotchas: universal/gotchas.md
+  
