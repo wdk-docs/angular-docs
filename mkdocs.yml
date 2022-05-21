@@ -66,6 +66,8 @@ markdown_extensions:
 
 nav:
   - 前言: index.md
+  - 组建:
+      - 扩展: component/angular-component-inheritance.md
   - SSR:
       - gotchas: universal/gotchas.md
   
