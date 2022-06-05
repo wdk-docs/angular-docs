@@ -32,7 +32,7 @@ theme:
     logo: material/library
   # extra_css: [assets/stylesheets/extra.css]
   features:
-    - content.code.annotate 
+    - content.code.annotate
 
 extra:
   social:
@@ -70,4 +70,6 @@ nav:
       - 扩展: component/angular-component-inheritance.md
   - SSR:
       - gotchas: universal/gotchas.md
-  
+  - websocket:
+      - rxjs/webSocket: websocket/rxjs.webSocket.md
+      - 使用 RxJS WebSocketSubject 为您的 Web 应用程序添加实时能力: websocket/websocketsubject.md
