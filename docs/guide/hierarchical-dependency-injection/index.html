@@ -1,0 +1,6382 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Angular 中文文档">
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Hierarchical injectors - Angualr 文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hierarchical-injectors" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Angualr 文档" class="md-header__button md-logo" aria-label="Angualr 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Angualr 文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hierarchical injectors
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/wdk-docs/angular-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wdk-docs/angular-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../what-is-angular/" class="md-tabs__link">
+        入门
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../understanding-angular-overview/" class="md-tabs__link md-tabs__link--active">
+        了解 Angular
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../developer-guide-overview/" class="md-tabs__link">
+        开发者指南
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../security/" class="md-tabs__link">
+        最佳实践
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../deployment/" class="md-tabs__link">
+        Angular 工具
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorial/" class="md-tabs__link">
+        手册
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../update-to-version-16/" class="md-tabs__link">
+        更新和发布
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../architecture/" class="md-tabs__link">
+        参考
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../contributors-guide-overview/" class="md-tabs__link">
+        文档贡献者指南
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Angualr 文档" class="md-nav__button md-logo" aria-label="Angualr 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Angualr 文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/wdk-docs/angular-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wdk-docs/angular-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          入门
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="入门" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-angular/" class="md-nav__link">
+        什么是Angular?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          试用
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="试用" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          试用
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/start-routing/" class="md-nav__link">
+        Adding navigation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/start-data/" class="md-nav__link">
+        Managing data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/start-forms/" class="md-nav__link">
+        Using forms for user input
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/start-deployment/" class="md-nav__link">
+        Deploying an application
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-local/" class="md-nav__link">
+        Setup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          了解 Angular
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="了解 Angular" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          了解 Angular
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../understanding-angular-overview/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          组件
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="组件" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          组件
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component-overview/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lifecycle-hooks/" class="md-nav__link">
+        组件生命周期
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../view-encapsulation/" class="md-nav__link">
+        View encapsulation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component-interaction/" class="md-nav__link">
+        Component interaction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component-styles/" class="md-nav__link">
+        Component styles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inputs-outputs/" class="md-nav__link">
+        Sharing data between child and parent directives and components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-projection/" class="md-nav__link">
+        Content projection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dynamic-component-loader/" class="md-nav__link">
+        Dynamic components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elements/" class="md-nav__link">
+        Angular elements
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          模版
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="模版" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          模版
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-syntax/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interpolation/" class="md-nav__link">
+        Text interpolation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-statements/" class="md-nav__link">
+        Template statements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_5" type="checkbox" id="__nav_2_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_5">
+          Binding
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Binding" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Binding
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binding-overview/" class="md-nav__link">
+        Understanding binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../property-binding/" class="md-nav__link">
+        Property binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../attribute-binding/" class="md-nav__link">
+        Attribute binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-binding/" class="md-nav__link">
+        Class and style binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event-binding/" class="md-nav__link">
+        Event binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../two-way-binding/" class="md-nav__link">
+        Two-way binding
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_6" type="checkbox" id="__nav_2_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_6">
+          Pipes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Pipes" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Pipes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipes-overview/" class="md-nav__link">
+        Understanding pipes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipe-template/" class="md-nav__link">
+        Using a pipe in a template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipes-transform-data/" class="md-nav__link">
+        Transforming data with parameters and chained pipes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-reference-variables/" class="md-nav__link">
+        Template reference variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../svg-in-templates/" class="md-nav__link">
+        SVG as templates
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          指令
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="指令" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          指令
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../built-in-directives/" class="md-nav__link">
+        Built-in directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../attribute-directives/" class="md-nav__link">
+        Attribute directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structural-directives/" class="md-nav__link">
+        Structural directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../directive-composition-api/" class="md-nav__link">
+        Directive composition API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          依赖注入
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="依赖注入" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          依赖注入
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-injection-overview/" class="md-nav__link">
+        Dependency injection in Angular
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-injection/" class="md-nav__link">
+        Understanding dependency injection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-injectable-service/" class="md-nav__link">
+        Creating an injectable service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-injection-providers/" class="md-nav__link">
+        Defining dependency providers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Hierarchical injectors
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Hierarchical injectors
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-injector-hierarchies" class="md-nav__link">
+    Types of injector hierarchies
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of injector hierarchies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moduleinjector" class="md-nav__link">
+    ModuleInjector
+  </a>
+  
+    <nav class="md-nav" aria-label="ModuleInjector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#platform-injector" class="md-nav__link">
+    Platform injector
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elementinjector" class="md-nav__link">
+    ElementInjector
+  </a>
+  
+    <nav class="md-nav" aria-label="ElementInjector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directive-and-component" class="md-nav__link">
+    @Directive() and @Component()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolution-rules" class="md-nav__link">
+    Resolution rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolution-modifiers" class="md-nav__link">
+    Resolution modifiers
+  </a>
+  
+    <nav class="md-nav" aria-label="Resolution modifiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-modifiers" class="md-nav__link">
+    Types of modifiers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional" class="md-nav__link">
+    @Optional()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self" class="md-nav__link">
+    @Self()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skipself" class="md-nav__link">
+    @SkipSelf()
+  </a>
+  
+    <nav class="md-nav" aria-label="@SkipSelf()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skipself-with-optional" class="md-nav__link">
+    @SkipSelf() with @Optional()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host" class="md-nav__link">
+    @Host()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logical-structure-of-the-template" class="md-nav__link">
+    Logical structure of the template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#providing-services-in-component" class="md-nav__link">
+    Providing services in @Component()
+  </a>
+  
+    <nav class="md-nav" aria-label="Providing services in @Component()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-app-structure" class="md-nav__link">
+    Example app structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-providers-array" class="md-nav__link">
+    Using the providers array
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-viewproviders-array" class="md-nav__link">
+    Using the viewProviders array
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#providers-vs-viewproviders" class="md-nav__link">
+    providers vs. viewProviders
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifying-service-visibility" class="md-nav__link">
+    Modifying service visibility
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifying service visibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visibility-of-provided-tokens" class="md-nav__link">
+    Visibility of provided tokens
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skipself-and-viewproviders" class="md-nav__link">
+    @SkipSelf() and viewProviders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-and-viewproviders" class="md-nav__link">
+    @Host() and viewProviders
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elementinjector-use-case-examples" class="md-nav__link">
+    ElementInjector use case examples
+  </a>
+  
+    <nav class="md-nav" aria-label="ElementInjector use case examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-service-isolation" class="md-nav__link">
+    Scenario: service isolation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-multiple-edit-sessions" class="md-nav__link">
+    Scenario: multiple edit sessions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-specialized-providers" class="md-nav__link">
+    Scenario: specialized providers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-on-dependency-injection" class="md-nav__link">
+    More on dependency injection
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          开发者指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="开发者指南" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          开发者指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-guide-overview/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          独立的
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="独立的" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          独立的
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standalone-components/" class="md-nav__link">
+        独立的组件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standalone-migration/" class="md-nav__link">
+        迁移到独立模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          变化检测
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="变化检测" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          变化检测
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-detection/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-detection-zone-pollution/" class="md-nav__link">
+        Zone pollution
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-detection-slow-computations/" class="md-nav__link">
+        Slow computations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-detection-skipping-subtrees/" class="md-nav__link">
+        Skipping component subtrees
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          路由与导航
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="路由与导航" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          路由与导航
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routing-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../router/" class="md-nav__link">
+        Common routing tasks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../router-tutorial/" class="md-nav__link">
+        Tutorial: routing in single-page applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routing-with-urlmatcher/" class="md-nav__link">
+        Tutorial: creating custom route matches
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../router-tutorial-toh/" class="md-nav__link">
+        Tutorial: adding routing to Tour of Heroes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../router-reference/" class="md-nav__link">
+        Router reference
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          表单
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="表单" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          表单
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forms-overview/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reactive-forms/" class="md-nav__link">
+        Reactive forms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typed-forms/" class="md-nav__link">
+        Strictly typed reactive forms in depth
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../form-validation/" class="md-nav__link">
+        Validate form input
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dynamic-form/" class="md-nav__link">
+        Building dynamic forms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../esbuild/" class="md-nav__link">
+        esbuild-based 构建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../http/" class="md-nav__link">
+        HTTP client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hydration/" class="md-nav__link">
+        Hydration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../image-directive/" class="md-nav__link">
+        图像优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_10" type="checkbox" id="__nav_3_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_10">
+          测试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="测试" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_10">
+          <span class="md-nav__icon md-icon"></span>
+          测试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        Intro to testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-code-coverage/" class="md-nav__link">
+        Code coverage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-services/" class="md-nav__link">
+        Testing services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-components-basics/" class="md-nav__link">
+        Basics of testing components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-components-scenarios/" class="md-nav__link">
+        Component testing scenarios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-attribute-directives/" class="md-nav__link">
+        Testing attribute directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-pipes/" class="md-nav__link">
+        Testing pipes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test-debugging/" class="md-nav__link">
+        Debugging tests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-utility-apis/" class="md-nav__link">
+        Testing utility APIs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11" type="checkbox" id="__nav_3_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_11">
+          国际化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="国际化" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_11">
+          <span class="md-nav__icon md-icon"></span>
+          国际化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11_2" type="checkbox" id="__nav_3_11_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_11_2">
+          Common internationalization tasks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Common internationalization tasks" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Common internationalization tasks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-add-package/" class="md-nav__link">
+        Add the localize package
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-locale-id/" class="md-nav__link">
+        Refer to locales by ID
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-format-data-locale/" class="md-nav__link">
+        Format data based on locale
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-prepare/" class="md-nav__link">
+        Prepare component for translation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-translation-files/" class="md-nav__link">
+        Work with translation files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-merge/" class="md-nav__link">
+        Merge translations into the app
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-deploy/" class="md-nav__link">
+        Deploy multiple locales
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-example/" class="md-nav__link">
+        Example Angular application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11_4" type="checkbox" id="__nav_3_11_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_11_4">
+          Optional internationalization practices
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Optional internationalization practices" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_11_4">
+          <span class="md-nav__icon md-icon"></span>
+          Optional internationalization practices
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-optional-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-optional-manual-runtime-locale/" class="md-nav__link">
+        Set the runtime locale manually
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-optional-import-global-variants/" class="md-nav__link">
+        Import global variants of the locale data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-optional-manage-marked-text/" class="md-nav__link">
+        Manage marked text with custom IDs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_12" type="checkbox" id="__nav_3_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_12">
+          动画
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="动画" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_12">
+          <span class="md-nav__icon md-icon"></span>
+          动画
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../animations/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transition-and-triggers/" class="md-nav__link">
+        Transition and Triggers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../complex-animation-sequences/" class="md-nav__link">
+        Complex Sequences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reusable-animations/" class="md-nav__link">
+        Reusable Animations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../route-animations/" class="md-nav__link">
+        Route transition animations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_13" type="checkbox" id="__nav_3_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_13">
+          Service Workers & PWA
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Service Workers & PWA" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_13">
+          <span class="md-nav__icon md-icon"></span>
+          Service Workers & PWA
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-getting-started/" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-shell/" class="md-nav__link">
+        App shell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-communications/" class="md-nav__link">
+        Service worker communication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-notifications/" class="md-nav__link">
+        Service worker notifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-devops/" class="md-nav__link">
+        Service worker in production
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-config/" class="md-nav__link">
+        Service worker configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-worker/" class="md-nav__link">
+        Web workers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../universal/" class="md-nav__link">
+        服务器端渲染
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerendering/" class="md-nav__link">
+        Prerendering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_17" type="checkbox" id="__nav_3_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_17">
+          Angular 库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular 库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_17">
+          <span class="md-nav__icon md-icon"></span>
+          Angular 库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/" class="md-nav__link">
+        库概况
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-libraries/" class="md-nav__link">
+        使用已发布的库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-libraries/" class="md-nav__link">
+        创建库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../angular-package-format/" class="md-nav__link">
+        Angular包格式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_18" type="checkbox" id="__nav_3_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_18">
+          预览功能
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="预览功能" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_18">
+          <span class="md-nav__icon md-icon"></span>
+          预览功能
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signals/" class="md-nav__link">
+        信号
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rxjs-interop/" class="md-nav__link">
+        RxJS信号互操作
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          最佳实践
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="最佳实践" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          最佳实践
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accessibility/" class="md-nav__link">
+        可访问性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updating/" class="md-nav__link">
+        保持最新的
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../property-binding-best-practices/" class="md-nav__link">
+        属性绑定最佳实践
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lazy-loading-ngmodules/" class="md-nav__link">
+        懒加载功能模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lightweight-injection-tokens/" class="md-nav__link">
+        库的轻量级注入令牌
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Angular 工具
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular 工具" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Angular 工具
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Development workflow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Development workflow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Development workflow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        Deploying applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_2" type="checkbox" id="__nav_5_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_2">
+          AOT compiler
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AOT compiler" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          AOT compiler
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aot-compiler/" class="md-nav__link">
+        Ahead-of-Time compilation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../angular-compiler-options/" class="md-nav__link">
+        Angular compiler options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aot-metadata-errors/" class="md-nav__link">
+        AOT metadata errors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-typecheck/" class="md-nav__link">
+        Template type-checking
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build/" class="md-nav__link">
+        Building & serving
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-builder/" class="md-nav__link">
+        CLI builders
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../language-service/" class="md-nav__link">
+        Language service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devtools/" class="md-nav__link">
+        DevTools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5">
+          Schematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schematics" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Schematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schematics/" class="md-nav__link">
+        Schematics Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schematics-authoring/" class="md-nav__link">
+        Authoring schematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schematics-for-libraries/" class="md-nav__link">
+        Schematics for libraries
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          手册
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="手册" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          手册
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        Angular tutorials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Tutorial: Your first Angular app
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial: Your first Angular app" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial: Your first Angular app
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-01/" class="md-nav__link">
+        Hello world
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-02/" class="md-nav__link">
+        Create home component
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-03/" class="md-nav__link">
+        Create housing location component
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-04/" class="md-nav__link">
+        Create an interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-05/" class="md-nav__link">
+        Add inputs to components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-06/" class="md-nav__link">
+        Add property binding to components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-07/" class="md-nav__link">
+        Add dynamic values to templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-08/" class="md-nav__link">
+        Use *ngFor in templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-09/" class="md-nav__link">
+        Angular services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-10/" class="md-nav__link">
+        Add routing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-11/" class="md-nav__link">
+        Customize the details page
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-12/" class="md-nav__link">
+        Integrate Angular forms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-13/" class="md-nav__link">
+        Add search functionality
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-14/" class="md-nav__link">
+        Add HTTP communication
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Tutorial: Tour of Heroes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial: Tour of Heroes" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial: Tour of Heroes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt0/" class="md-nav__link">
+        Create a project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt1/" class="md-nav__link">
+        1. The hero editor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt2/" class="md-nav__link">
+        2. Display a list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt3/" class="md-nav__link">
+        3. Create a feature component
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt4/" class="md-nav__link">
+        4. Add services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt5/" class="md-nav__link">
+        5. Add navigation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt6/" class="md-nav__link">
+        6. Get data from a server
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forms/" class="md-nav__link">
+        Building a template-driven form
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          更新和发布
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="更新和发布" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          更新和发布
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../update-to-version-16/" class="md-nav__link">
+        Update Angular to the latest version
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        Roadmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../releases/" class="md-nav__link">
+        Release practices
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versions/" class="md-nav__link">
+        Version compatibility
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../browser-support/" class="md-nav__link">
+        Browser support
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deprecations/" class="md-nav__link">
+        Deprecations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_7" type="checkbox" id="__nav_7_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_7">
+          Upgrading from AngularJS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Upgrading from AngularJS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_7">
+          <span class="md-nav__icon md-icon"></span>
+          Upgrading from AngularJS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrade/" class="md-nav__link">
+        Upgrade instructions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrade-setup/" class="md-nav__link">
+        Setup for upgrading from AngularJS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrade-performance/" class="md-nav__link">
+        Upgrading for performance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ajs-quick-reference/" class="md-nav__link">
+        AngularJS to Angular concepts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          参考
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="参考" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          参考
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Conceptual reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Conceptual reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Conceptual reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_1" type="checkbox" id="__nav_8_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_1">
+          Angular concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular concepts" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Angular concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        Intro to basic concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture-modules/" class="md-nav__link">
+        Intro to modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture-components/" class="md-nav__link">
+        Intro to components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture-next-steps/" class="md-nav__link">
+        Next steps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binding-syntax/" class="md-nav__link">
+        Binding syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event-binding-concepts/" class="md-nav__link">
+        How event binding works
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-reference-variables/" class="md-nav__link">
+        Template variables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_2" type="checkbox" id="__nav_8_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_2">
+          Workspace and project structure
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workspace and project structure" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Workspace and project structure
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-structure/" class="md-nav__link">
+        Project file structure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace-config/" class="md-nav__link">
+        Workspace configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../npm-packages/" class="md-nav__link">
+        npm dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typescript-configuration/" class="md-nav__link">
+        TypeScript configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strict-mode/" class="md-nav__link">
+        Strict mode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_3" type="checkbox" id="__nav_8_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_3">
+          NgModules
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NgModules" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          NgModules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngmodules/" class="md-nav__link">
+        NgModules introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngmodule-vs-jsmodule/" class="md-nav__link">
+        JS Modules vs NgModules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bootstrapping/" class="md-nav__link">
+        Launching apps with a root module
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frequent-ngmodules/" class="md-nav__link">
+        Frequently used NgModules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-types/" class="md-nav__link">
+        Types of feature modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feature-modules/" class="md-nav__link">
+        Feature modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/" class="md-nav__link">
+        Providing dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../singleton-services/" class="md-nav__link">
+        Singleton services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sharing-ngmodules/" class="md-nav__link">
+        Sharing NgModules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngmodule-api/" class="md-nav__link">
+        NgModule API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngmodule-faq/" class="md-nav__link">
+        NgModule FAQs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_4" type="checkbox" id="__nav_8_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_4">
+          Observables & RxJS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Observables & RxJS" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Observables & RxJS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observables/" class="md-nav__link">
+        Observables overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rx-library/" class="md-nav__link">
+        The RxJS library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observables-in-angular/" class="md-nav__link">
+        Observables in Angular
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-observable-usage/" class="md-nav__link">
+        Practical usage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparing-observables/" class="md-nav__link">
+        Compare to other techniques
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_5" type="checkbox" id="__nav_8_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_5">
+          Dependency injection
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dependency injection" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Dependency injection
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-injection-in-action/" class="md-nav__link">
+        DI in action
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" type="checkbox" id="__nav_8_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_2">
+          CLI Command Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CLI Command Reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_2">
+          <span class="md-nav__icon md-icon"></span>
+          CLI Command Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Error reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Error reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Error reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../errors/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_4" type="checkbox" id="__nav_8_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_4">
+          Extended diagnostic reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Extended diagnostic reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_4">
+          <span class="md-nav__icon md-icon"></span>
+          Extended diagnostic reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extended-diagnostics/" class="md-nav__link">
+        Extended Diagnostics Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example-apps-list/" class="md-nav__link">
+        Example applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        Angular glossary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_7" type="checkbox" id="__nav_8_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_7">
+          Angular coding style
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular coding style" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_7">
+          <span class="md-nav__icon md-icon"></span>
+          Angular coding style
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        Quick reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../styleguide/" class="md-nav__link">
+        Coding style guide
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          文档贡献者指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="文档贡献者指南" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          文档贡献者指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributors-guide-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2" type="checkbox" id="__nav_9_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_2">
+          Common documentation maintenance tasks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Common documentation maintenance tasks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Common documentation maintenance tasks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-tasks/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reviewing-content/" class="md-nav__link">
+        Review documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updating-search-keywords/" class="md-nav__link">
+        Update search keywords
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_3" type="checkbox" id="__nav_9_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_3">
+          Documentation editing workflow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Documentation editing workflow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_3">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation editing workflow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-update-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-prepare-to-edit/" class="md-nav__link">
+        Prepare to edit documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-select-issue/" class="md-nav__link">
+        Select a documentation issue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-update-start/" class="md-nav__link">
+        Start to edit a documentation topic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-editing/" class="md-nav__link">
+        Make and save changes to a documentation topic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs-lint-errors/" class="md-nav__link">
+        Resolve documentation linter messages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-build-test/" class="md-nav__link">
+        Build and test documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-pr-prep/" class="md-nav__link">
+        Prepare documentation for a pull request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-pr-open/" class="md-nav__link">
+        Open a documentation pull request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-pr-update/" class="md-nav__link">
+        Update a documentation pull request in progress
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-edit-finish/" class="md-nav__link">
+        Finish up a documentation pull request
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs-style-guide/" class="md-nav__link">
+        Documentation style guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../localizing-angular/" class="md-nav__link">
+        Angular doc localization guidelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../localized-documentation/" class="md-nav__link">
+        Localized documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-injector-hierarchies" class="md-nav__link">
+    Types of injector hierarchies
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of injector hierarchies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moduleinjector" class="md-nav__link">
+    ModuleInjector
+  </a>
+  
+    <nav class="md-nav" aria-label="ModuleInjector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#platform-injector" class="md-nav__link">
+    Platform injector
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elementinjector" class="md-nav__link">
+    ElementInjector
+  </a>
+  
+    <nav class="md-nav" aria-label="ElementInjector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directive-and-component" class="md-nav__link">
+    @Directive() and @Component()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolution-rules" class="md-nav__link">
+    Resolution rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolution-modifiers" class="md-nav__link">
+    Resolution modifiers
+  </a>
+  
+    <nav class="md-nav" aria-label="Resolution modifiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-modifiers" class="md-nav__link">
+    Types of modifiers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional" class="md-nav__link">
+    @Optional()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self" class="md-nav__link">
+    @Self()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skipself" class="md-nav__link">
+    @SkipSelf()
+  </a>
+  
+    <nav class="md-nav" aria-label="@SkipSelf()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skipself-with-optional" class="md-nav__link">
+    @SkipSelf() with @Optional()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host" class="md-nav__link">
+    @Host()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logical-structure-of-the-template" class="md-nav__link">
+    Logical structure of the template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#providing-services-in-component" class="md-nav__link">
+    Providing services in @Component()
+  </a>
+  
+    <nav class="md-nav" aria-label="Providing services in @Component()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-app-structure" class="md-nav__link">
+    Example app structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-providers-array" class="md-nav__link">
+    Using the providers array
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-viewproviders-array" class="md-nav__link">
+    Using the viewProviders array
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#providers-vs-viewproviders" class="md-nav__link">
+    providers vs. viewProviders
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifying-service-visibility" class="md-nav__link">
+    Modifying service visibility
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifying service visibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visibility-of-provided-tokens" class="md-nav__link">
+    Visibility of provided tokens
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skipself-and-viewproviders" class="md-nav__link">
+    @SkipSelf() and viewProviders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-and-viewproviders" class="md-nav__link">
+    @Host() and viewProviders
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elementinjector-use-case-examples" class="md-nav__link">
+    ElementInjector use case examples
+  </a>
+  
+    <nav class="md-nav" aria-label="ElementInjector use case examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-service-isolation" class="md-nav__link">
+    Scenario: service isolation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-multiple-edit-sessions" class="md-nav__link">
+    Scenario: multiple edit sessions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-specialized-providers" class="md-nav__link">
+    Scenario: specialized providers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-on-dependency-injection" class="md-nav__link">
+    More on dependency injection
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/wdk-docs/angular-docs/guide/hierarchical-dependency-injection.md" title="编辑此页" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="hierarchical-injectors">Hierarchical injectors<a class="headerlink" href="#hierarchical-injectors" title="Permanent link">&para;</a></h1>
+<p>Injectors in Angular have rules that you can leverage to achieve the desired visibility of injectables in your applications.
+By understanding these rules, you can determine in which NgModule, Component, or Directive you should declare a provider.</p>
+<div class="alert is-helpful">
+
+**NOTE**:<br />
+This topic uses the following pictographs.
+
+| html entities | pictographs |
+|:---         |:--- |
+| <code>&#x1F33A;</code> | red hibiscus \(`🌺`\)  |
+| <code>&#x1F33B;</code> | sunflower \(`🌻`\)     |
+| <code>&#x1F33C;</code> | yellow flower \(`🌼`\) |
+| <code>&#x1F33F;</code> | fern \(`🌿`\)          |
+| <code>&#x1F341;</code> | maple leaf \(`🍁`\)    |
+| <code>&#x1F433;</code> | whale \(`🐳`\)         |
+| <code>&#x1F436;</code> | dog \(`🐶`\)           |
+| <code>&#x1F994;</code> | hedgehog \(`🦔`\)       |
+
+</div>
+
+<p>The applications you build with Angular can become quite large, and one way to manage this complexity is to split up the application into many small well-encapsulated modules, that are by themselves split up into a well-defined tree of components.</p>
+<p>There can be sections of your page that works in a completely independent way than the rest of the application, with its own local copies of the services and other dependencies that it needs. Some of the services that these sections of the application use might be shared with other parts of the application, or with parent components that are further up in the component tree, while other dependencies are meant to be private.</p>
+<p>With hierarchical dependency injection, you can isolate sections of the application and give them their own private dependencies not shared with the rest of the application, or have parent components share certain dependencies with its child components only but not with the rest of the component tree, and so on. Hierarchical dependency injection enables you to share dependencies between different parts of the application only when and if you need to.</p>
+<h2 id="types-of-injector-hierarchies">Types of injector hierarchies<a class="headerlink" href="#types-of-injector-hierarchies" title="Permanent link">&para;</a></h2>
+<p>Injectors in Angular have rules that you can leverage to
+achieve the desired visibility of injectables in your applications.
+By understanding these rules, you can determine in which
+NgModule, Component, or Directive you should declare a provider.</p>
+<p>Angular has two injector hierarchies:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Injector hierarchies</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>ModuleInjector</code> hierarchy</td>
+<td align="left">Configure a <code>ModuleInjector</code> in this hierarchy using an <code>@NgModule()</code> or <code>@Injectable()</code> annotation.</td>
+</tr>
+<tr>
+<td align="left"><code>ElementInjector</code> hierarchy</td>
+<td align="left">Created implicitly at each DOM element. An <code>ElementInjector</code> is empty by default unless you configure it in the <code>providers</code> property on <code>@Directive()</code> or <code>@Component()</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="register-providers-injectable"></a></p>
+<h3 id="moduleinjector"><code>ModuleInjector</code><a class="headerlink" href="#moduleinjector" title="Permanent link">&para;</a></h3>
+<p>The <code>ModuleInjector</code> can be configured in one of two ways by using:</p>
+<ul>
+<li>The <code>@Injectable()</code> <code>providedIn</code> property to refer to <code>@NgModule()</code>, or <code>root</code></li>
+<li>The <code>@NgModule()</code> <code>providers</code> array</li>
+</ul>
+<div class="callout is-helpful">
+
+<header>Tree-shaking and &commat;Injectable()</header>
+
+Using the `@Injectable()` `providedIn` property is preferable to using the `@NgModule()` `providers` array. With `@Injectable()` `providedIn`, optimization tools can perform tree-shaking, which removes services that your application isn't using. This results in smaller bundle sizes.
+
+Tree-shaking is especially useful for a library because the application which uses the library may not have a need to inject it.
+Read more about [tree-shakable providers](guide/architecture-services#providing-services) in [Introduction to services and dependency injection](guide/architecture-services).
+
+</div>
+
+<p><code>ModuleInjector</code> is configured by the <code>@NgModule.providers</code> and <code>NgModule.imports</code> property.
+<code>ModuleInjector</code> is a flattening of all the providers arrays that can be reached by following the <code>NgModule.imports</code> recursively.</p>
+<p>Child <code>ModuleInjector</code> hierarchies are created when lazy loading other <code>@NgModules</code>.</p>
+<p>Provide services with the <code>providedIn</code> property of <code>@Injectable()</code> as follows:</p>
+<p><code-example format="typescript" language="typescript"></p>
+<p>import { Injectable } from '&commat;angular/core';</p>
+<p>&commat;Injectable({
+  providedIn: 'root'  // &lt;--provides this service in the root ModuleInjector
+})
+export class ItemService {
+  name = 'telephone';
+}</p>
+<p></code-example></p>
+<p>The <code>@Injectable()</code> decorator identifies a service class.
+The <code>providedIn</code> property configures a specific <code>ModuleInjector</code>, here <code>root</code>, which makes the service available in the <code>root</code> <code>ModuleInjector</code>.</p>
+<h4 id="platform-injector">Platform injector<a class="headerlink" href="#platform-injector" title="Permanent link">&para;</a></h4>
+<p>There are two more injectors above <code>root</code>, an additional <code>ModuleInjector</code> and <code>NullInjector()</code>.</p>
+<p>Consider how Angular bootstraps the application with the following in <code>main.ts</code>:</p>
+<p><code-example format="javascript" language="javascript"></p>
+<p>platformBrowserDynamic().bootstrapModule(AppModule).then(ref =&gt; {&hellip;})</p>
+<p></code-example></p>
+<p>The <code>bootstrapModule()</code> method creates a child injector of the platform injector which is configured by the <code>AppModule</code>.
+This is the <code>root</code> <code>ModuleInjector</code>.</p>
+<p>The <code>platformBrowserDynamic()</code> method creates an injector configured by a <code>PlatformModule</code>, which contains platform-specific dependencies.
+This allows multiple applications to share a platform configuration.
+For example, a browser has only one URL bar, no matter how many applications you have running.
+You can configure additional platform-specific providers at the platform level by supplying <code>extraProviders</code> using the <code>platformBrowser()</code> function.</p>
+<p>The next parent injector in the hierarchy is the <code>NullInjector()</code>, which is the top of the tree.
+If you've gone so far up the tree that you are looking for a service in the <code>NullInjector()</code>, you'll get an error unless you've used <code>@Optional()</code> because ultimately, everything ends at the <code>NullInjector()</code> and it returns an error or, in the case of <code>@Optional()</code>, <code>null</code>.
+For more information on <code>@Optional()</code>, see the <a href="guide/hierarchical-dependency-injection#optional"><code>@Optional()</code> section</a> of this guide.</p>
+<p>The following diagram represents the relationship between the <code>root</code> <code>ModuleInjector</code> and its parent injectors as the previous paragraphs describe.</p>
+<div class="lightbox">
+
+<img alt="NullInjector, ModuleInjector, root injector" src="generated/images/guide/dependency-injection/injectors.svg">
+
+</div>
+
+<p>While the name <code>root</code> is a special alias, other <code>ModuleInjector</code> hierarchies don't have aliases.
+You have the option to create <code>ModuleInjector</code> hierarchies whenever a dynamically loaded component is created, such as with the Router, which will create child <code>ModuleInjector</code> hierarchies.</p>
+<p>All requests forward up to the root injector, whether you configured it with the <code>bootstrapModule()</code> method, or registered all providers with <code>root</code> in their own services.</p>
+<div class="callout is-helpful">
+
+<header>&commat;Injectable() vs. &commat;NgModule()</header>
+
+If you configure an app-wide provider in the `@NgModule()` of `AppModule`, it overrides one configured for `root` in the `@Injectable()` metadata.
+You can do this to configure a non-default provider of a service that is shared with multiple applications.
+
+Here is an example of the case where the component router configuration includes a non-default [location strategy](guide/router#location-strategy) by listing its provider in the `providers` list of the `AppModule`.
+
+<code-example header="src/app/app.module.ts (providers)" path="dependency-injection-in-action/src/app/app.module.ts" region="providers"></code-example>
+
+</div>
+
+<h3 id="elementinjector"><code>ElementInjector</code><a class="headerlink" href="#elementinjector" title="Permanent link">&para;</a></h3>
+<p>Angular creates <code>ElementInjector</code> hierarchies implicitly for each DOM element.</p>
+<p>Providing a service in the <code>@Component()</code> decorator using its <code>providers</code> or <code>viewProviders</code> property configures an <code>ElementInjector</code>.
+For example, the following <code>TestComponent</code> configures the <code>ElementInjector</code> by providing the service as follows:</p>
+<p><code-example format="typescript" language="typescript"></p>
+<p>&commat;Component({
+  &hellip;
+  providers: [{ provide: ItemService, useValue: { name: 'lamp' } }]
+})
+export class TestComponent</p>
+<p></code-example></p>
+<div class="alert is-helpful">
+
+**NOTE**: <br />
+See the [resolution rules](guide/hierarchical-dependency-injection#resolution-rules) section to understand the relationship between the `ModuleInjector` tree and the `ElementInjector` tree.
+
+</div>
+
+<p>When you provide services in a component, that service is available by way of the <code>ElementInjector</code> at that component instance.
+It may also be visible at child component/directives based on visibility rules described in the <a href="guide/hierarchical-dependency-injection#resolution-rules">resolution rules</a> section.</p>
+<p>When the component instance is destroyed, so is that service instance.</p>
+<h4 id="directive-and-component"><code>@Directive()</code> and <code>@Component()</code><a class="headerlink" href="#directive-and-component" title="Permanent link">&para;</a></h4>
+<p>A component is a special type of directive, which means that just as <code>@Directive()</code> has a <code>providers</code> property, <code>@Component()</code> does too.
+This means that directives as well as components can configure providers, using the <code>providers</code> property.
+When you configure a provider for a component or directive using the <code>providers</code> property, that provider belongs to the <code>ElementInjector</code> of that component or directive.
+Components and directives on the same element share an injector.</p>
+<p><a id="resolution-rules"></a></p>
+<h2 id="resolution-rules">Resolution rules<a class="headerlink" href="#resolution-rules" title="Permanent link">&para;</a></h2>
+<p>When resolving a token for a component/directive, Angular resolves it in two phases:</p>
+<ol>
+<li>Against its parents in the <code>ElementInjector</code> hierarchy.</li>
+<li>Against its parents in the <code>ModuleInjector</code> hierarchy.</li>
+</ol>
+<p>When a component declares a dependency, Angular tries to satisfy that dependency with its own <code>ElementInjector</code>.
+If the component's injector lacks the provider, it passes the request up to its parent component's <code>ElementInjector</code>.</p>
+<p>The requests keep forwarding up until Angular finds an injector that can handle the request or runs out of ancestor <code>ElementInjector</code> hierarchies.</p>
+<p>If Angular doesn't find the provider in any <code>ElementInjector</code> hierarchies, it goes back to the element where the request originated and looks in the <code>ModuleInjector</code> hierarchy.
+If Angular still doesn't find the provider, it throws an error.</p>
+<p>If you have registered a provider for the same DI token at different levels, the first one Angular encounters is the one it uses to resolve the dependency.
+If, for example, a provider is registered locally in the component that needs a service,
+Angular doesn't look for another provider of the same service.</p>
+<h2 id="resolution-modifiers">Resolution modifiers<a class="headerlink" href="#resolution-modifiers" title="Permanent link">&para;</a></h2>
+<p>Angular's resolution behavior can be modified with <code>@Optional()</code>, <code>@Self()</code>, <code>@SkipSelf()</code> and <code>@Host()</code>.
+Import each of them from <code>@angular/core</code> and use each in the component class constructor when you inject your service.</p>
+<p>For a working application showcasing the resolution modifiers that this section covers, see the <live-example name="resolution-modifiers">resolution modifiers example</live-example>.</p>
+<h3 id="types-of-modifiers">Types of modifiers<a class="headerlink" href="#types-of-modifiers" title="Permanent link">&para;</a></h3>
+<p>Resolution modifiers fall into three categories:</p>
+<ul>
+<li>What to do if Angular doesn't find what you're looking for, that is <code>@Optional()</code></li>
+<li>Where to start looking, that is <code>@SkipSelf()</code></li>
+<li>Where to stop looking, <code>@Host()</code> and <code>@Self()</code></li>
+</ul>
+<p>By default, Angular always starts at the current <code>Injector</code> and keeps searching all the way up.
+Modifiers allow you to change the starting, or <em>self</em>, location and the ending location.</p>
+<p>Additionally, you can combine all of the modifiers except <code>@Host()</code> and <code>@Self()</code> and of course <code>@SkipSelf()</code> and <code>@Self()</code>.</p>
+<p><a id="optional"></a></p>
+<h3 id="optional"><code>@Optional()</code><a class="headerlink" href="#optional" title="Permanent link">&para;</a></h3>
+<p><code>@Optional()</code> allows Angular to consider a service you inject to be optional.
+This way, if it can't be resolved at runtime, Angular resolves the service as <code>null</code>, rather than throwing an error.
+In the following example, the service, <code>OptionalService</code>, isn't provided in the service, <code>@NgModule()</code>, or component class, so it isn't available anywhere in the app.</p>
+<p><code-example header="resolution-modifiers/src/app/optional/optional.component.ts" path="resolution-modifiers/src/app/optional/optional.component.ts" region="optional-component"></code-example></p>
+<h3 id="self"><code>@Self()</code><a class="headerlink" href="#self" title="Permanent link">&para;</a></h3>
+<p>Use <code>@Self()</code> so that Angular will only look at the <code>ElementInjector</code> for the current component or directive.</p>
+<p>A good use case for <code>@Self()</code> is to inject a service but only if it is available on the current host element.
+To avoid errors in this situation, combine <code>@Self()</code> with <code>@Optional()</code>.</p>
+<p>For example, in the following <code>SelfComponent</code>, notice the injected <code>LeafService</code> in the constructor.</p>
+<p><code-example header="resolution-modifiers/src/app/self-no-data/self-no-data.component.ts" path="resolution-modifiers/src/app/self-no-data/self-no-data.component.ts" region="self-no-data-component"></code-example></p>
+<p>In this example, there is a parent provider and injecting the service will return the value, however, injecting the service with <code>@Self()</code> and <code>@Optional()</code> will return <code>null</code> because <code>@Self()</code> tells the injector to stop searching in the current host element.</p>
+<p>Another example shows the component class with a provider for <code>FlowerService</code>.
+In this case, the injector looks no further than the current <code>ElementInjector</code> because it finds the <code>FlowerService</code> and returns the yellow flower <code>&#x1F33C;</code>.</p>
+<p><code-example header="resolution-modifiers/src/app/self/self.component.ts" path="resolution-modifiers/src/app/self/self.component.ts" region="self-component"></code-example></p>
+<h3 id="skipself"><code>@SkipSelf()</code><a class="headerlink" href="#skipself" title="Permanent link">&para;</a></h3>
+<p><code>@SkipSelf()</code> is the opposite of <code>@Self()</code>.
+With <code>@SkipSelf()</code>, Angular starts its search for a service in the parent <code>ElementInjector</code>, rather than in the current one.
+So if the parent <code>ElementInjector</code> were using the fern <code>&#x1F33F;</code> value for <code>emoji</code>, but you had maple leaf <code>&#x1F341;</code> in the component's <code>providers</code> array, Angular would ignore maple leaf <code>&#x1F341;</code> and use fern <code>&#x1F33F;</code>.</p>
+<p>To see this in code, assume that the following value for <code>emoji</code> is what the parent component were using, as in this service:</p>
+<p><code-example header="resolution-modifiers/src/app/leaf.service.ts" path="resolution-modifiers/src/app/leaf.service.ts" region="leafservice"></code-example></p>
+<p>Imagine that in the child component, you had a different value, maple leaf <code>&#x1F341;</code> but you wanted to use the parent's value instead.
+This is when you'd use <code>@SkipSelf()</code>:</p>
+<p><code-example header="resolution-modifiers/src/app/skipself/skipself.component.ts" path="resolution-modifiers/src/app/skipself/skipself.component.ts" region="skipself-component"></code-example></p>
+<p>In this case, the value you'd get for <code>emoji</code> would be fern <code>&#x1F33F;</code>, not maple leaf <code>&#x1F341;</code>.</p>
+<h4 id="skipself-with-optional"><code>@SkipSelf()</code> with <code>@Optional()</code><a class="headerlink" href="#skipself-with-optional" title="Permanent link">&para;</a></h4>
+<p>Use <code>@SkipSelf()</code> with <code>@Optional()</code> to prevent an error if the value is <code>null</code>.
+In the following example, the <code>Person</code> service is injected in the constructor.
+<code>@SkipSelf()</code> tells Angular to skip the current injector and <code>@Optional()</code> will prevent an error should the <code>Person</code> service be <code>null</code>.</p>
+<p><code-example format="typescript" language="typescript"></p>
+<p>class Person {
+  constructor(&commat;Optional() &commat;SkipSelf() parent?: Person) {}
+}</p>
+<p></code-example></p>
+<h3 id="host"><code>@Host()</code><a class="headerlink" href="#host" title="Permanent link">&para;</a></h3>
+<p><code>@Host()</code> lets you designate a component as the last stop in the injector tree when searching for providers.
+Even if there is a service instance further up the tree, Angular won't continue looking
+Use <code>@Host()</code> as follows:</p>
+<p><code-example header="resolution-modifiers/src/app/host/host.component.ts" path="resolution-modifiers/src/app/host/host.component.ts" region="host-component"></code-example></p>
+<p>Since <code>HostComponent</code> has <code>@Host()</code> in its constructor, no matter what the parent of <code>HostComponent</code> might have as a <code>flower.emoji</code> value, the <code>HostComponent</code> will use yellow flower <code>&#x1F33C;</code>.</p>
+<h2 id="logical-structure-of-the-template">Logical structure of the template<a class="headerlink" href="#logical-structure-of-the-template" title="Permanent link">&para;</a></h2>
+<p>When you provide services in the component class, services are visible within the <code>ElementInjector</code> tree relative to where and how you provide those services.</p>
+<p>Understanding the underlying logical structure of the Angular template will give you a foundation for configuring services and in turn control their visibility.</p>
+<p>Components are used in your templates, as in the following example:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;app-root&gt;
+  &lt;app-child&gt;&lt;/app-child&gt;
+&lt;/app-root&gt;</p>
+<p></code-example></p>
+<div class="alert is-helpful">
+
+**NOTE**: <br />
+Usually, you declare the components and their templates in separate files.
+For the purposes of understanding how the injection system works, it is useful to look at them from the point of view of a combined logical tree.
+The term _logical_ distinguishes it from the render tree, which is your application's DOM tree.
+To mark the locations of where the component templates are located, this guide uses the `<#VIEW>` pseudo-element, which doesn't actually exist in the render tree and is present for mental model purposes only.
+
+</div>
+
+<p>The following is an example of how the <code>&lt;app-root&gt;</code> and <code>&lt;app-child&gt;</code> view trees are combined into a single logical tree:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;app-root&gt;
+  &lt;#VIEW&gt;
+    &lt;app-child&gt;
+     &lt;#VIEW&gt;
+       &hellip;content goes here&hellip;
+     &lt;/#VIEW&gt;
+    &lt;/app-child&gt;
+  &lt;/#VIEW&gt;
+&lt;/app-root&gt;</p>
+<p></code-example></p>
+<p>Understanding the idea of the <code>&lt;#VIEW&gt;</code> demarcation is especially significant when you configure services in the component class.</p>
+<h2 id="providing-services-in-component">Providing services in <code>@Component()</code><a class="headerlink" href="#providing-services-in-component" title="Permanent link">&para;</a></h2>
+<p>How you provide services using a <code>@Component()</code> (or <code>@Directive()</code>) decorator determines their visibility.
+The following sections demonstrate <code>providers</code> and <code>viewProviders</code> along with ways to modify service visibility with <code>@SkipSelf()</code> and <code>@Host()</code>.</p>
+<p>A component class can provide services in two ways:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Arrays</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">With a <code>providers</code> array</td>
+<td align="left"><code-example format="typescript" language="typescript"> &commat;Component({ &NewLine;&nbsp; &hellip; &NewLine;&nbsp; providers: [ &NewLine;&nbsp;&nbsp;&nbsp; {provide: FlowerService, useValue: {emoji: '&#x1F33A;'}} &NewLine;&nbsp; ] &NewLine;}) </code-example></td>
+</tr>
+<tr>
+<td align="left">With a <code>viewProviders</code> array</td>
+<td align="left"><code-example format="typescript" language="typescript"> &commat;Component({ &NewLine;&nbsp; &hellip; &NewLine;&nbsp;viewProviders: [ &NewLine;&nbsp;&nbsp;&nbsp; {provide: AnimalService, useValue: {emoji: '&#x1F436;'}} &NewLine;&nbsp; ] &NewLine;}) </code-example></td>
+</tr>
+</tbody>
+</table>
+<p>To understand how the <code>providers</code> and <code>viewProviders</code> influence service visibility differently, the following sections build a <live-example name="providers-viewproviders"></live-example> step-by-step and compare the use of <code>providers</code> and <code>viewProviders</code> in code and a logical tree.</p>
+<div class="alert is-helpful">
+
+**NOTE**: <br />
+In the logical tree, you'll see `@Provide`, `@Inject`, and `@NgModule`, which are not real HTML attributes but are here to demonstrate what is going on under the hood.
+
+| Angular service attribute                                                                                          | Details |
+|:---                                                                                                                |:---     |
+| <code-example format="typescript" hideCopy language="typescript"> &commat;Inject(Token)=&gt;Value </code-example> | Demonstrates that if `Token` is injected at this location in the logical tree its value would be `Value`.             |
+| <code-example format="typescript" hideCopy language="typescript"> &commat;Provide(Token=Value) </code-example>    | Demonstrates that there is a declaration of `Token` provider with value `Value` at this location in the logical tree. |
+| <code-example format="typescript" hideCopy language="typescript"> &commat;NgModule(Token) </code-example>         | Demonstrates that a fallback `NgModule` injector should be used at this location.                                     |
+
+</div>
+
+<h3 id="example-app-structure">Example app structure<a class="headerlink" href="#example-app-structure" title="Permanent link">&para;</a></h3>
+<p>The example application has a <code>FlowerService</code> provided in <code>root</code> with an <code>emoji</code> value of red hibiscus <code>&#x1F33A;</code>.</p>
+<p><code-example header="providers-viewproviders/src/app/flower.service.ts" path="providers-viewproviders/src/app/flower.service.ts" region="flowerservice"></code-example></p>
+<p>Consider an application with only an <code>AppComponent</code> and a <code>ChildComponent</code>.
+The most basic rendered view would look like nested HTML elements such as the following:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;app-root&gt; &lt;!-- AppComponent selector --&gt;
+    &lt;app-child&gt; &lt;!-- ChildComponent selector --&gt;
+    &lt;/app-child&gt;
+&lt;/app-root&gt;</p>
+<p></code-example></p>
+<p>However, behind the scenes, Angular uses a logical view representation as follows when resolving injection requests:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;app-root&gt; &lt;!-- AppComponent selector --&gt;
+    &lt;#VIEW&gt;
+        &lt;app-child&gt; &lt;!-- ChildComponent selector --&gt;
+            &lt;#VIEW&gt;
+            &lt;/#VIEW&gt;
+        &lt;/app-child&gt;
+    &lt;/#VIEW&gt;
+&lt;/app-root&gt;</p>
+<p></code-example></p>
+<p>The <code>&lt;#VIEW&gt;</code> here represents an instance of a template.
+Notice that each component has its own <code>&lt;#VIEW&gt;</code>.</p>
+<p>Knowledge of this structure can inform how you provide and inject your services, and give you complete control of service visibility.</p>
+<p>Now, consider that <code>&lt;app-root&gt;</code> injects the <code>FlowerService</code>:</p>
+<p><code-example header="providers-viewproviders/src/app/app.component.ts" path="providers-viewproviders/src/app/app.component.1.ts" region="injection"></code-example></p>
+<p>Add a binding to the <code>&lt;app-root&gt;</code> template to visualize the result:</p>
+<p><code-example header="providers-viewproviders/src/app/app.component.html" path="providers-viewproviders/src/app/app.component.html" region="binding-flower"></code-example></p>
+<p>The output in the view would be:</p>
+<p><code-example format="output" hideCopy language="shell"></p>
+<p>Emoji from FlowerService: &#x1F33A;</p>
+<p></code-example></p>
+<p>In the logical tree, this would be represented as follows:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;app-root &commat;NgModule(AppModule)
+        &commat;Inject(FlowerService) flower=&gt;"&#x1F33A;"&gt;
+  &lt;#VIEW&gt;
+    &lt;p&gt;Emoji from FlowerService: {{flower.emoji}} (&#x1F33A;)&lt;/p&gt;
+    &lt;app-child&gt;
+      &lt;#VIEW&gt;
+      &lt;/#VIEW&gt;
+    &lt;/app-child&gt;
+  &lt;/#VIEW&gt;
+&lt;/app-root&gt;</p>
+<p></code-example></p>
+<p>When <code>&lt;app-root&gt;</code> requests the <code>FlowerService</code>, it is the injector's job to resolve the <code>FlowerService</code> token.
+The resolution of the token happens in two phases:</p>
+<ol>
+<li>
+<p>The injector determines the starting location in the logical tree and an ending location of the search.
+    The injector begins with the starting location and looks for the token at each level in the logical tree.
+    If the token is found it is returned.</p>
+</li>
+<li>
+<p>If the token is not found, the injector looks for the closest parent <code>@NgModule()</code> to delegate the request to.</p>
+</li>
+</ol>
+<p>In the example case, the constraints are:</p>
+<ol>
+<li>
+<p>Start with <code>&lt;#VIEW&gt;</code> belonging to <code>&lt;app-root&gt;</code> and end with <code>&lt;app-root&gt;</code>.</p>
+<ul>
+<li>
+<p>Normally the starting point for search is at the point of injection.
+    However, in this case <code>&lt;app-root&gt;</code> <code>@Component</code>s are special in that they also include their own <code>viewProviders</code>, which is why the search starts at <code>&lt;#VIEW&gt;</code> belonging to <code>&lt;app-root&gt;</code>.
+    This would not be the case for a directive matched at the same location.</p>
+</li>
+<li>
+<p>The ending location happens to be the same as the component itself, because it is the topmost component in this application.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The <code>AppModule</code> acts as the fallback injector when the injection token can't be found in the <code>ElementInjector</code> hierarchies.</p>
+</li>
+</ol>
+<h3 id="using-the-providers-array">Using the <code>providers</code> array<a class="headerlink" href="#using-the-providers-array" title="Permanent link">&para;</a></h3>
+<p>Now, in the <code>ChildComponent</code> class, add a provider for <code>FlowerService</code> to demonstrate more complex resolution rules in the upcoming sections:</p>
+<p><code-example header="providers-viewproviders/src/app/child.component.ts" path="providers-viewproviders/src/app/child/child.component.1.ts" region="flowerservice"></code-example></p>
+<p>Now that the <code>FlowerService</code> is provided in the <code>@Component()</code> decorator, when the <code>&lt;app-child&gt;</code> requests the service, the injector has only to look as far as the <code>ElementInjector</code> in the <code>&lt;app-child&gt;</code>.
+It won't have to continue the search any further through the injector tree.</p>
+<p>The next step is to add a binding to the <code>ChildComponent</code> template.</p>
+<p><code-example header="providers-viewproviders/src/app/child.component.html" path="providers-viewproviders/src/app/child/child.component.html" region="flower-binding"></code-example></p>
+<p>To render the new values, add <code>&lt;app-child&gt;</code> to the bottom of the <code>AppComponent</code> template so the view also displays the sunflower:</p>
+<p><code-example format="output" hideCopy language="shell"></p>
+<p>Child Component
+Emoji from FlowerService: &#x1F33B;</p>
+<p></code-example></p>
+<p>In the logical tree, this is represented as follows:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;app-root &commat;NgModule(AppModule)
+        &commat;Inject(FlowerService) flower=&gt;"&#x1F33A;"&gt;
+  &lt;#VIEW&gt;
+    &lt;p&gt;Emoji from FlowerService: {{flower.emoji}} (&#x1F33A;)&lt;/p&gt;
+    &lt;app-child &commat;Provide(FlowerService="&#x1F33B;")
+               &commat;Inject(FlowerService)=&gt;"&#x1F33B;"&gt; &lt;!-- search ends here --&gt;
+      &lt;#VIEW&gt; &lt;!-- search starts here --&gt;
+        &lt;h2&gt;Parent Component&lt;/h2&gt;
+        &lt;p&gt;Emoji from FlowerService: {{flower.emoji}} (&#x1F33B;)&lt;/p&gt;
+      &lt;/#VIEW&gt;
+    &lt;/app-child&gt;
+  &lt;/#VIEW&gt;
+&lt;/app-root&gt;</p>
+<p></code-example></p>
+<p>When <code>&lt;app-child&gt;</code> requests the <code>FlowerService</code>, the injector begins its search at the <code>&lt;#VIEW&gt;</code> belonging to <code>&lt;app-child&gt;</code> (<code>&lt;#VIEW&gt;</code> is included because it is injected from <code>@Component()</code>) and ends with <code>&lt;app-child&gt;</code>.
+In this case, the <code>FlowerService</code> is resolved in the <code>providers</code> array with sunflower <code>&#x1F33B;</code> of the <code>&lt;app-child&gt;</code>.
+The injector doesn't have to look any further in the injector tree.
+It stops as soon as it finds the <code>FlowerService</code> and never sees the red hibiscus <code>&#x1F33A;</code>.</p>
+<p><a id="use-view-providers"></a></p>
+<h3 id="using-the-viewproviders-array">Using the <code>viewProviders</code> array<a class="headerlink" href="#using-the-viewproviders-array" title="Permanent link">&para;</a></h3>
+<p>Use the <code>viewProviders</code> array as another way to provide services in the <code>@Component()</code> decorator.
+Using <code>viewProviders</code> makes services visible in the <code>&lt;#VIEW&gt;</code>.</p>
+<div class="is-helpful alert">
+
+The steps are the same as using the `providers` array, with the exception of using the `viewProviders` array instead.
+
+For step-by-step instructions, continue with this section.
+If you can set it up on your own, skip ahead to [Modifying service availability](guide/hierarchical-dependency-injection#modify-visibility).
+
+</div>
+
+<p>The example application features a second service, the <code>AnimalService</code> to demonstrate <code>viewProviders</code>.</p>
+<p>First, create an <code>AnimalService</code> with an <code>emoji</code> property of whale <code>&#x1F433;</code>:</p>
+<p><code-example header="providers-viewproviders/src/app/animal.service.ts" path="providers-viewproviders/src/app/animal.service.ts" region="animal-service"></code-example></p>
+<p>Following the same pattern as with the <code>FlowerService</code>, inject the <code>AnimalService</code> in the <code>AppComponent</code> class:</p>
+<p><code-example header="providers-viewproviders/src/app/app.component.ts" path="providers-viewproviders/src/app/app.component.ts" region="inject-animal-service"></code-example></p>
+<div class="alert is-helpful">
+
+**NOTE**: <br />
+You can leave all the `FlowerService` related code in place as it will allow a comparison with the `AnimalService`.
+
+</div>
+
+<p>Add a <code>viewProviders</code> array and inject the <code>AnimalService</code> in the <code>&lt;app-child&gt;</code> class, too, but give <code>emoji</code> a different value.
+Here, it has a value of dog <code>&#x1F436;</code>.</p>
+<p><code-example header="providers-viewproviders/src/app/child.component.ts" path="providers-viewproviders/src/app/child/child.component.ts" region="provide-animal-service"></code-example></p>
+<p>Add bindings to the <code>ChildComponent</code> and the <code>AppComponent</code> templates.
+In the <code>ChildComponent</code> template, add the following binding:</p>
+<p><code-example header="providers-viewproviders/src/app/child.component.html" path="providers-viewproviders/src/app/child/child.component.html" region="animal-binding"></code-example></p>
+<p>Additionally, add the same to the <code>AppComponent</code> template:</p>
+<p><code-example header="providers-viewproviders/src/app/app.component.html" path="providers-viewproviders/src/app/app.component.html" region="binding-animal"></code-example></p>
+<p>Now you should see both values in the browser:</p>
+<p><code-example format="output" hideCopy language="shell"></p>
+<p>AppComponent
+Emoji from AnimalService: &#x1F433;</p>
+<p>Child Component
+Emoji from AnimalService: &#x1F436;</p>
+<p></code-example></p>
+<p>The logic tree for this example of <code>viewProviders</code> is as follows:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;app-root &commat;NgModule(AppModule)
+         &commat;Inject(AnimalService) animal=&gt;"&#x1F433;"&gt;
+  &lt;#VIEW&gt;
+    &lt;app-child&gt;
+      &lt;#VIEW &commat;Provide(AnimalService="&#x1F436;")
+            &commat;Inject(AnimalService=&gt;"&#x1F436;")&gt;
+       &lt;!-- ^^using viewProviders means AnimalService is available in &lt;#VIEW&gt;--&gt;
+       &lt;p&gt;Emoji from AnimalService: {{animal.emoji}} (&#x1F436;)&lt;/p&gt;
+      &lt;/#VIEW&gt;
+    &lt;/app-child&gt;
+  &lt;/#VIEW&gt;
+&lt;/app-root&gt;</p>
+<p></code-example></p>
+<p>Just as with the <code>FlowerService</code> example, the <code>AnimalService</code> is provided in the <code>&lt;app-child&gt;</code> <code>@Component()</code> decorator.
+This means that since the injector first looks in the <code>ElementInjector</code> of the component, it finds the <code>AnimalService</code> value of dog <code>&#x1F436;</code>.
+It doesn't need to continue searching the <code>ElementInjector</code> tree, nor does it need to search the <code>ModuleInjector</code>.</p>
+<h3 id="providers-vs-viewproviders"><code>providers</code> vs. <code>viewProviders</code><a class="headerlink" href="#providers-vs-viewproviders" title="Permanent link">&para;</a></h3>
+<p>To see the difference between using <code>providers</code> and <code>viewProviders</code>, add another component to the example and call it <code>InspectorComponent</code>.
+<code>InspectorComponent</code> will be a child of the <code>ChildComponent</code>.
+In <code>inspector.component.ts</code>, inject the <code>FlowerService</code> and <code>AnimalService</code> in the constructor:</p>
+<p><code-example header="providers-viewproviders/src/app/inspector/inspector.component.ts" path="providers-viewproviders/src/app/inspector/inspector.component.ts" region="injection"></code-example></p>
+<p>You do not need a <code>providers</code> or <code>viewProviders</code> array.
+Next, in <code>inspector.component.html</code>, add the same markup from previous components:</p>
+<p><code-example header="providers-viewproviders/src/app/inspector/inspector.component.html" path="providers-viewproviders/src/app/inspector/inspector.component.html" region="binding"></code-example></p>
+<p>Remember to add the <code>InspectorComponent</code> to the <code>AppModule</code> <code>declarations</code> array.</p>
+<p><code-example header="providers-viewproviders/src/app/app.module.ts" path="providers-viewproviders/src/app/app.module.ts" region="appmodule"></code-example></p>
+<p>Next, make sure your <code>child.component.html</code> contains the following:</p>
+<p><code-example header="providers-viewproviders/src/app/child/child.component.html" path="providers-viewproviders/src/app/child/child.component.html" region="child-component"></code-example></p>
+<p>The first two lines, with the bindings, are there from previous steps.
+The new parts are  <code>&lt;ng-content&gt;</code> and <code>&lt;app-inspector&gt;</code>.
+<code>&lt;ng-content&gt;</code> allows you to project content, and <code>&lt;app-inspector&gt;</code> inside the <code>ChildComponent</code> template makes the <code>InspectorComponent</code> a child component of <code>ChildComponent</code>.</p>
+<p>Next, add the following to <code>app.component.html</code> to take advantage of content projection.</p>
+<p><code-example header="providers-viewproviders/src/app/app.component.html" path="providers-viewproviders/src/app/app.component.html" region="content-projection"></code-example></p>
+<p>The browser now renders the following, omitting the previous examples for brevity:</p>
+<p><code-example format="output" hideCopy language="shell"></p>
+<p>//&hellip;Omitting previous examples. The following applies to this section.</p>
+<p>Content projection: this is coming from content. Doesn't get to see
+puppy because the puppy is declared inside the view only.</p>
+<p>Emoji from FlowerService: &#x1F33B;
+Emoji from AnimalService: &#x1F433;</p>
+<p>Emoji from FlowerService: &#x1F33B;
+Emoji from AnimalService: &#x1F436;</p>
+<p></code-example></p>
+<p>These four bindings demonstrate the difference between <code>providers</code> and <code>viewProviders</code>.
+Since the dog <code>&#x1F436;</code> is declared inside the <code>&lt;#VIEW&gt;</code>, it isn't visible to the projected content.
+Instead, the projected content sees the whale <code>&#x1F433;</code>.</p>
+<p>The next section though, where <code>InspectorComponent</code> is a child component of <code>ChildComponent</code>, <code>InspectorComponent</code> is inside the <code>&lt;#VIEW&gt;</code>, so when it asks for the <code>AnimalService</code>, it sees the dog <code>&#x1F436;</code>.</p>
+<p>The <code>AnimalService</code> in the logical tree would look like this:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;app-root &commat;NgModule(AppModule)
+         &commat;Inject(AnimalService) animal=&gt;"&#x1F433;"&gt;
+  &lt;#VIEW&gt;
+    &lt;app-child&gt;
+      &lt;#VIEW &commat;Provide(AnimalService="&#x1F436;")
+            &commat;Inject(AnimalService=&gt;"&#x1F436;")&gt;
+        &lt;!-- ^^using viewProviders means AnimalService is available in &lt;#VIEW&gt;--&gt;
+        &lt;p&gt;Emoji from AnimalService: {{animal.emoji}} (&#x1F436;)&lt;/p&gt;</p>
+<div class="codehilite"><pre><span></span><code><span class="x">    &amp;lt;div class=&quot;container&quot;&amp;gt;</span>
+<span class="x">      &amp;lt;h3&amp;gt;Content projection&amp;lt;/h3&amp;gt;</span>
+<span class="x">      &amp;lt;app-inspector &amp;commat;Inject(AnimalService) animal=&amp;gt;&quot;&amp;#x1F433;&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;p&amp;gt;Emoji from AnimalService: </span><span class="cp">{{</span><span class="nv">animal.emoji</span><span class="cp">}}</span><span class="x"> (&amp;#x1F433;)&amp;lt;/p&amp;gt;</span>
+<span class="x">      &amp;lt;/app-inspector&amp;gt;</span>
+<span class="x">    &amp;lt;/div&amp;gt;</span>
+
+<span class="x">  &amp;lt;/#VIEW&amp;gt;</span>
+<span class="x">  &amp;lt;app-inspector&amp;gt;</span>
+<span class="x">    &amp;lt;#VIEW&amp;gt;</span>
+<span class="x">      &amp;lt;p&amp;gt;Emoji from AnimalService: </span><span class="cp">{{</span><span class="nv">animal.emoji</span><span class="cp">}}</span><span class="x"> (&amp;#x1F436;)&amp;lt;/p&amp;gt;</span>
+<span class="x">    &amp;lt;/#VIEW&amp;gt;</span>
+<span class="x">  &amp;lt;/app-inspector&amp;gt;</span>
+<span class="x">&amp;lt;/app-child&amp;gt;</span>
+</code></pre></div>
+
+<p>&lt;/#VIEW&gt;
+&lt;/app-root&gt;</p>
+<p></code-example></p>
+<p>The projected content of <code>&lt;app-inspector&gt;</code> sees the whale <code>&#x1F433;</code>, not the dog <code>&#x1F436;</code>, because the dog <code>&#x1F436;</code> is inside the <code>&lt;app-child&gt;</code> <code>&lt;#VIEW&gt;</code>.
+The <code>&lt;app-inspector&gt;</code> can only see the dog <code>&#x1F436;</code> if it is also within the <code>&lt;#VIEW&gt;</code>.</p>
+<p><a id="modify-visibility"></a></p>
+<h2 id="modifying-service-visibility">Modifying service visibility<a class="headerlink" href="#modifying-service-visibility" title="Permanent link">&para;</a></h2>
+<p>This section describes how to limit the scope of the beginning and ending <code>ElementInjector</code> using the visibility decorators <code>@Host()</code>, <code>@Self()</code>, and <code>@SkipSelf()</code>.</p>
+<h3 id="visibility-of-provided-tokens">Visibility of provided tokens<a class="headerlink" href="#visibility-of-provided-tokens" title="Permanent link">&para;</a></h3>
+<p>Visibility decorators influence where the search for the injection token begins and ends in the logic tree.
+To do this, place visibility decorators at the point of injection, that is, the <code>constructor()</code>, rather than at a point of declaration.</p>
+<p>To alter where the injector starts looking for <code>FlowerService</code>, add <code>@SkipSelf()</code> to the <code>&lt;app-child&gt;</code> <code>@Inject</code> declaration for the <code>FlowerService</code>.
+This declaration is in the <code>&lt;app-child&gt;</code> constructor as shown in <code>child.component.ts</code>:</p>
+<p><code-example format="typescript" language="typescript"></p>
+<p>constructor(&commat;SkipSelf() public flower : FlowerService) { }</p>
+<p></code-example></p>
+<p>With <code>@SkipSelf()</code>, the <code>&lt;app-child&gt;</code> injector doesn't look to itself for the <code>FlowerService</code>.
+Instead, the injector starts looking for the <code>FlowerService</code> at the <code>ElementInjector</code> or the <code>&lt;app-root&gt;</code>, where it finds nothing.
+Then, it goes back to the <code>&lt;app-child&gt;</code> <code>ModuleInjector</code> and finds the red hibiscus <code>&#x1F33A;</code> value, which is available because the <code>&lt;app-child&gt;</code> <code>ModuleInjector</code> and the <code>&lt;app-root&gt;</code> <code>ModuleInjector</code> are flattened into one <code>ModuleInjector</code>.
+Thus, the UI renders the following:</p>
+<p><code-example format="output" hideCopy language="shell"></p>
+<p>Emoji from FlowerService: &#x1F33A;</p>
+<p></code-example></p>
+<p>In a logical tree, this same idea might look like this:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;app-root &commat;NgModule(AppModule)
+        &commat;Inject(FlowerService) flower=&gt;"&#x1F33A;"&gt;
+  &lt;#VIEW&gt;
+    &lt;app-child &commat;Provide(FlowerService="&#x1F33B;")&gt;
+      &lt;#VIEW &commat;Inject(FlowerService, SkipSelf)=&gt;"&#x1F33A;"&gt;
+        &lt;!-- With SkipSelf, the injector looks to the next injector up the tree --&gt;
+      &lt;/#VIEW&gt;
+    &lt;/app-child&gt;
+  &lt;/#VIEW&gt;
+&lt;/app-root&gt;</p>
+<p></code-example></p>
+<p>Though <code>&lt;app-child&gt;</code> provides the sunflower <code>&#x1F33B;</code>, the application renders the red hibiscus <code>&#x1F33A;</code> because <code>@SkipSelf()</code>  causes the current injector to skip itself and look to its parent.</p>
+<p>If you now add <code>@Host()</code> (in addition to the <code>@SkipSelf()</code>) to the <code>@Inject</code> of the <code>FlowerService</code>, the result will be <code>null</code>.
+This is because <code>@Host()</code> limits the upper bound of the search to the <code>&lt;#VIEW&gt;</code>.
+Here's the idea in the logical tree:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;app-root &commat;NgModule(AppModule)
+        &commat;Inject(FlowerService) flower=&gt;"&#x1F33A;"&gt;
+  &lt;#VIEW&gt; &lt;!-- end search here with null--&gt;
+    &lt;app-child &commat;Provide(FlowerService="&#x1F33B;")&gt; &lt;!-- start search here --&gt;
+      &lt;#VIEW &commat;Inject(FlowerService, &commat;SkipSelf, &commat;Host, &commat;Optional)=&gt;null&gt;
+      &lt;/#VIEW&gt;
+      &lt;/app-parent&gt;
+  &lt;/#VIEW&gt;
+&lt;/app-root&gt;</p>
+<p></code-example></p>
+<p>Here, the services and their values are the same, but <code>@Host()</code> stops the injector from looking any further than the <code>&lt;#VIEW&gt;</code> for <code>FlowerService</code>, so it doesn't find it and returns <code>null</code>.</p>
+<div class="alert is-helpful">
+
+**NOTE**: <br />
+The example application uses `@Optional()` so the application does not throw an error, but the principles are the same.
+
+</div>
+
+<h3 id="skipself-and-viewproviders"><code>@SkipSelf()</code> and <code>viewProviders</code><a class="headerlink" href="#skipself-and-viewproviders" title="Permanent link">&para;</a></h3>
+<p>The <code>&lt;app-child&gt;</code> currently provides the <code>AnimalService</code> in the <code>viewProviders</code> array with the value of dog <code>&#x1F436;</code>.
+Because the injector has only to look at the <code>ElementInjector</code> of the <code>&lt;app-child&gt;</code> for the <code>AnimalService</code>, it never sees the whale <code>&#x1F433;</code>.</p>
+<p>As in the <code>FlowerService</code> example, if you add <code>@SkipSelf()</code> to the constructor for the <code>AnimalService</code>, the injector won't look in the  <code>ElementInjector</code> of the current <code>&lt;app-child&gt;</code> for the <code>AnimalService</code>.</p>
+<p><code-example format="typescript" language="typescript"></p>
+<p>export class ChildComponent {</p>
+<p>// add &commat;SkipSelf()
+  constructor(&commat;SkipSelf() public animal : AnimalService) { }</p>
+<p>}</p>
+<p></code-example></p>
+<p>Instead, the injector will begin at the <code>&lt;app-root&gt;</code> <code>ElementInjector</code>.
+Remember that the <code>&lt;app-child&gt;</code> class provides the <code>AnimalService</code> in the <code>viewProviders</code> array with a value of dog <code>&#x1F436;</code>:</p>
+<p><code-example format="typescript" language="typescript"></p>
+<p>&commat;Component({
+  selector: 'app-child',
+  &hellip;
+  viewProviders:
+  [{ provide: AnimalService, useValue: { emoji: '&#x1F436;' } }]
+})</p>
+<p></code-example></p>
+<p>The logical tree looks like this with <code>@SkipSelf()</code> in <code>&lt;app-child&gt;</code>:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;app-root &commat;NgModule(AppModule)
+          &commat;Inject(AnimalService=&gt;"&#x1F433;")&gt;
+  &lt;#VIEW&gt;&lt;!-- search begins here --&gt;
+    &lt;app-child&gt;
+      &lt;#VIEW &commat;Provide(AnimalService="&#x1F436;")
+             &commat;Inject(AnimalService, SkipSelf=&gt;"&#x1F433;")&gt;
+        &lt;!--Add &commat;SkipSelf --&gt;
+      &lt;/#VIEW&gt;
+    &lt;/app-child&gt;
+  &lt;/#VIEW&gt;
+&lt;/app-root&gt;</p>
+<p></code-example></p>
+<p>With <code>@SkipSelf()</code> in the <code>&lt;app-child&gt;</code>, the injector begins its search for the <code>AnimalService</code> in the <code>&lt;app-root&gt;</code> <code>ElementInjector</code> and finds whale <code>&#x1F433;</code>.</p>
+<h3 id="host-and-viewproviders"><code>@Host()</code> and <code>viewProviders</code><a class="headerlink" href="#host-and-viewproviders" title="Permanent link">&para;</a></h3>
+<p>If you add <code>@Host()</code> to the constructor for <code>AnimalService</code>, the result is dog <code>&#x1F436;</code> because the injector finds the <code>AnimalService</code> in the <code>&lt;app-child&gt;</code> <code>&lt;#VIEW&gt;</code>.
+Here is the <code>viewProviders</code> array in the <code>&lt;app-child&gt;</code> class and <code>@Host()</code> in the constructor:</p>
+<p><code-example format="typescript" language="typescript"></p>
+<p>&commat;Component({
+  selector: 'app-child',
+  &hellip;
+  viewProviders:
+  [{ provide: AnimalService, useValue: { emoji: '&#x1F436;' } }]</p>
+<p>})
+export class ChildComponent {
+  constructor(&commat;Host() public animal : AnimalService) { }
+}</p>
+<p></code-example></p>
+<p><code>@Host()</code> causes the injector to look until it encounters the edge of the <code>&lt;#VIEW&gt;</code>.</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;app-root &commat;NgModule(AppModule)
+          &commat;Inject(AnimalService=&gt;"&#x1F433;")&gt;
+  &lt;#VIEW&gt;
+    &lt;app-child&gt;
+      &lt;#VIEW &commat;Provide(AnimalService="&#x1F436;")
+             &commat;Inject(AnimalService, &commat;Host=&gt;"&#x1F436;")&gt; &lt;!-- &commat;Host stops search here --&gt;
+      &lt;/#VIEW&gt;
+    &lt;/app-child&gt;
+  &lt;/#VIEW&gt;
+&lt;/app-root&gt;</p>
+<p></code-example></p>
+<p>Add a <code>viewProviders</code> array with a third animal, hedgehog <code>&#x1F994;</code>, to the <code>app.component.ts</code> <code>@Component()</code> metadata:</p>
+<p><code-example format="typescript" language="typescript"></p>
+<p>&commat;Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: [ './app.component.css' ],
+  viewProviders: [{ provide: AnimalService, useValue: { emoji: '&#x1F994;' } }]
+})</p>
+<p></code-example></p>
+<p>Next, add <code>@SkipSelf()</code> along with <code>@Host()</code> to the constructor for the <code>Animal Service</code> in <code>child.component.ts</code>.
+Here are <code>@Host()</code> and <code>@SkipSelf()</code> in the <code>&lt;app-child&gt;</code> constructor:</p>
+<p><code-example format="typescript" language="typescript"></p>
+<p>export class ChildComponent {</p>
+<p>constructor(
+  &commat;Host() &commat;SkipSelf() public animal : AnimalService) { }</p>
+<p>}</p>
+<p></code-example></p>
+<p>When <code>@Host()</code> and <code>SkipSelf()</code> were applied to the <code>FlowerService</code>, which is in the <code>providers</code> array, the result was <code>null</code> because <code>@SkipSelf()</code> starts its search in the <code>&lt;app-child&gt;</code> injector, but <code>@Host()</code> stops searching at <code>&lt;#VIEW&gt;</code> &mdash;where there is no <code>FlowerService</code>
+In the logical tree, you can see that the <code>FlowerService</code> is visible in <code>&lt;app-child&gt;</code>, not its <code>&lt;#VIEW&gt;</code>.</p>
+<p>However, the <code>AnimalService</code>, which is provided in the <code>AppComponent</code> <code>viewProviders</code> array, is visible.</p>
+<p>The logical tree representation shows why this is:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;app-root &commat;NgModule(AppModule)
+        &commat;Inject(AnimalService=&gt;"&#x1F433;")&gt;
+  &lt;#VIEW &commat;Provide(AnimalService="&#x1F994;")
+         &commat;Inject(AnimalService, &commat;Optional)=&gt;"&#x1F994;"&gt;
+    &lt;!-- ^^&commat;SkipSelf() starts here,  &commat;Host() stops here^^ --&gt;
+    &lt;app-child&gt;
+      &lt;#VIEW &commat;Provide(AnimalService="&#x1F436;")
+             &commat;Inject(AnimalService, &commat;SkipSelf, &commat;Host, &commat;Optional)=&gt;"&#x1F994;"&gt;
+               &lt;!-- Add &commat;SkipSelf ^^--&gt;
+      &lt;/#VIEW&gt;
+      &lt;/app-child&gt;
+  &lt;/#VIEW&gt;
+&lt;/app-root&gt;</p>
+<p></code-example></p>
+<p><code>@SkipSelf()</code>, causes the injector to start its search for the <code>AnimalService</code> at the <code>&lt;app-root&gt;</code>, not the <code>&lt;app-child&gt;</code>, where the request originates, and <code>@Host()</code> stops the search at the <code>&lt;app-root&gt;</code> <code>&lt;#VIEW&gt;</code>.
+Since <code>AnimalService</code> is provided by way of the <code>viewProviders</code> array, the injector finds hedgehog <code>&#x1F994;</code> in the <code>&lt;#VIEW&gt;</code>.</p>
+<p><a id="component-injectors"></a></p>
+<h2 id="elementinjector-use-case-examples"><code>ElementInjector</code> use case examples<a class="headerlink" href="#elementinjector-use-case-examples" title="Permanent link">&para;</a></h2>
+<p>The ability to configure one or more providers at different levels opens up useful possibilities.
+For a look at the following scenarios in a working app, see the <live-example>heroes use case examples</live-example>.</p>
+<h3 id="scenario-service-isolation">Scenario: service isolation<a class="headerlink" href="#scenario-service-isolation" title="Permanent link">&para;</a></h3>
+<p>Architectural reasons may lead you to restrict access to a service to the application domain where it belongs.
+For example, the guide sample includes a <code>VillainsListComponent</code> that displays a list of villains.
+It gets those villains from a <code>VillainsService</code>.</p>
+<p>If you provided <code>VillainsService</code> in the root <code>AppModule</code> (where you registered the <code>HeroesService</code>), that would make the <code>VillainsService</code> visible everywhere in the application, including the <em>Hero</em> workflows.
+If you later modified the <code>VillainsService</code>, you could break something in a hero component somewhere.</p>
+<p>Instead, you can provide the <code>VillainsService</code> in the <code>providers</code> metadata of the <code>VillainsListComponent</code> like this:</p>
+<p><code-example header="src/app/villains-list.component.ts (metadata)" path="hierarchical-dependency-injection/src/app/villains-list.component.ts" region="metadata"></code-example></p>
+<p>By providing <code>VillainsService</code> in the <code>VillainsListComponent</code> metadata and nowhere else, the service becomes available only in the <code>VillainsListComponent</code> and its subcomponent tree.</p>
+<p><code>VillainService</code> is a singleton with respect to <code>VillainsListComponent</code> because that is where it is declared.
+As long as <code>VillainsListComponent</code> does not get destroyed it will be the same instance of <code>VillainService</code> but if there are multiple instances of <code>VillainsListComponent</code>, then each instance of <code>VillainsListComponent</code> will have its own instance of <code>VillainService</code>.</p>
+<h3 id="scenario-multiple-edit-sessions">Scenario: multiple edit sessions<a class="headerlink" href="#scenario-multiple-edit-sessions" title="Permanent link">&para;</a></h3>
+<p>Many applications allow users to work on several open tasks at the same time.
+For example, in a tax preparation application, the preparer could be working on several tax returns, switching from one to the other throughout the day.</p>
+<p>To demonstrate that scenario, imagine an outer <code>HeroListComponent</code> that displays a list of super heroes.</p>
+<p>To open a hero's tax return, the preparer clicks on a hero name, which opens a component for editing that return.
+Each selected hero tax return opens in its own component and multiple returns can be open at the same time.</p>
+<p>Each tax return component has the following characteristics:</p>
+<ul>
+<li>Is its own tax return editing session</li>
+<li>Can change a tax return without affecting a return in another component</li>
+<li>Has the ability to save the changes to its tax return or cancel them</li>
+</ul>
+<div class="lightbox">
+
+<img alt="Heroes in action" src="generated/images/guide/dependency-injection/hid-heroes-anim.gif">
+
+</div>
+
+<p>Suppose that the <code>HeroTaxReturnComponent</code> had logic to manage and restore changes.
+That would be a straightforward task for a hero tax return.
+In the real world, with a rich tax return data model, the change management would be tricky.
+You could delegate that management to a helper service, as this example does.</p>
+<p>The <code>HeroTaxReturnService</code> caches a single <code>HeroTaxReturn</code>, tracks changes to that return, and can save or restore it.
+It also delegates to the application-wide singleton <code>HeroService</code>, which it gets by injection.</p>
+<p><code-example header="src/app/hero-tax-return.service.ts" path="hierarchical-dependency-injection/src/app/hero-tax-return.service.ts"></code-example></p>
+<p>Here is the <code>HeroTaxReturnComponent</code> that makes use of <code>HeroTaxReturnService</code>.</p>
+<p><code-example header="src/app/hero-tax-return.component.ts" path="hierarchical-dependency-injection/src/app/hero-tax-return.component.ts"></code-example></p>
+<p>The <em>tax-return-to-edit</em> arrives by way of the <code>@Input()</code> property, which is implemented with getters and setters.
+The setter initializes the component's own instance of the <code>HeroTaxReturnService</code> with the incoming return.
+The getter always returns what that service says is the current state of the hero.
+The component also asks the service to save and restore this tax return.</p>
+<p>This won't work if the service is an application-wide singleton.
+Every component would share the same service instance, and each component would overwrite the tax return that belonged to another hero.</p>
+<p>To prevent this, configure the component-level injector of <code>HeroTaxReturnComponent</code> to provide the service, using the  <code>providers</code> property in the component metadata.</p>
+<p><code-example header="src/app/hero-tax-return.component.ts (providers)" path="hierarchical-dependency-injection/src/app/hero-tax-return.component.ts" region="providers"></code-example></p>
+<p>The <code>HeroTaxReturnComponent</code> has its own provider of the <code>HeroTaxReturnService</code>.
+Recall that every component <em>instance</em> has its own injector.
+Providing the service at the component level ensures that <em>every</em> instance of the component gets a private instance of the service. This makes sure that no tax return gets overwritten.</p>
+<div class="alert is-helpful">
+
+The rest of the scenario code relies on other Angular features and techniques that you can learn about elsewhere in the documentation.
+You can review it and download it from the <live-example></live-example>.
+
+</div>
+
+<h3 id="scenario-specialized-providers">Scenario: specialized providers<a class="headerlink" href="#scenario-specialized-providers" title="Permanent link">&para;</a></h3>
+<p>Another reason to provide a service again at another level is to substitute a <em>more specialized</em> implementation of that service, deeper in the component tree.</p>
+<p>For example, consider a <code>Car</code> component that includes tire service information and depends on other services to provide more details about the car.</p>
+<p>The root injector, marked as (A), uses <em>generic</em> providers for details about <code>CarService</code> and <code>EngineService</code>.</p>
+<ol>
+<li>
+<p><code>Car</code> component (A).  Component (A) displays tire service data about a car and specifies generic services to provide more information about the car.</p>
+</li>
+<li>
+<p>Child component (B). Component (B) defines its own, <em>specialized</em> providers for <code>CarService</code> and <code>EngineService</code> that have special capabilities suitable for what's going on in component (B).</p>
+</li>
+<li>
+<p>Child component (C) as a child of Component (B). Component (C) defines its own, even <em>more specialized</em> provider for <code>CarService</code>.</p>
+</li>
+</ol>
+<div class="lightbox">
+
+<img alt="car components" src="generated/images/guide/dependency-injection/car-components.png">
+
+</div>
+
+<p>Behind the scenes, each component sets up its own injector with zero, one, or more providers defined for that component itself.</p>
+<p>When you resolve an instance of <code>Car</code> at the deepest component (C), its injector produces: </p>
+<ul>
+<li>An instance of <code>Car</code> resolved by injector (C)</li>
+<li>An <code>Engine</code> resolved by injector (B)</li>
+<li>Its <code>Tires</code> resolved by the root injector (A).</li>
+</ul>
+<div class="lightbox">
+
+<img alt="car injector tree" src="generated/images/guide/dependency-injection/injector-tree.png">
+
+</div>
+
+<h2 id="more-on-dependency-injection">More on dependency injection<a class="headerlink" href="#more-on-dependency-injection" title="Permanent link">&para;</a></h2>
+<p>For more information on Angular dependency injection, see the <a href="guide/dependency-injection-providers">DI Providers</a> and <a href="guide/dependency-injection-in-action">DI in Action</a> guides.</p>
+<!-- links -->
+
+<!-- external links -->
+
+<!-- end links -->
+
+<p>@reviewed 2022-02-28</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../dependency-injection-providers/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Defining dependency providers" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              Defining dependency providers
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../developer-guide-overview/" class="md-footer__link md-footer__link--next" aria-label="下一页: 概述" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              概述
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      版权 &copy; 2022 -  wdk-docs.github.io
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="http://wdk-docs.github.io" target="_blank" rel="noopener" title="wdk-docs.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/wdk-docs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/wdk-docs" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://linkedin.com/in/wdk-docs" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tabs", "navigation.tracking", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

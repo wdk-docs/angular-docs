@@ -1,0 +1,6005 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Angular 中文文档">
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>6. Get data from a server - Angualr 文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#get-data-from-a-server" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Angualr 文档" class="md-header__button md-logo" aria-label="Angualr 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Angualr 文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. Get data from a server
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/wdk-docs/angular-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wdk-docs/angular-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../guide/what-is-angular/" class="md-tabs__link">
+        入门
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../guide/understanding-angular-overview/" class="md-tabs__link">
+        了解 Angular
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../guide/developer-guide-overview/" class="md-tabs__link">
+        开发者指南
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../guide/security/" class="md-tabs__link">
+        最佳实践
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../guide/deployment/" class="md-tabs__link">
+        Angular 工具
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        手册
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../guide/update-to-version-16/" class="md-tabs__link">
+        更新和发布
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../guide/architecture/" class="md-tabs__link">
+        参考
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../guide/contributors-guide-overview/" class="md-tabs__link">
+        文档贡献者指南
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Angualr 文档" class="md-nav__button md-logo" aria-label="Angualr 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Angualr 文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/wdk-docs/angular-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wdk-docs/angular-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          入门
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="入门" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/what-is-angular/" class="md-nav__link">
+        什么是Angular?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          试用
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="试用" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          试用
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/start-routing/" class="md-nav__link">
+        Adding navigation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/start-data/" class="md-nav__link">
+        Managing data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/start-forms/" class="md-nav__link">
+        Using forms for user input
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/start-deployment/" class="md-nav__link">
+        Deploying an application
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/setup-local/" class="md-nav__link">
+        Setup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          了解 Angular
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="了解 Angular" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          了解 Angular
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/understanding-angular-overview/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          组件
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="组件" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          组件
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/component-overview/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/lifecycle-hooks/" class="md-nav__link">
+        组件生命周期
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/view-encapsulation/" class="md-nav__link">
+        View encapsulation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/component-interaction/" class="md-nav__link">
+        Component interaction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/component-styles/" class="md-nav__link">
+        Component styles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/inputs-outputs/" class="md-nav__link">
+        Sharing data between child and parent directives and components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/content-projection/" class="md-nav__link">
+        Content projection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/dynamic-component-loader/" class="md-nav__link">
+        Dynamic components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/elements/" class="md-nav__link">
+        Angular elements
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          模版
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="模版" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          模版
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/template-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/template-syntax/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/interpolation/" class="md-nav__link">
+        Text interpolation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/template-statements/" class="md-nav__link">
+        Template statements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_5" type="checkbox" id="__nav_2_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_5">
+          Binding
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Binding" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Binding
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/binding-overview/" class="md-nav__link">
+        Understanding binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/property-binding/" class="md-nav__link">
+        Property binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/attribute-binding/" class="md-nav__link">
+        Attribute binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/class-binding/" class="md-nav__link">
+        Class and style binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/event-binding/" class="md-nav__link">
+        Event binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/two-way-binding/" class="md-nav__link">
+        Two-way binding
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_6" type="checkbox" id="__nav_2_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_6">
+          Pipes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Pipes" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Pipes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/pipes-overview/" class="md-nav__link">
+        Understanding pipes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/pipe-template/" class="md-nav__link">
+        Using a pipe in a template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/pipes-transform-data/" class="md-nav__link">
+        Transforming data with parameters and chained pipes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/template-reference-variables/" class="md-nav__link">
+        Template reference variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/svg-in-templates/" class="md-nav__link">
+        SVG as templates
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          指令
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="指令" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          指令
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/built-in-directives/" class="md-nav__link">
+        Built-in directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/attribute-directives/" class="md-nav__link">
+        Attribute directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/structural-directives/" class="md-nav__link">
+        Structural directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/directive-composition-api/" class="md-nav__link">
+        Directive composition API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          依赖注入
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="依赖注入" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          依赖注入
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/dependency-injection-overview/" class="md-nav__link">
+        Dependency injection in Angular
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/dependency-injection/" class="md-nav__link">
+        Understanding dependency injection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/creating-injectable-service/" class="md-nav__link">
+        Creating an injectable service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/dependency-injection-providers/" class="md-nav__link">
+        Defining dependency providers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/hierarchical-dependency-injection/" class="md-nav__link">
+        Hierarchical injectors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          开发者指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="开发者指南" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          开发者指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/developer-guide-overview/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          独立的
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="独立的" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          独立的
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/standalone-components/" class="md-nav__link">
+        独立的组件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/standalone-migration/" class="md-nav__link">
+        迁移到独立模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          变化检测
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="变化检测" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          变化检测
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/change-detection/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/change-detection-zone-pollution/" class="md-nav__link">
+        Zone pollution
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/change-detection-slow-computations/" class="md-nav__link">
+        Slow computations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/change-detection-skipping-subtrees/" class="md-nav__link">
+        Skipping component subtrees
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          路由与导航
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="路由与导航" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          路由与导航
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/routing-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/router/" class="md-nav__link">
+        Common routing tasks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/router-tutorial/" class="md-nav__link">
+        Tutorial: routing in single-page applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/routing-with-urlmatcher/" class="md-nav__link">
+        Tutorial: creating custom route matches
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/router-tutorial-toh/" class="md-nav__link">
+        Tutorial: adding routing to Tour of Heroes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/router-reference/" class="md-nav__link">
+        Router reference
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          表单
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="表单" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          表单
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/forms-overview/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/reactive-forms/" class="md-nav__link">
+        Reactive forms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/typed-forms/" class="md-nav__link">
+        Strictly typed reactive forms in depth
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/form-validation/" class="md-nav__link">
+        Validate form input
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/dynamic-form/" class="md-nav__link">
+        Building dynamic forms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/esbuild/" class="md-nav__link">
+        esbuild-based 构建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/http/" class="md-nav__link">
+        HTTP client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/hydration/" class="md-nav__link">
+        Hydration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/image-directive/" class="md-nav__link">
+        图像优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_10" type="checkbox" id="__nav_3_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_10">
+          测试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="测试" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_10">
+          <span class="md-nav__icon md-icon"></span>
+          测试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/testing/" class="md-nav__link">
+        Intro to testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/testing-code-coverage/" class="md-nav__link">
+        Code coverage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/testing-services/" class="md-nav__link">
+        Testing services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/testing-components-basics/" class="md-nav__link">
+        Basics of testing components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/testing-components-scenarios/" class="md-nav__link">
+        Component testing scenarios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/testing-attribute-directives/" class="md-nav__link">
+        Testing attribute directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/testing-pipes/" class="md-nav__link">
+        Testing pipes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/test-debugging/" class="md-nav__link">
+        Debugging tests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/testing-utility-apis/" class="md-nav__link">
+        Testing utility APIs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11" type="checkbox" id="__nav_3_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_11">
+          国际化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="国际化" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_11">
+          <span class="md-nav__icon md-icon"></span>
+          国际化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/i18n-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11_2" type="checkbox" id="__nav_3_11_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_11_2">
+          Common internationalization tasks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Common internationalization tasks" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Common internationalization tasks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/i18n-common-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/i18n-common-add-package/" class="md-nav__link">
+        Add the localize package
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/i18n-common-locale-id/" class="md-nav__link">
+        Refer to locales by ID
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/i18n-common-format-data-locale/" class="md-nav__link">
+        Format data based on locale
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/i18n-common-prepare/" class="md-nav__link">
+        Prepare component for translation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/i18n-common-translation-files/" class="md-nav__link">
+        Work with translation files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/i18n-common-merge/" class="md-nav__link">
+        Merge translations into the app
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/i18n-common-deploy/" class="md-nav__link">
+        Deploy multiple locales
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/i18n-example/" class="md-nav__link">
+        Example Angular application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11_4" type="checkbox" id="__nav_3_11_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_11_4">
+          Optional internationalization practices
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Optional internationalization practices" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_11_4">
+          <span class="md-nav__icon md-icon"></span>
+          Optional internationalization practices
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/i18n-optional-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/i18n-optional-manual-runtime-locale/" class="md-nav__link">
+        Set the runtime locale manually
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/i18n-optional-import-global-variants/" class="md-nav__link">
+        Import global variants of the locale data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/i18n-optional-manage-marked-text/" class="md-nav__link">
+        Manage marked text with custom IDs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_12" type="checkbox" id="__nav_3_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_12">
+          动画
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="动画" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_12">
+          <span class="md-nav__icon md-icon"></span>
+          动画
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/animations/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/transition-and-triggers/" class="md-nav__link">
+        Transition and Triggers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/complex-animation-sequences/" class="md-nav__link">
+        Complex Sequences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/reusable-animations/" class="md-nav__link">
+        Reusable Animations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/route-animations/" class="md-nav__link">
+        Route transition animations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_13" type="checkbox" id="__nav_3_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_13">
+          Service Workers & PWA
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Service Workers & PWA" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_13">
+          <span class="md-nav__icon md-icon"></span>
+          Service Workers & PWA
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/service-worker-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/service-worker-getting-started/" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/app-shell/" class="md-nav__link">
+        App shell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/service-worker-communications/" class="md-nav__link">
+        Service worker communication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/service-worker-notifications/" class="md-nav__link">
+        Service worker notifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/service-worker-devops/" class="md-nav__link">
+        Service worker in production
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/service-worker-config/" class="md-nav__link">
+        Service worker configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/web-worker/" class="md-nav__link">
+        Web workers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/universal/" class="md-nav__link">
+        服务器端渲染
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/prerendering/" class="md-nav__link">
+        Prerendering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_17" type="checkbox" id="__nav_3_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_17">
+          Angular 库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular 库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_17">
+          <span class="md-nav__icon md-icon"></span>
+          Angular 库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/libraries/" class="md-nav__link">
+        库概况
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/using-libraries/" class="md-nav__link">
+        使用已发布的库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/creating-libraries/" class="md-nav__link">
+        创建库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/angular-package-format/" class="md-nav__link">
+        Angular包格式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_18" type="checkbox" id="__nav_3_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_18">
+          预览功能
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="预览功能" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_18">
+          <span class="md-nav__icon md-icon"></span>
+          预览功能
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/signals/" class="md-nav__link">
+        信号
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/rxjs-interop/" class="md-nav__link">
+        RxJS信号互操作
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          最佳实践
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="最佳实践" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          最佳实践
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/security/" class="md-nav__link">
+        安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/accessibility/" class="md-nav__link">
+        可访问性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/updating/" class="md-nav__link">
+        保持最新的
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/property-binding-best-practices/" class="md-nav__link">
+        属性绑定最佳实践
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/lazy-loading-ngmodules/" class="md-nav__link">
+        懒加载功能模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/lightweight-injection-tokens/" class="md-nav__link">
+        库的轻量级注入令牌
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Angular 工具
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular 工具" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Angular 工具
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Development workflow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Development workflow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Development workflow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/deployment/" class="md-nav__link">
+        Deploying applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_2" type="checkbox" id="__nav_5_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_2">
+          AOT compiler
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AOT compiler" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          AOT compiler
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/aot-compiler/" class="md-nav__link">
+        Ahead-of-Time compilation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/angular-compiler-options/" class="md-nav__link">
+        Angular compiler options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/aot-metadata-errors/" class="md-nav__link">
+        AOT metadata errors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/template-typecheck/" class="md-nav__link">
+        Template type-checking
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/build/" class="md-nav__link">
+        Building & serving
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/cli-builder/" class="md-nav__link">
+        CLI builders
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/language-service/" class="md-nav__link">
+        Language service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/devtools/" class="md-nav__link">
+        DevTools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5">
+          Schematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schematics" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Schematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/schematics/" class="md-nav__link">
+        Schematics Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/schematics-authoring/" class="md-nav__link">
+        Authoring schematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/schematics-for-libraries/" class="md-nav__link">
+        Schematics for libraries
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          手册
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="手册" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          手册
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Angular tutorials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Tutorial: Your first Angular app
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial: Your first Angular app" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial: Your first Angular app
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/first-app-lesson-01/" class="md-nav__link">
+        Hello world
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/first-app-lesson-02/" class="md-nav__link">
+        Create home component
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/first-app-lesson-03/" class="md-nav__link">
+        Create housing location component
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/first-app-lesson-04/" class="md-nav__link">
+        Create an interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/first-app-lesson-05/" class="md-nav__link">
+        Add inputs to components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/first-app-lesson-06/" class="md-nav__link">
+        Add property binding to components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/first-app-lesson-07/" class="md-nav__link">
+        Add dynamic values to templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/first-app-lesson-08/" class="md-nav__link">
+        Use *ngFor in templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/first-app-lesson-09/" class="md-nav__link">
+        Angular services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/first-app-lesson-10/" class="md-nav__link">
+        Add routing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/first-app-lesson-11/" class="md-nav__link">
+        Customize the details page
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/first-app-lesson-12/" class="md-nav__link">
+        Integrate Angular forms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/first-app-lesson-13/" class="md-nav__link">
+        Add search functionality
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-app/first-app-lesson-14/" class="md-nav__link">
+        Add HTTP communication
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Tutorial: Tour of Heroes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial: Tour of Heroes" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial: Tour of Heroes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toh-pt0/" class="md-nav__link">
+        Create a project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toh-pt1/" class="md-nav__link">
+        1. The hero editor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toh-pt2/" class="md-nav__link">
+        2. Display a list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toh-pt3/" class="md-nav__link">
+        3. Create a feature component
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toh-pt4/" class="md-nav__link">
+        4. Add services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toh-pt5/" class="md-nav__link">
+        5. Add navigation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          6. Get data from a server
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        6. Get data from a server
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enable-http-services" class="md-nav__link">
+    Enable HTTP services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulate-a-data-server" class="md-nav__link">
+    Simulate a data server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heroes-and-http" class="md-nav__link">
+    Heroes and HTTP
+  </a>
+  
+    <nav class="md-nav" aria-label="Heroes and HTTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-heroes-with-httpclient" class="md-nav__link">
+    Get heroes with HttpClient
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpclient-methods-return-one-value" class="md-nav__link">
+    HttpClient methods return one value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpclientget-returns-response-data" class="md-nav__link">
+    HttpClient.get() returns response data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    Error handling
+  </a>
+  
+    <nav class="md-nav" aria-label="Error handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handleerror" class="md-nav__link">
+    handleError
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tap-into-the-observable" class="md-nav__link">
+    Tap into the Observable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-hero-by-id" class="md-nav__link">
+    Get hero by id
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-heroes" class="md-nav__link">
+    Update heroes
+  </a>
+  
+    <nav class="md-nav" aria-label="Update heroes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-heroserviceupdatehero" class="md-nav__link">
+    Add HeroService.updateHero()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-new-hero" class="md-nav__link">
+    Add a new hero
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-a-hero" class="md-nav__link">
+    Delete a hero
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-by-name" class="md-nav__link">
+    Search by name
+  </a>
+  
+    <nav class="md-nav" aria-label="Search by name">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-heroes-search-feature-to-the-dashboard" class="md-nav__link">
+    Add a heroes search feature to the Dashboard
+  </a>
+  
+    <nav class="md-nav" aria-label="Add a heroes search feature to the Dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heroservicesearchheroes" class="md-nav__link">
+    HeroService.searchHeroes()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-search-to-the-dashboard" class="md-nav__link">
+    Add search to the dashboard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-herosearchcomponent" class="md-nav__link">
+    Create HeroSearchComponent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncpipe" class="md-nav__link">
+    AsyncPipe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-the-herosearchcomponent-class" class="md-nav__link">
+    Edit the HeroSearchComponent class
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-searchterms-rxjs-subject" class="md-nav__link">
+    The searchTerms RxJS subject
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chaining-rxjs-operators" class="md-nav__link">
+    Chaining RxJS operators
+  </a>
+  
+    <nav class="md-nav" aria-label="Chaining RxJS operators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-it" class="md-nav__link">
+    Try it
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-code-review" class="md-nav__link">
+    Final code review
+  </a>
+  
+    <nav class="md-nav" aria-label="Final code review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heroservice-inmemorydataservice-appmodule" class="md-nav__link">
+    HeroService, InMemoryDataService, AppModule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heroescomponent" class="md-nav__link">
+    HeroesComponent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herodetailcomponent" class="md-nav__link">
+    HeroDetailComponent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboardcomponent" class="md-nav__link">
+    DashboardComponent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herosearchcomponent" class="md-nav__link">
+    HeroSearchComponent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/forms/" class="md-nav__link">
+        Building a template-driven form
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          更新和发布
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="更新和发布" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          更新和发布
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/update-to-version-16/" class="md-nav__link">
+        Update Angular to the latest version
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/roadmap/" class="md-nav__link">
+        Roadmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/releases/" class="md-nav__link">
+        Release practices
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/versions/" class="md-nav__link">
+        Version compatibility
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/browser-support/" class="md-nav__link">
+        Browser support
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/deprecations/" class="md-nav__link">
+        Deprecations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_7" type="checkbox" id="__nav_7_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_7">
+          Upgrading from AngularJS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Upgrading from AngularJS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_7">
+          <span class="md-nav__icon md-icon"></span>
+          Upgrading from AngularJS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/upgrade/" class="md-nav__link">
+        Upgrade instructions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/upgrade-setup/" class="md-nav__link">
+        Setup for upgrading from AngularJS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/upgrade-performance/" class="md-nav__link">
+        Upgrading for performance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ajs-quick-reference/" class="md-nav__link">
+        AngularJS to Angular concepts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          参考
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="参考" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          参考
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Conceptual reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Conceptual reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Conceptual reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_1" type="checkbox" id="__nav_8_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_1">
+          Angular concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular concepts" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Angular concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/architecture/" class="md-nav__link">
+        Intro to basic concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/architecture-modules/" class="md-nav__link">
+        Intro to modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/architecture-components/" class="md-nav__link">
+        Intro to components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/architecture-next-steps/" class="md-nav__link">
+        Next steps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/binding-syntax/" class="md-nav__link">
+        Binding syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/event-binding-concepts/" class="md-nav__link">
+        How event binding works
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/template-reference-variables/" class="md-nav__link">
+        Template variables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_2" type="checkbox" id="__nav_8_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_2">
+          Workspace and project structure
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workspace and project structure" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Workspace and project structure
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/file-structure/" class="md-nav__link">
+        Project file structure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/workspace-config/" class="md-nav__link">
+        Workspace configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/npm-packages/" class="md-nav__link">
+        npm dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/typescript-configuration/" class="md-nav__link">
+        TypeScript configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/strict-mode/" class="md-nav__link">
+        Strict mode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_3" type="checkbox" id="__nav_8_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_3">
+          NgModules
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NgModules" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          NgModules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ngmodules/" class="md-nav__link">
+        NgModules introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ngmodule-vs-jsmodule/" class="md-nav__link">
+        JS Modules vs NgModules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/bootstrapping/" class="md-nav__link">
+        Launching apps with a root module
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/frequent-ngmodules/" class="md-nav__link">
+        Frequently used NgModules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/module-types/" class="md-nav__link">
+        Types of feature modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/feature-modules/" class="md-nav__link">
+        Feature modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/providers/" class="md-nav__link">
+        Providing dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/singleton-services/" class="md-nav__link">
+        Singleton services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/sharing-ngmodules/" class="md-nav__link">
+        Sharing NgModules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ngmodule-api/" class="md-nav__link">
+        NgModule API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ngmodule-faq/" class="md-nav__link">
+        NgModule FAQs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_4" type="checkbox" id="__nav_8_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_4">
+          Observables & RxJS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Observables & RxJS" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Observables & RxJS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/observables/" class="md-nav__link">
+        Observables overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/rx-library/" class="md-nav__link">
+        The RxJS library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/observables-in-angular/" class="md-nav__link">
+        Observables in Angular
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/practical-observable-usage/" class="md-nav__link">
+        Practical usage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/comparing-observables/" class="md-nav__link">
+        Compare to other techniques
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_5" type="checkbox" id="__nav_8_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_5">
+          Dependency injection
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dependency injection" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Dependency injection
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/dependency-injection-in-action/" class="md-nav__link">
+        DI in action
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" type="checkbox" id="__nav_8_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_2">
+          CLI Command Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CLI Command Reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_2">
+          <span class="md-nav__icon md-icon"></span>
+          CLI Command Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cli/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Error reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Error reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Error reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../errors/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_4" type="checkbox" id="__nav_8_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_4">
+          Extended diagnostic reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Extended diagnostic reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_4">
+          <span class="md-nav__icon md-icon"></span>
+          Extended diagnostic reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../extended-diagnostics/" class="md-nav__link">
+        Extended Diagnostics Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/example-apps-list/" class="md-nav__link">
+        Example applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/glossary/" class="md-nav__link">
+        Angular glossary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_7" type="checkbox" id="__nav_8_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_7">
+          Angular coding style
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular coding style" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_7">
+          <span class="md-nav__icon md-icon"></span>
+          Angular coding style
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/cheatsheet/" class="md-nav__link">
+        Quick reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/styleguide/" class="md-nav__link">
+        Coding style guide
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          文档贡献者指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="文档贡献者指南" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          文档贡献者指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/contributors-guide-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2" type="checkbox" id="__nav_9_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_2">
+          Common documentation maintenance tasks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Common documentation maintenance tasks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Common documentation maintenance tasks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/doc-tasks/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/reviewing-content/" class="md-nav__link">
+        Review documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/updating-search-keywords/" class="md-nav__link">
+        Update search keywords
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_3" type="checkbox" id="__nav_9_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_3">
+          Documentation editing workflow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Documentation editing workflow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_3">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation editing workflow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/doc-update-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/doc-prepare-to-edit/" class="md-nav__link">
+        Prepare to edit documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/doc-select-issue/" class="md-nav__link">
+        Select a documentation issue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/doc-update-start/" class="md-nav__link">
+        Start to edit a documentation topic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/doc-editing/" class="md-nav__link">
+        Make and save changes to a documentation topic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/docs-lint-errors/" class="md-nav__link">
+        Resolve documentation linter messages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/doc-build-test/" class="md-nav__link">
+        Build and test documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/doc-pr-prep/" class="md-nav__link">
+        Prepare documentation for a pull request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/doc-pr-open/" class="md-nav__link">
+        Open a documentation pull request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/doc-pr-update/" class="md-nav__link">
+        Update a documentation pull request in progress
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/doc-edit-finish/" class="md-nav__link">
+        Finish up a documentation pull request
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/docs-style-guide/" class="md-nav__link">
+        Documentation style guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/localizing-angular/" class="md-nav__link">
+        Angular doc localization guidelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/localized-documentation/" class="md-nav__link">
+        Localized documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enable-http-services" class="md-nav__link">
+    Enable HTTP services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulate-a-data-server" class="md-nav__link">
+    Simulate a data server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heroes-and-http" class="md-nav__link">
+    Heroes and HTTP
+  </a>
+  
+    <nav class="md-nav" aria-label="Heroes and HTTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-heroes-with-httpclient" class="md-nav__link">
+    Get heroes with HttpClient
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpclient-methods-return-one-value" class="md-nav__link">
+    HttpClient methods return one value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpclientget-returns-response-data" class="md-nav__link">
+    HttpClient.get() returns response data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    Error handling
+  </a>
+  
+    <nav class="md-nav" aria-label="Error handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handleerror" class="md-nav__link">
+    handleError
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tap-into-the-observable" class="md-nav__link">
+    Tap into the Observable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-hero-by-id" class="md-nav__link">
+    Get hero by id
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-heroes" class="md-nav__link">
+    Update heroes
+  </a>
+  
+    <nav class="md-nav" aria-label="Update heroes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-heroserviceupdatehero" class="md-nav__link">
+    Add HeroService.updateHero()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-new-hero" class="md-nav__link">
+    Add a new hero
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-a-hero" class="md-nav__link">
+    Delete a hero
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-by-name" class="md-nav__link">
+    Search by name
+  </a>
+  
+    <nav class="md-nav" aria-label="Search by name">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-heroes-search-feature-to-the-dashboard" class="md-nav__link">
+    Add a heroes search feature to the Dashboard
+  </a>
+  
+    <nav class="md-nav" aria-label="Add a heroes search feature to the Dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heroservicesearchheroes" class="md-nav__link">
+    HeroService.searchHeroes()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-search-to-the-dashboard" class="md-nav__link">
+    Add search to the dashboard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-herosearchcomponent" class="md-nav__link">
+    Create HeroSearchComponent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncpipe" class="md-nav__link">
+    AsyncPipe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-the-herosearchcomponent-class" class="md-nav__link">
+    Edit the HeroSearchComponent class
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-searchterms-rxjs-subject" class="md-nav__link">
+    The searchTerms RxJS subject
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chaining-rxjs-operators" class="md-nav__link">
+    Chaining RxJS operators
+  </a>
+  
+    <nav class="md-nav" aria-label="Chaining RxJS operators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-it" class="md-nav__link">
+    Try it
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-code-review" class="md-nav__link">
+    Final code review
+  </a>
+  
+    <nav class="md-nav" aria-label="Final code review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heroservice-inmemorydataservice-appmodule" class="md-nav__link">
+    HeroService, InMemoryDataService, AppModule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heroescomponent" class="md-nav__link">
+    HeroesComponent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herodetailcomponent" class="md-nav__link">
+    HeroDetailComponent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboardcomponent" class="md-nav__link">
+    DashboardComponent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herosearchcomponent" class="md-nav__link">
+    HeroSearchComponent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/wdk-docs/angular-docs/tutorial/tour-of-heroes/toh-pt6.md" title="编辑此页" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="get-data-from-a-server">Get data from a server<a class="headerlink" href="#get-data-from-a-server" title="Permanent link">&para;</a></h1>
+<p>This tutorial adds the following data persistence features with help from Angular's <code>HttpClient</code>.</p>
+<ul>
+<li>The <code>HeroService</code> gets hero data with HTTP requests</li>
+<li>Users can add, edit, and delete heroes and save these changes over HTTP</li>
+<li>Users can search for heroes by name</li>
+</ul>
+<div class="alert is-helpful">
+
+For the sample application that this page describes, see the <live-example></live-example>.
+
+</div>
+
+<h2 id="enable-http-services">Enable HTTP services<a class="headerlink" href="#enable-http-services" title="Permanent link">&para;</a></h2>
+<p><code>HttpClient</code> is Angular's mechanism for communicating with a remote server over HTTP.</p>
+<p>Make <code>HttpClient</code> available everywhere in the application in two steps.
+First, add it to the root <code>AppModule</code> by importing it:</p>
+<p><code-example header="src/app/app.module.ts (HttpClientModule import)" path="toh-pt6/src/app/app.module.ts" region="import-http-client"></code-example></p>
+<p>Next, still in the <code>AppModule</code>, add <code>HttpClientModule</code> to the <code>imports</code> array:</p>
+<p><code-example header="src/app/app.module.ts (imports array excerpt)" path="toh-pt6/src/app/app.module.ts" region="import-httpclientmodule"></code-example></p>
+<h2 id="simulate-a-data-server">Simulate a data server<a class="headerlink" href="#simulate-a-data-server" title="Permanent link">&para;</a></h2>
+<p>This tutorial sample mimics communication with a remote data server by using the <a href="https://github.com/angular/angular/tree/main/packages/misc/angular-in-memory-web-api" title="In-memory Web API">In-memory Web API</a> module.</p>
+<p>After installing the module, the application makes requests to and receive responses from the <code>HttpClient</code>. The application doesn't know that the <em>In-memory Web API</em> is intercepting those requests, applying them to an in-memory data store, and returning simulated responses.</p>
+<p>By using the In-memory Web API, you won't have to set up a server to learn about <code>HttpClient</code>.</p>
+<div class="alert is-important">
+
+**IMPORTANT**: <br />
+The In-memory Web API module has nothing to do with HTTP in Angular.
+
+If you're reading this tutorial to learn about `HttpClient`, you can [skip over](#import-heroes) this step.
+If you're coding along with this tutorial, stay here and add the In-memory Web API now.
+
+</div>
+
+<p>Install the In-memory Web API package from npm with the following command:</p>
+<p><code-example format="shell" language="shell"></p>
+<p>npm install angular-in-memory-web-api --save</p>
+<p></code-example></p>
+<p>In the <code>AppModule</code>, import the <code>HttpClientInMemoryWebApiModule</code> and the <code>InMemoryDataService</code> class, which you create next.</p>
+<p><code-example header="src/app/app.module.ts (In-memory Web API imports)" path="toh-pt6/src/app/app.module.ts" region="import-in-mem-stuff"></code-example></p>
+<p>After the <code>HttpClientModule</code>, add the <code>HttpClientInMemoryWebApiModule</code> to the <code>AppModule</code> <code>imports</code> array and configure it with the <code>InMemoryDataService</code>.</p>
+<p><code-example header="src/app/app.module.ts (imports array excerpt)" path="toh-pt6/src/app/app.module.ts" region="in-mem-web-api-imports"></code-example></p>
+<p>The <code>forRoot()</code> configuration method takes an <code>InMemoryDataService</code> class that primes the in-memory database.</p>
+<p>Generate the class <code>src/app/in-memory-data.service.ts</code> with the following command:</p>
+<p><code-example format="shell" language="shell"></p>
+<p>ng generate service InMemoryData</p>
+<p></code-example></p>
+<p>Replace the default contents of <code>in-memory-data.service.ts</code> with the following:</p>
+<p><code-example header="src/app/in-memory-data.service.ts" path="toh-pt6/src/app/in-memory-data.service.ts" region="init"></code-example></p>
+<p>The <code>in-memory-data.service.ts</code> file takes over the function of <code>mock-heroes.ts</code>.
+Don't delete <code>mock-heroes.ts</code> yet. You still need it for a few more steps of this tutorial.</p>
+<p>After the server is ready, detach the In-memory Web API so the application's requests can go through to the server.</p>
+<p><a id="import-heroes"></a></p>
+<h2 id="heroes-and-http">Heroes and HTTP<a class="headerlink" href="#heroes-and-http" title="Permanent link">&para;</a></h2>
+<p>In the <code>HeroService</code>, import <code>HttpClient</code> and <code>HttpHeaders</code>:</p>
+<p><code-example header="src/app/hero.service.ts (import HTTP symbols)" path="toh-pt6/src/app/hero.service.ts" region="import-httpclient"></code-example></p>
+<p>Still in the <code>HeroService</code>, inject <code>HttpClient</code> into the constructor in a private property called <code>http</code>.</p>
+<p><code-example path="toh-pt6/src/app/hero.service.ts" header="src/app/hero.service.ts" region="ctor" ></code-example></p>
+<p>Notice that you keep injecting the <code>MessageService</code> but since your application calls it so frequently, wrap it in a private <code>log()</code> method:</p>
+<p><code-example path="toh-pt6/src/app/hero.service.ts" header="src/app/hero.service.ts" region="log" ></code-example></p>
+<p>Define the <code>heroesUrl</code> of the form <code>:base/:collectionName</code> with the address of the heroes resource on the server.
+Here <code>base</code> is the resource to which requests are made, and <code>collectionName</code> is the heroes data object in the <code>in-memory-data-service.ts</code>.</p>
+<p><code-example path="toh-pt6/src/app/hero.service.ts" header="src/app/hero.service.ts" region="heroesUrl" ></code-example></p>
+<h3 id="get-heroes-with-httpclient">Get heroes with <code>HttpClient</code><a class="headerlink" href="#get-heroes-with-httpclient" title="Permanent link">&para;</a></h3>
+<p>The current <code>HeroService.getHeroes()</code> uses the RxJS <code>of()</code> function to return an array of mock heroes as an <code>Observable&lt;Hero[]&gt;</code>.</p>
+<p><code-example header="src/app/hero.service.ts (getHeroes with RxJs 'of()')" path="toh-pt4/src/app/hero.service.ts" region="getHeroes-1"></code-example></p>
+<p>Convert that method to use <code>HttpClient</code> as follows:</p>
+<p><code-example header="src/app/hero.service.ts" path="toh-pt6/src/app/hero.service.ts" region="getHeroes-1"></code-example></p>
+<p>Refresh the browser.
+The hero data should successfully load from the mock server.</p>
+<p>You've swapped <code>of()</code> for <code>http.get()</code> and the application keeps working without any other changes
+because both functions return an <code>Observable&lt;Hero[]&gt;</code>.</p>
+<h3 id="httpclient-methods-return-one-value"><code>HttpClient</code> methods return one value<a class="headerlink" href="#httpclient-methods-return-one-value" title="Permanent link">&para;</a></h3>
+<p>All <code>HttpClient</code> methods return an RxJS <code>Observable</code> of something.</p>
+<p>HTTP is a request/response protocol.
+You make a request, it returns a single response.</p>
+<p>In general, an observable <em>can</em> return more than one value over time.
+An observable from <code>HttpClient</code> always emits a single value and then completes, never to emit again.</p>
+<p>This particular call to <code>HttpClient.get()</code> returns an <code>Observable&lt;Hero[]&gt;</code>, which is <em>an observable of hero arrays</em>.
+In practice, it only returns a single hero array.</p>
+<h3 id="httpclientget-returns-response-data"><code>HttpClient.get()</code> returns response data<a class="headerlink" href="#httpclientget-returns-response-data" title="Permanent link">&para;</a></h3>
+<p><code>HttpClient.get()</code> returns the body of the response as an untyped JSON object by default.
+Applying the optional type specifier, <code>&lt;Hero[]&gt;</code> , adds TypeScript capabilities, which reduce errors during compile time.</p>
+<p>The server's data API determines the shape of the JSON data.
+The <em>Tour of Heroes</em> data API returns the hero data as an array.</p>
+<div class="alert is-helpful">
+
+Other APIs may bury the data that you want within an object.
+You might have to dig that data out by processing the `Observable` result with the RxJS `map()` operator.
+
+Although not discussed here, there's an example of `map()` in the `getHeroNo404()` method included in the sample source code.
+
+</div>
+
+<h3 id="error-handling">Error handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h3>
+<p>Things go wrong, especially when you're getting data from a remote server.
+The <code>HeroService.getHeroes()</code> method should catch errors and do something appropriate.</p>
+<p>To catch errors, you <strong>"pipe" the observable</strong> result from <code>http.get()</code> through an RxJS <code>catchError()</code> operator.</p>
+<p>Import the <code>catchError</code> symbol from <code>rxjs/operators</code>, along with some other operators to use later.</p>
+<p><code-example header="src/app/hero.service.ts" path="toh-pt6/src/app/hero.service.ts" region="import-rxjs-operators"></code-example></p>
+<p>Now extend the observable result with the <code>pipe()</code> method and give it a <code>catchError()</code> operator.</p>
+<p><code-example header="src/app/hero.service.ts" path="toh-pt6/src/app/hero.service.ts" region="getHeroes-2"></code-example></p>
+<p>The <code>catchError()</code> operator intercepts an <strong><code>Observable</code> that failed</strong>.
+The operator then passes the error to the error handling function.</p>
+<p>The following <code>handleError()</code> method reports the error and then returns an innocuous result so that the application keeps working.</p>
+<h4 id="handleerror"><code>handleError</code><a class="headerlink" href="#handleerror" title="Permanent link">&para;</a></h4>
+<p>The following <code>handleError()</code> can be shared by many <code>HeroService</code> methods so it's generalized to meet their different needs.</p>
+<p>Instead of handling the error directly, it returns an error handler function to <code>catchError</code>. This function is configured with both the name of the operation that failed and a safe return value.</p>
+<p><code-example header="src/app/hero.service.ts" path="toh-pt6/src/app/hero.service.ts" region="handleError"></code-example></p>
+<p>After reporting the error to the console, the handler constructs a friendly message and returns a safe value so the application can keep working.</p>
+<p>Because each service method returns a different kind of <code>Observable</code> result, <code>handleError()</code> takes a type parameter to return the safe value as the type that the application expects.</p>
+<h3 id="tap-into-the-observable">Tap into the Observable<a class="headerlink" href="#tap-into-the-observable" title="Permanent link">&para;</a></h3>
+<p>The <code>getHero()</code> method taps into the flow of observable values and sends a message, using the <code>log()</code> method, to the message area at the bottom of the page.</p>
+<p>The RxJS <code>tap()</code> operator enables this ability by looking at the observable values, doing something with those values, and passing them along.
+The <code>tap()</code> callback doesn't access the values themselves.</p>
+<p>Here is the final version of <code>getHeroes()</code> with the <code>tap()</code> that logs the operation.</p>
+<p><code-example path="toh-pt6/src/app/hero.service.ts" header="src/app/hero.service.ts"  region="getHeroes" ></code-example></p>
+<h3 id="get-hero-by-id">Get hero by id<a class="headerlink" href="#get-hero-by-id" title="Permanent link">&para;</a></h3>
+<p>Most web APIs support a <em>get by id</em> request in the form <code>:baseURL/:id</code>.</p>
+<p>Here, the <em>base URL</em> is the <code>heroesURL</code> defined in the <a href="tutorial/tour-of-heroes/toh-pt6#heroes-and-http">Heroes and HTTP</a> section in <code>api/heroes</code> and <em>id</em> is the number of the hero that you want to retrieve.
+For example, <code>api/heroes/11</code>.</p>
+<p>Update the <code>HeroService</code> <code>getHero()</code> method with the following to make that request:</p>
+<p><code-example header="src/app/hero.service.ts" path="toh-pt6/src/app/hero.service.ts" region="getHero"></code-example></p>
+<p><code>getHero()</code> has three significant differences from  <code>getHeroes()</code>:</p>
+<ul>
+<li><code>getHero()</code> constructs a request URL with the desired hero's id</li>
+<li>The server should respond with a single hero rather than an array of heroes</li>
+<li><code>getHero()</code> returns an <code>Observable&lt;Hero&gt;</code>, which is an observable of <code>Hero</code> <em>objects</em> rather than an observable of <code>Hero</code> <em>arrays</em>.</li>
+</ul>
+<h2 id="update-heroes">Update heroes<a class="headerlink" href="#update-heroes" title="Permanent link">&para;</a></h2>
+<!-- markdownlint-disable MD001 -->
+
+<p>Edit a hero's name in the hero detail view.
+As you type, the hero name updates the heading at the top of the page, yet
+when you click <strong>Go back</strong>, your changes are lost.</p>
+<p>If you want changes to persist, you must write them back to the server.</p>
+<p>At the end of the hero detail template, add a save button with a <code>click</code> event binding that invokes a new component method named <code>save()</code>.</p>
+<p><code-example header="src/app/hero-detail/hero-detail.component.html (save)" path="toh-pt6/src/app/hero-detail/hero-detail.component.html" region="save"></code-example></p>
+<p>In the <code>HeroDetail</code> component class, add the following <code>save()</code> method, which persists hero name changes using the hero service <code>updateHero()</code> method and then navigates back to the previous view.</p>
+<p><code-example header="src/app/hero-detail/hero-detail.component.ts (save)" path="toh-pt6/src/app/hero-detail/hero-detail.component.ts" region="save"></code-example></p>
+<h4 id="add-heroserviceupdatehero">Add <code>HeroService.updateHero()</code><a class="headerlink" href="#add-heroserviceupdatehero" title="Permanent link">&para;</a></h4>
+<p>The structure of the <code>updateHero()</code> method is like that of <code>getHeroes()</code>, but it uses <code>http.put()</code> to persist the changed hero on the server.
+Add the following to the <code>HeroService</code>.</p>
+<p><code-example header="src/app/hero.service.ts (update)" path="toh-pt6/src/app/hero.service.ts" region="updateHero"></code-example></p>
+<p>The <code>HttpClient.put()</code> method takes three parameters:</p>
+<ul>
+<li>The URL</li>
+<li>The data to update, which is the modified hero in this case</li>
+<li>Options</li>
+</ul>
+<p>The URL is unchanged.
+The heroes web API knows which hero to update by looking at the hero's <code>id</code>.</p>
+<p>The heroes web API expects a special header in HTTP save requests.
+That header is in the <code>httpOptions</code> constant defined in the <code>HeroService</code>.
+Add the following to the <code>HeroService</code> class.</p>
+<p><code-example header="src/app/hero.service.ts" path="toh-pt6/src/app/hero.service.ts" region="http-options"></code-example></p>
+<p>Refresh the browser, change a hero name and save your change.
+The <code>save()</code> method in <code>HeroDetailComponent</code> navigates to the previous view.
+The hero now appears in the list with the changed name.</p>
+<h2 id="add-a-new-hero">Add a new hero<a class="headerlink" href="#add-a-new-hero" title="Permanent link">&para;</a></h2>
+<p>To add a hero, this application only needs the hero's name.
+You can use an <code>&lt;input&gt;</code> element paired with an add button.</p>
+<p>Insert the following into the <code>HeroesComponent</code> template, after the heading:</p>
+<p><code-example header="src/app/heroes/heroes.component.html (add)" path="toh-pt6/src/app/heroes/heroes.component.html" region="add"></code-example></p>
+<p>In response to a click event, call the component's click handler, <code>add()</code>, and then clear the input field so that it's ready for another name.
+Add the following to the <code>HeroesComponent</code> class:</p>
+<p><code-example header="src/app/heroes/heroes.component.ts (add)" path="toh-pt6/src/app/heroes/heroes.component.ts" region="add"></code-example></p>
+<p>When the given name isn't blank, the handler creates an object based on the hero's name.
+The handler passes the object name to the service's <code>addHero()</code> method.</p>
+<p>When <code>addHero()</code> creates a new object, the <code>subscribe()</code> callback receives the new hero and pushes it into to the <code>heroes</code> list for display.</p>
+<p>Add the following <code>addHero()</code> method to the <code>HeroService</code> class.</p>
+<p><code-example header="src/app/hero.service.ts (addHero)" path="toh-pt6/src/app/hero.service.ts" region="addHero"></code-example></p>
+<p><code>addHero()</code> differs from <code>updateHero()</code> in two ways:</p>
+<ul>
+<li>It calls <code>HttpClient.post()</code> instead of <code>put()</code></li>
+<li>It expects the server to create an id for the new hero, which it returns in the <code>Observable&lt;Hero&gt;</code> to the caller</li>
+</ul>
+<p>Refresh the browser and add some heroes.</p>
+<h2 id="delete-a-hero">Delete a hero<a class="headerlink" href="#delete-a-hero" title="Permanent link">&para;</a></h2>
+<p>Each hero in the heroes list should have a delete button.</p>
+<p>Add the following button element to the <code>HeroesComponent</code> template, after the hero name in the repeated <code>&lt;li&gt;</code> element.</p>
+<p><code-example header="src/app/heroes/heroes.component.html" path="toh-pt6/src/app/heroes/heroes.component.html" region="delete"></code-example></p>
+<p>The HTML for the list of heroes should look like this:</p>
+<p><code-example header="src/app/heroes/heroes.component.html (list of heroes)" path="toh-pt6/src/app/heroes/heroes.component.html" region="list"></code-example></p>
+<p>To position the delete button at the far right of the hero entry, add some CSS from the <a href="#heroescomponent">final review code</a> to the <code>heroes.component.css</code>.</p>
+<p>Add the <code>delete()</code> handler to the component class.</p>
+<p><code-example header="src/app/heroes/heroes.component.ts (delete)" path="toh-pt6/src/app/heroes/heroes.component.ts" region="delete"></code-example></p>
+<p>Although the component delegates hero deletion to the <code>HeroService</code>, it remains responsible for updating its own list of heroes.
+The component's <code>delete()</code> method immediately removes the <em>hero-to-delete</em> from that list, anticipating that the <code>HeroService</code> succeeds on the server.</p>
+<p>There's really nothing for the component to do with the <code>Observable</code> returned by <code>heroService.deleteHero()</code> <strong>but it must subscribe anyway</strong>.</p>
+<p>Next, add a <code>deleteHero()</code> method to <code>HeroService</code> like this.</p>
+<p><code-example header="src/app/hero.service.ts (delete)" path="toh-pt6/src/app/hero.service.ts" region="deleteHero"></code-example></p>
+<p>Notice the following key points:</p>
+<ul>
+<li><code>deleteHero()</code> calls <code>HttpClient.delete()</code></li>
+<li>The URL is the heroes resource URL plus the <code>id</code> of the hero to delete</li>
+<li>You don't send data as you did with <code>put()</code> and <code>post()</code></li>
+<li>You still send the <code>httpOptions</code></li>
+</ul>
+<p>Refresh the browser and try the new delete capability.</p>
+<div class="alert is-important">
+
+If you neglect to `subscribe()`, the service can't send the delete request to the server.
+As a rule, an `Observable` *does nothing* until something subscribes.
+
+Confirm this for yourself by temporarily removing the `subscribe()`, clicking **Dashboard**, then clicking **Heroes**.
+This shows the full list of heroes again.
+
+</div>
+
+<h2 id="search-by-name">Search by name<a class="headerlink" href="#search-by-name" title="Permanent link">&para;</a></h2>
+<p>In this last exercise, you learn to chain <code>Observable</code> operators together so you can reduce the number of similar HTTP requests to consume network bandwidth economically.</p>
+<h3 id="add-a-heroes-search-feature-to-the-dashboard">Add a heroes search feature to the Dashboard<a class="headerlink" href="#add-a-heroes-search-feature-to-the-dashboard" title="Permanent link">&para;</a></h3>
+<p>As the user types a name into a search box, your application makes repeated HTTP requests for heroes filtered by that name.
+Your goal is to issue only as many requests as necessary.</p>
+<h4 id="heroservicesearchheroes"><code>HeroService.searchHeroes()</code><a class="headerlink" href="#heroservicesearchheroes" title="Permanent link">&para;</a></h4>
+<p>Start by adding a <code>searchHeroes()</code> method to the <code>HeroService</code>.</p>
+<p><code-example header="src/app/hero.service.ts" path="toh-pt6/src/app/hero.service.ts" region="searchHeroes"></code-example></p>
+<p>The method returns immediately with an empty array if there is no search term.
+The rest of it closely resembles <code>getHeroes()</code>, the only significant difference being the URL, which includes a query string with the search term.</p>
+<h3 id="add-search-to-the-dashboard">Add search to the dashboard<a class="headerlink" href="#add-search-to-the-dashboard" title="Permanent link">&para;</a></h3>
+<p>Open the <code>DashboardComponent</code> template and
+add the hero search element, <code>&lt;app-hero-search&gt;</code>, to the bottom of the markup.</p>
+<p><code-example header="src/app/dashboard/dashboard.component.html" path="toh-pt6/src/app/dashboard/dashboard.component.html"></code-example></p>
+<p>This template looks a lot like the <code>*ngFor</code> repeater in the <code>HeroesComponent</code> template.</p>
+<p>For this to work, the next step is to add a component with a selector that matches <code>&lt;app-hero-search&gt;</code>.</p>
+<h3 id="create-herosearchcomponent">Create <code>HeroSearchComponent</code><a class="headerlink" href="#create-herosearchcomponent" title="Permanent link">&para;</a></h3>
+<p>Run <code>ng generate</code> to create a <code>HeroSearchComponent</code>.</p>
+<p><code-example format="shell" language="shell"></p>
+<p>ng generate component hero-search</p>
+<p></code-example></p>
+<p><code>ng generate</code> creates the three <code>HeroSearchComponent</code> files and adds the component to the <code>AppModule</code> declarations.</p>
+<p>Replace the <code>HeroSearchComponent</code> template with an <code>&lt;input&gt;</code> and a list of matching search results, as follows.</p>
+<p><code-example header="src/app/hero-search/hero-search.component.html" path="toh-pt6/src/app/hero-search/hero-search.component.html"></code-example></p>
+<p>Add private CSS styles to <code>hero-search.component.css</code> as listed in the <a href="#herosearchcomponent">final code review</a> below.</p>
+<p>As the user types in the search box, an input event binding calls the component's <code>search()</code> method with the new search box value.</p>
+<p><a id="asyncpipe"></a></p>
+<h3 id="asyncpipe"><code>AsyncPipe</code><a class="headerlink" href="#asyncpipe" title="Permanent link">&para;</a></h3>
+<p>The <code>*ngFor</code> repeats hero objects.
+Notice that the <code>*ngFor</code> iterates over a list called <code>heroes$</code>, not <code>heroes</code>.
+The <code>$</code> is a convention that indicates <code>heroes$</code> is an <code>Observable</code>, not an array.</p>
+<p><code-example header="src/app/hero-search/hero-search.component.html" path="toh-pt6/src/app/hero-search/hero-search.component.html" region="async"></code-example></p>
+<p>Since <code>*ngFor</code> can't do anything with an <code>Observable</code>, use the pipe <code>|</code> character followed by <code>async</code>.
+This identifies Angular's <code>AsyncPipe</code> and subscribes to an <code>Observable</code> automatically so you won't have to do so in the component class.</p>
+<h3 id="edit-the-herosearchcomponent-class">Edit the <code>HeroSearchComponent</code> class<a class="headerlink" href="#edit-the-herosearchcomponent-class" title="Permanent link">&para;</a></h3>
+<p>Replace the <code>HeroSearchComponent</code> class and metadata as follows.</p>
+<p><code-example header="src/app/hero-search/hero-search.component.ts" path="toh-pt6/src/app/hero-search/hero-search.component.ts"></code-example></p>
+<p>Notice the declaration of <code>heroes$</code> as an <code>Observable</code>:</p>
+<p><code-example header="src/app/hero-search/hero-search.component.ts" path="toh-pt6/src/app/hero-search/hero-search.component.ts" region="heroes-stream"></code-example></p>
+<p>Set this in <a href="#search-pipe"><code>ngOnInit()</code></a>.
+Before you do, focus on the definition of <code>searchTerms</code>.</p>
+<h3 id="the-searchterms-rxjs-subject">The <code>searchTerms</code> RxJS subject<a class="headerlink" href="#the-searchterms-rxjs-subject" title="Permanent link">&para;</a></h3>
+<p>The <code>searchTerms</code> property is an RxJS <code>Subject</code>.</p>
+<p><code-example header="src/app/hero-search/hero-search.component.ts" path="toh-pt6/src/app/hero-search/hero-search.component.ts" region="searchTerms"></code-example></p>
+<p>A <code>Subject</code> is both a source of observable values and an <code>Observable</code> itself.
+You can subscribe to a <code>Subject</code> as you would any <code>Observable</code>.</p>
+<p>You can also push values into that <code>Observable</code> by calling its <code>next(value)</code> method as the <code>search()</code> method does.</p>
+<p>The event binding to the text box's <code>input</code> event calls the <code>search()</code> method.</p>
+<p><code-example header="src/app/hero-search/hero-search.component.html" path="toh-pt6/src/app/hero-search/hero-search.component.html" region="input"></code-example></p>
+<p>Every time the user types in the text box, the binding calls <code>search()</code> with the text box value as a <em>search term</em>.
+The <code>searchTerms</code> becomes an <code>Observable</code> emitting a steady stream of search terms.</p>
+<p><a id="search-pipe"></a></p>
+<h3 id="chaining-rxjs-operators">Chaining RxJS operators<a class="headerlink" href="#chaining-rxjs-operators" title="Permanent link">&para;</a></h3>
+<p>Passing a new search term directly to the <code>searchHeroes()</code> after every user keystroke creates excessive HTTP requests, which taxes server resources and burns through data plans.</p>
+<p>Instead, the <code>ngOnInit()</code> method pipes the <code>searchTerms</code> observable through a sequence of RxJS operators that reduce the number of calls to the <code>searchHeroes()</code>. Ultimately, this returns an observable of timely hero search results where each one is a <code>Hero[]</code>.</p>
+<p>Here's a closer look at the code.</p>
+<p><code-example header="src/app/hero-search/hero-search.component.ts" path="toh-pt6/src/app/hero-search/hero-search.component.ts" region="search"></code-example></p>
+<p>Each operator works as follows:</p>
+<ul>
+<li>
+<p><code>debounceTime(300)</code> waits until the flow of new string events pauses for 300 milliseconds before passing along the latest string.
+   Requests aren't likely to happen more frequently than 300&nbsp;ms.</p>
+</li>
+<li>
+<p><code>distinctUntilChanged()</code> ensures that a request is sent only if the filter text changed.</p>
+</li>
+<li>
+<p><code>switchMap()</code> calls the search service for each search term that makes it through <code>debounce()</code> and <code>distinctUntilChanged()</code>.
+    It cancels and discards previous search observables, returning only the latest search service observable.</p>
+</li>
+</ul>
+<div class="alert is-helpful">
+
+With the [`switchMap` operator](https://www.learnrxjs.io/learn-rxjs/operators/transformation/switchmap), every qualifying key event can trigger an `HttpClient.get()` method call.
+Even with a 300&nbsp;ms pause between requests, you could have many HTTP requests in flight and they may not return in the order sent.
+
+`switchMap()` preserves the original request order while returning only the observable from the most recent HTTP method call.
+Results from prior calls are canceled and discarded.
+
+<div class="alert is-helpful">
+
+Canceling a previous `searchHeroes()` Observable doesn't actually cancel a pending HTTP request.
+Unwanted results are discarded before they reach your application code.
+
+</div>
+
+</div>
+
+<p>Remember that the component <em>class</em> doesn't subscribe to the <code>heroes$</code> <em>observable</em>.
+That's the job of the <a href="#asyncpipe"><code>AsyncPipe</code></a> in the template.</p>
+<h4 id="try-it">Try it<a class="headerlink" href="#try-it" title="Permanent link">&para;</a></h4>
+<p>Run the application again.
+In the <em>Dashboard</em>, enter some text in the search box.
+Enter characters that match any existing hero names, and look for something like this.</p>
+<div class="lightbox">
+
+<img alt="Hero Search field with the letters 'm' and 'a' along with four search results that match the query displayed in a list beneath the search input" src="generated/images/guide/toh/toh-hero-search.gif">
+
+</div>
+
+<h2 id="final-code-review">Final code review<a class="headerlink" href="#final-code-review" title="Permanent link">&para;</a></h2>
+<p>Here are the code files discussed on this page. They're found in the <code>src/app/</code> directory.</p>
+<p><a id="heroservice"></a>
+<a id="inmemorydataservice"></a></p>
+<p><a id="appmodule"></a></p>
+<h3 id="heroservice-inmemorydataservice-appmodule"><code>HeroService</code>, <code>InMemoryDataService</code>, <code>AppModule</code><a class="headerlink" href="#heroservice-inmemorydataservice-appmodule" title="Permanent link">&para;</a></h3>
+<p><code-tabs>
+    <code-pane header="hero.service.ts" path="toh-pt6/src/app/hero.service.ts"></code-pane>
+    <code-pane header="in-memory-data.service.ts" path="toh-pt6/src/app/in-memory-data.service.ts"></code-pane>
+    <code-pane header="app.module.ts" path="toh-pt6/src/app/app.module.ts"></code-pane>
+</code-tabs></p>
+<p><a id="heroescomponent"></a></p>
+<h3 id="heroescomponent"><code>HeroesComponent</code><a class="headerlink" href="#heroescomponent" title="Permanent link">&para;</a></h3>
+<p><code-tabs>
+    <code-pane header="heroes/heroes.component.html" path="toh-pt6/src/app/heroes/heroes.component.html"></code-pane>
+    <code-pane header="heroes/heroes.component.ts" path="toh-pt6/src/app/heroes/heroes.component.ts"></code-pane>
+    <code-pane header="heroes/heroes.component.css" path="toh-pt6/src/app/heroes/heroes.component.css"></code-pane>
+</code-tabs></p>
+<p><a id="herodetailcomponent"></a></p>
+<h3 id="herodetailcomponent"><code>HeroDetailComponent</code><a class="headerlink" href="#herodetailcomponent" title="Permanent link">&para;</a></h3>
+<p><code-tabs>
+    <code-pane header="hero-detail/hero-detail.component.html" path="toh-pt6/src/app/hero-detail/hero-detail.component.html"></code-pane>
+    <code-pane header="hero-detail/hero-detail.component.ts" path="toh-pt6/src/app/hero-detail/hero-detail.component.ts"></code-pane>
+    <code-pane header="hero-detail/hero-detail.component.css" path="toh-pt6/src/app/hero-detail/hero-detail.component.css"></code-pane>
+</code-tabs></p>
+<p><a id="dashboardcomponent"></a></p>
+<h3 id="dashboardcomponent"><code>DashboardComponent</code><a class="headerlink" href="#dashboardcomponent" title="Permanent link">&para;</a></h3>
+<p><code-tabs>
+    <code-pane header="dashboard/dashboard.component.html" path="toh-pt6/src/app/dashboard/dashboard.component.html"></code-pane>
+    <code-pane header="dashboard/dashboard.component.ts" path="toh-pt6/src/app/dashboard/dashboard.component.ts"></code-pane>
+    <code-pane header="dashboard/dashboard.component.css" path="toh-pt6/src/app/dashboard/dashboard.component.css"></code-pane>
+</code-tabs></p>
+<p><a id="herosearchcomponent"></a></p>
+<h3 id="herosearchcomponent"><code>HeroSearchComponent</code><a class="headerlink" href="#herosearchcomponent" title="Permanent link">&para;</a></h3>
+<p><code-tabs>
+    <code-pane header="hero-search/hero-search.component.html" path="toh-pt6/src/app/hero-search/hero-search.component.html"></code-pane>
+    <code-pane header="hero-search/hero-search.component.ts" path="toh-pt6/src/app/hero-search/hero-search.component.ts"></code-pane>
+    <code-pane header="hero-search/hero-search.component.css" path="toh-pt6/src/app/hero-search/hero-search.component.css"></code-pane>
+</code-tabs></p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>You're at the end of your journey, and you've accomplished a lot.</p>
+<ul>
+<li>You added the necessary dependencies to use HTTP in the application</li>
+<li>You refactored <code>HeroService</code> to load heroes from a web API</li>
+<li>You extended <code>HeroService</code> to support <code>post()</code>, <code>put()</code>, and <code>delete()</code> methods</li>
+<li>You updated the components to allow adding, editing, and deleting of heroes</li>
+<li>You configured an in-memory web API</li>
+<li>You learned how to use observables</li>
+</ul>
+<p>This concludes the "Tour of Heroes" tutorial.
+You're ready to learn more about Angular development in the fundamentals section, starting with the <a href="guide/architecture" title="Architecture">Architecture</a> guide.</p>
+<p>@reviewed 2022-02-28</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../toh-pt5/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 5. Add navigation" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              5. Add navigation
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../guide/forms/" class="md-footer__link md-footer__link--next" aria-label="下一页: Building a template-driven form" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              Building a template-driven form
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      版权 &copy; 2022 -  wdk-docs.github.io
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="http://wdk-docs.github.io" target="_blank" rel="noopener" title="wdk-docs.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/wdk-docs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/wdk-docs" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://linkedin.com/in/wdk-docs" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tabs", "navigation.tracking", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

@@ -1,0 +1,6966 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Angular 中文文档">
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Documentation style guide - Angualr 文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#angular-documentation-style-guide" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Angualr 文档" class="md-header__button md-logo" aria-label="Angualr 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Angualr 文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documentation style guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/wdk-docs/angular-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wdk-docs/angular-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../what-is-angular/" class="md-tabs__link">
+        入门
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../understanding-angular-overview/" class="md-tabs__link">
+        了解 Angular
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../developer-guide-overview/" class="md-tabs__link">
+        开发者指南
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../security/" class="md-tabs__link">
+        最佳实践
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../deployment/" class="md-tabs__link">
+        Angular 工具
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorial/" class="md-tabs__link">
+        手册
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../update-to-version-16/" class="md-tabs__link">
+        更新和发布
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../architecture/" class="md-tabs__link">
+        参考
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../contributors-guide-overview/" class="md-tabs__link md-tabs__link--active">
+        文档贡献者指南
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Angualr 文档" class="md-nav__button md-logo" aria-label="Angualr 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Angualr 文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/wdk-docs/angular-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wdk-docs/angular-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          入门
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="入门" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-angular/" class="md-nav__link">
+        什么是Angular?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          试用
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="试用" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          试用
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/start-routing/" class="md-nav__link">
+        Adding navigation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/start-data/" class="md-nav__link">
+        Managing data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/start-forms/" class="md-nav__link">
+        Using forms for user input
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/start-deployment/" class="md-nav__link">
+        Deploying an application
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-local/" class="md-nav__link">
+        Setup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          了解 Angular
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="了解 Angular" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          了解 Angular
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../understanding-angular-overview/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          组件
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="组件" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          组件
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component-overview/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lifecycle-hooks/" class="md-nav__link">
+        组件生命周期
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../view-encapsulation/" class="md-nav__link">
+        View encapsulation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component-interaction/" class="md-nav__link">
+        Component interaction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component-styles/" class="md-nav__link">
+        Component styles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inputs-outputs/" class="md-nav__link">
+        Sharing data between child and parent directives and components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-projection/" class="md-nav__link">
+        Content projection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dynamic-component-loader/" class="md-nav__link">
+        Dynamic components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elements/" class="md-nav__link">
+        Angular elements
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          模版
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="模版" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          模版
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-syntax/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interpolation/" class="md-nav__link">
+        Text interpolation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-statements/" class="md-nav__link">
+        Template statements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_5" type="checkbox" id="__nav_2_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_5">
+          Binding
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Binding" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Binding
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binding-overview/" class="md-nav__link">
+        Understanding binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../property-binding/" class="md-nav__link">
+        Property binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../attribute-binding/" class="md-nav__link">
+        Attribute binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-binding/" class="md-nav__link">
+        Class and style binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event-binding/" class="md-nav__link">
+        Event binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../two-way-binding/" class="md-nav__link">
+        Two-way binding
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_6" type="checkbox" id="__nav_2_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_6">
+          Pipes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Pipes" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Pipes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipes-overview/" class="md-nav__link">
+        Understanding pipes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipe-template/" class="md-nav__link">
+        Using a pipe in a template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipes-transform-data/" class="md-nav__link">
+        Transforming data with parameters and chained pipes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-reference-variables/" class="md-nav__link">
+        Template reference variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../svg-in-templates/" class="md-nav__link">
+        SVG as templates
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          指令
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="指令" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          指令
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../built-in-directives/" class="md-nav__link">
+        Built-in directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../attribute-directives/" class="md-nav__link">
+        Attribute directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structural-directives/" class="md-nav__link">
+        Structural directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../directive-composition-api/" class="md-nav__link">
+        Directive composition API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          依赖注入
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="依赖注入" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          依赖注入
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-injection-overview/" class="md-nav__link">
+        Dependency injection in Angular
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-injection/" class="md-nav__link">
+        Understanding dependency injection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-injectable-service/" class="md-nav__link">
+        Creating an injectable service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-injection-providers/" class="md-nav__link">
+        Defining dependency providers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hierarchical-dependency-injection/" class="md-nav__link">
+        Hierarchical injectors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          开发者指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="开发者指南" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          开发者指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-guide-overview/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          独立的
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="独立的" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          独立的
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standalone-components/" class="md-nav__link">
+        独立的组件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standalone-migration/" class="md-nav__link">
+        迁移到独立模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          变化检测
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="变化检测" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          变化检测
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-detection/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-detection-zone-pollution/" class="md-nav__link">
+        Zone pollution
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-detection-slow-computations/" class="md-nav__link">
+        Slow computations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-detection-skipping-subtrees/" class="md-nav__link">
+        Skipping component subtrees
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          路由与导航
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="路由与导航" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          路由与导航
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routing-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../router/" class="md-nav__link">
+        Common routing tasks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../router-tutorial/" class="md-nav__link">
+        Tutorial: routing in single-page applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routing-with-urlmatcher/" class="md-nav__link">
+        Tutorial: creating custom route matches
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../router-tutorial-toh/" class="md-nav__link">
+        Tutorial: adding routing to Tour of Heroes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../router-reference/" class="md-nav__link">
+        Router reference
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          表单
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="表单" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          表单
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forms-overview/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reactive-forms/" class="md-nav__link">
+        Reactive forms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typed-forms/" class="md-nav__link">
+        Strictly typed reactive forms in depth
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../form-validation/" class="md-nav__link">
+        Validate form input
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dynamic-form/" class="md-nav__link">
+        Building dynamic forms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../esbuild/" class="md-nav__link">
+        esbuild-based 构建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../http/" class="md-nav__link">
+        HTTP client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hydration/" class="md-nav__link">
+        Hydration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../image-directive/" class="md-nav__link">
+        图像优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_10" type="checkbox" id="__nav_3_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_10">
+          测试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="测试" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_10">
+          <span class="md-nav__icon md-icon"></span>
+          测试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        Intro to testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-code-coverage/" class="md-nav__link">
+        Code coverage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-services/" class="md-nav__link">
+        Testing services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-components-basics/" class="md-nav__link">
+        Basics of testing components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-components-scenarios/" class="md-nav__link">
+        Component testing scenarios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-attribute-directives/" class="md-nav__link">
+        Testing attribute directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-pipes/" class="md-nav__link">
+        Testing pipes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test-debugging/" class="md-nav__link">
+        Debugging tests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-utility-apis/" class="md-nav__link">
+        Testing utility APIs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11" type="checkbox" id="__nav_3_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_11">
+          国际化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="国际化" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_11">
+          <span class="md-nav__icon md-icon"></span>
+          国际化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11_2" type="checkbox" id="__nav_3_11_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_11_2">
+          Common internationalization tasks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Common internationalization tasks" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Common internationalization tasks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-add-package/" class="md-nav__link">
+        Add the localize package
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-locale-id/" class="md-nav__link">
+        Refer to locales by ID
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-format-data-locale/" class="md-nav__link">
+        Format data based on locale
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-prepare/" class="md-nav__link">
+        Prepare component for translation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-translation-files/" class="md-nav__link">
+        Work with translation files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-merge/" class="md-nav__link">
+        Merge translations into the app
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-deploy/" class="md-nav__link">
+        Deploy multiple locales
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-example/" class="md-nav__link">
+        Example Angular application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11_4" type="checkbox" id="__nav_3_11_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_11_4">
+          Optional internationalization practices
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Optional internationalization practices" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_11_4">
+          <span class="md-nav__icon md-icon"></span>
+          Optional internationalization practices
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-optional-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-optional-manual-runtime-locale/" class="md-nav__link">
+        Set the runtime locale manually
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-optional-import-global-variants/" class="md-nav__link">
+        Import global variants of the locale data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-optional-manage-marked-text/" class="md-nav__link">
+        Manage marked text with custom IDs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_12" type="checkbox" id="__nav_3_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_12">
+          动画
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="动画" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_12">
+          <span class="md-nav__icon md-icon"></span>
+          动画
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../animations/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transition-and-triggers/" class="md-nav__link">
+        Transition and Triggers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../complex-animation-sequences/" class="md-nav__link">
+        Complex Sequences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reusable-animations/" class="md-nav__link">
+        Reusable Animations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../route-animations/" class="md-nav__link">
+        Route transition animations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_13" type="checkbox" id="__nav_3_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_13">
+          Service Workers & PWA
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Service Workers & PWA" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_13">
+          <span class="md-nav__icon md-icon"></span>
+          Service Workers & PWA
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-getting-started/" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-shell/" class="md-nav__link">
+        App shell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-communications/" class="md-nav__link">
+        Service worker communication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-notifications/" class="md-nav__link">
+        Service worker notifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-devops/" class="md-nav__link">
+        Service worker in production
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-config/" class="md-nav__link">
+        Service worker configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-worker/" class="md-nav__link">
+        Web workers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../universal/" class="md-nav__link">
+        服务器端渲染
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerendering/" class="md-nav__link">
+        Prerendering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_17" type="checkbox" id="__nav_3_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_17">
+          Angular 库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular 库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_17">
+          <span class="md-nav__icon md-icon"></span>
+          Angular 库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/" class="md-nav__link">
+        库概况
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-libraries/" class="md-nav__link">
+        使用已发布的库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-libraries/" class="md-nav__link">
+        创建库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../angular-package-format/" class="md-nav__link">
+        Angular包格式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_18" type="checkbox" id="__nav_3_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_18">
+          预览功能
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="预览功能" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_18">
+          <span class="md-nav__icon md-icon"></span>
+          预览功能
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signals/" class="md-nav__link">
+        信号
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rxjs-interop/" class="md-nav__link">
+        RxJS信号互操作
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          最佳实践
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="最佳实践" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          最佳实践
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accessibility/" class="md-nav__link">
+        可访问性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updating/" class="md-nav__link">
+        保持最新的
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../property-binding-best-practices/" class="md-nav__link">
+        属性绑定最佳实践
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lazy-loading-ngmodules/" class="md-nav__link">
+        懒加载功能模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lightweight-injection-tokens/" class="md-nav__link">
+        库的轻量级注入令牌
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Angular 工具
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular 工具" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Angular 工具
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Development workflow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Development workflow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Development workflow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        Deploying applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_2" type="checkbox" id="__nav_5_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_2">
+          AOT compiler
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AOT compiler" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          AOT compiler
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aot-compiler/" class="md-nav__link">
+        Ahead-of-Time compilation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../angular-compiler-options/" class="md-nav__link">
+        Angular compiler options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aot-metadata-errors/" class="md-nav__link">
+        AOT metadata errors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-typecheck/" class="md-nav__link">
+        Template type-checking
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build/" class="md-nav__link">
+        Building & serving
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-builder/" class="md-nav__link">
+        CLI builders
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../language-service/" class="md-nav__link">
+        Language service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devtools/" class="md-nav__link">
+        DevTools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5">
+          Schematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schematics" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Schematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schematics/" class="md-nav__link">
+        Schematics Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schematics-authoring/" class="md-nav__link">
+        Authoring schematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schematics-for-libraries/" class="md-nav__link">
+        Schematics for libraries
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          手册
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="手册" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          手册
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        Angular tutorials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Tutorial: Your first Angular app
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial: Your first Angular app" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial: Your first Angular app
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-01/" class="md-nav__link">
+        Hello world
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-02/" class="md-nav__link">
+        Create home component
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-03/" class="md-nav__link">
+        Create housing location component
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-04/" class="md-nav__link">
+        Create an interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-05/" class="md-nav__link">
+        Add inputs to components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-06/" class="md-nav__link">
+        Add property binding to components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-07/" class="md-nav__link">
+        Add dynamic values to templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-08/" class="md-nav__link">
+        Use *ngFor in templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-09/" class="md-nav__link">
+        Angular services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-10/" class="md-nav__link">
+        Add routing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-11/" class="md-nav__link">
+        Customize the details page
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-12/" class="md-nav__link">
+        Integrate Angular forms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-13/" class="md-nav__link">
+        Add search functionality
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-14/" class="md-nav__link">
+        Add HTTP communication
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Tutorial: Tour of Heroes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial: Tour of Heroes" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial: Tour of Heroes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt0/" class="md-nav__link">
+        Create a project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt1/" class="md-nav__link">
+        1. The hero editor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt2/" class="md-nav__link">
+        2. Display a list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt3/" class="md-nav__link">
+        3. Create a feature component
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt4/" class="md-nav__link">
+        4. Add services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt5/" class="md-nav__link">
+        5. Add navigation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt6/" class="md-nav__link">
+        6. Get data from a server
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forms/" class="md-nav__link">
+        Building a template-driven form
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          更新和发布
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="更新和发布" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          更新和发布
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../update-to-version-16/" class="md-nav__link">
+        Update Angular to the latest version
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        Roadmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../releases/" class="md-nav__link">
+        Release practices
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versions/" class="md-nav__link">
+        Version compatibility
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../browser-support/" class="md-nav__link">
+        Browser support
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deprecations/" class="md-nav__link">
+        Deprecations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_7" type="checkbox" id="__nav_7_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_7">
+          Upgrading from AngularJS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Upgrading from AngularJS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_7">
+          <span class="md-nav__icon md-icon"></span>
+          Upgrading from AngularJS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrade/" class="md-nav__link">
+        Upgrade instructions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrade-setup/" class="md-nav__link">
+        Setup for upgrading from AngularJS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrade-performance/" class="md-nav__link">
+        Upgrading for performance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ajs-quick-reference/" class="md-nav__link">
+        AngularJS to Angular concepts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          参考
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="参考" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          参考
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Conceptual reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Conceptual reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Conceptual reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_1" type="checkbox" id="__nav_8_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_1">
+          Angular concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular concepts" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Angular concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        Intro to basic concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture-modules/" class="md-nav__link">
+        Intro to modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture-components/" class="md-nav__link">
+        Intro to components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture-next-steps/" class="md-nav__link">
+        Next steps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binding-syntax/" class="md-nav__link">
+        Binding syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event-binding-concepts/" class="md-nav__link">
+        How event binding works
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-reference-variables/" class="md-nav__link">
+        Template variables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_2" type="checkbox" id="__nav_8_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_2">
+          Workspace and project structure
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workspace and project structure" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Workspace and project structure
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-structure/" class="md-nav__link">
+        Project file structure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace-config/" class="md-nav__link">
+        Workspace configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../npm-packages/" class="md-nav__link">
+        npm dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typescript-configuration/" class="md-nav__link">
+        TypeScript configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strict-mode/" class="md-nav__link">
+        Strict mode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_3" type="checkbox" id="__nav_8_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_3">
+          NgModules
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NgModules" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          NgModules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngmodules/" class="md-nav__link">
+        NgModules introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngmodule-vs-jsmodule/" class="md-nav__link">
+        JS Modules vs NgModules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bootstrapping/" class="md-nav__link">
+        Launching apps with a root module
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frequent-ngmodules/" class="md-nav__link">
+        Frequently used NgModules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-types/" class="md-nav__link">
+        Types of feature modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feature-modules/" class="md-nav__link">
+        Feature modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/" class="md-nav__link">
+        Providing dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../singleton-services/" class="md-nav__link">
+        Singleton services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sharing-ngmodules/" class="md-nav__link">
+        Sharing NgModules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngmodule-api/" class="md-nav__link">
+        NgModule API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngmodule-faq/" class="md-nav__link">
+        NgModule FAQs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_4" type="checkbox" id="__nav_8_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_4">
+          Observables & RxJS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Observables & RxJS" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Observables & RxJS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observables/" class="md-nav__link">
+        Observables overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rx-library/" class="md-nav__link">
+        The RxJS library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observables-in-angular/" class="md-nav__link">
+        Observables in Angular
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-observable-usage/" class="md-nav__link">
+        Practical usage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparing-observables/" class="md-nav__link">
+        Compare to other techniques
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_5" type="checkbox" id="__nav_8_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_5">
+          Dependency injection
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dependency injection" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Dependency injection
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-injection-in-action/" class="md-nav__link">
+        DI in action
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" type="checkbox" id="__nav_8_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_2">
+          CLI Command Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CLI Command Reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_2">
+          <span class="md-nav__icon md-icon"></span>
+          CLI Command Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Error reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Error reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Error reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../errors/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_4" type="checkbox" id="__nav_8_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_4">
+          Extended diagnostic reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Extended diagnostic reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_4">
+          <span class="md-nav__icon md-icon"></span>
+          Extended diagnostic reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extended-diagnostics/" class="md-nav__link">
+        Extended Diagnostics Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example-apps-list/" class="md-nav__link">
+        Example applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        Angular glossary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_7" type="checkbox" id="__nav_8_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_7">
+          Angular coding style
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular coding style" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_7">
+          <span class="md-nav__icon md-icon"></span>
+          Angular coding style
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        Quick reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../styleguide/" class="md-nav__link">
+        Coding style guide
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          文档贡献者指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="文档贡献者指南" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          文档贡献者指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributors-guide-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2" type="checkbox" id="__nav_9_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_2">
+          Common documentation maintenance tasks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Common documentation maintenance tasks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Common documentation maintenance tasks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-tasks/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reviewing-content/" class="md-nav__link">
+        Review documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updating-search-keywords/" class="md-nav__link">
+        Update search keywords
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_3" type="checkbox" id="__nav_9_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_3">
+          Documentation editing workflow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Documentation editing workflow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_3">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation editing workflow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-update-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-prepare-to-edit/" class="md-nav__link">
+        Prepare to edit documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-select-issue/" class="md-nav__link">
+        Select a documentation issue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-update-start/" class="md-nav__link">
+        Start to edit a documentation topic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-editing/" class="md-nav__link">
+        Make and save changes to a documentation topic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs-lint-errors/" class="md-nav__link">
+        Resolve documentation linter messages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-build-test/" class="md-nav__link">
+        Build and test documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-pr-prep/" class="md-nav__link">
+        Prepare documentation for a pull request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-pr-open/" class="md-nav__link">
+        Open a documentation pull request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-pr-update/" class="md-nav__link">
+        Update a documentation pull request in progress
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-edit-finish/" class="md-nav__link">
+        Finish up a documentation pull request
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Documentation style guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Documentation style guide
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kinds-of-angular-documentation" class="md-nav__link">
+    Kinds of Angular documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#markdown-and-html" class="md-nav__link">
+    Markdown and HTML
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#title" class="md-nav__link">
+    Title
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sections" class="md-nav__link">
+    Sections
+  </a>
+  
+    <nav class="md-nav" aria-label="Sections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-section-heading" class="md-nav__link">
+    Main section heading
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secondary-section-heading" class="md-nav__link">
+    Secondary section heading
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-section-headings" class="md-nav__link">
+    Additional section headings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    Navigation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-snippets" class="md-nav__link">
+    Code snippets
+  </a>
+  
+    <nav class="md-nav" aria-label="Code snippets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-code-font" class="md-nav__link">
+    When to use code font
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-linking-in-code-snippets" class="md-nav__link">
+    Auto-linking in code snippets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hard-coded-snippets" class="md-nav__link">
+    Hard-coded snippets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilable-example-apps" class="md-nav__link">
+    Compilable example apps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displaying-an-entire-code-file" class="md-nav__link">
+    Displaying an entire code file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displaying-part-of-a-code-file" class="md-nav__link">
+    Displaying part of a code file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-snippet-options" class="md-nav__link">
+    Code snippet options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displaying-bad-code" class="md-nav__link">
+    Displaying bad code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-tabs" class="md-nav__link">
+    Code Tabs
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Tabs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-tabs-attributes" class="md-nav__link">
+    code-tabs attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-pane-attributes" class="md-nav__link">
+    code-pane attributes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparing-source-code-for-code-snippets" class="md-nav__link">
+    Preparing source code for code snippets
+  </a>
+  
+    <nav class="md-nav" aria-label="Preparing source code for code snippets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docregion" class="md-nav__link">
+    #docregion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming-a-docregion" class="md-nav__link">
+    Naming a #docregion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nesting-a-docregion" class="md-nav__link">
+    Nesting a #docregion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combining-code-fragments" class="md-nav__link">
+    Combining code fragments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-files" class="md-nav__link">
+    JSON files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partial-file-naming" class="md-nav__link">
+    Partial file naming
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-code-styling" class="md-nav__link">
+    Source code styling
+  </a>
+  
+    <nav class="md-nav" aria-label="Source code styling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hexadecimals" class="md-nav__link">
+    Hexadecimals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#live-examples" class="md-nav__link">
+    Live examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Live examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#live-example-for-named-stackblitz" class="md-nav__link">
+    Live Example for named StackBlitz
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-label-and-tooltip" class="md-nav__link">
+    Custom label and tooltip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#live-example-from-another-guide" class="md-nav__link">
+    Live example from another guide
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#live-example-without-download" class="md-nav__link">
+    Live Example without download
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#live-example-with-download-only" class="md-nav__link">
+    Live Example with download-only
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedded-live-example" class="md-nav__link">
+    Embedded live example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anchors" class="md-nav__link">
+    Anchors
+  </a>
+  
+    <nav class="md-nav" aria-label="Anchors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-header-anchors" class="md-nav__link">
+    Section header anchors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alerts-and-callouts" class="md-nav__link">
+    Alerts and callouts
+  </a>
+  
+    <nav class="md-nav" aria-label="Alerts and callouts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alerts" class="md-nav__link">
+    Alerts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callouts" class="md-nav__link">
+    Callouts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trees" class="md-nav__link">
+    Trees
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#images" class="md-nav__link">
+    Images
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../localizing-angular/" class="md-nav__link">
+        Angular doc localization guidelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../localized-documentation/" class="md-nav__link">
+        Localized documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kinds-of-angular-documentation" class="md-nav__link">
+    Kinds of Angular documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#markdown-and-html" class="md-nav__link">
+    Markdown and HTML
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#title" class="md-nav__link">
+    Title
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sections" class="md-nav__link">
+    Sections
+  </a>
+  
+    <nav class="md-nav" aria-label="Sections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-section-heading" class="md-nav__link">
+    Main section heading
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secondary-section-heading" class="md-nav__link">
+    Secondary section heading
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-section-headings" class="md-nav__link">
+    Additional section headings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    Navigation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-snippets" class="md-nav__link">
+    Code snippets
+  </a>
+  
+    <nav class="md-nav" aria-label="Code snippets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-code-font" class="md-nav__link">
+    When to use code font
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-linking-in-code-snippets" class="md-nav__link">
+    Auto-linking in code snippets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hard-coded-snippets" class="md-nav__link">
+    Hard-coded snippets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilable-example-apps" class="md-nav__link">
+    Compilable example apps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displaying-an-entire-code-file" class="md-nav__link">
+    Displaying an entire code file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displaying-part-of-a-code-file" class="md-nav__link">
+    Displaying part of a code file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-snippet-options" class="md-nav__link">
+    Code snippet options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displaying-bad-code" class="md-nav__link">
+    Displaying bad code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-tabs" class="md-nav__link">
+    Code Tabs
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Tabs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-tabs-attributes" class="md-nav__link">
+    code-tabs attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-pane-attributes" class="md-nav__link">
+    code-pane attributes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparing-source-code-for-code-snippets" class="md-nav__link">
+    Preparing source code for code snippets
+  </a>
+  
+    <nav class="md-nav" aria-label="Preparing source code for code snippets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docregion" class="md-nav__link">
+    #docregion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming-a-docregion" class="md-nav__link">
+    Naming a #docregion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nesting-a-docregion" class="md-nav__link">
+    Nesting a #docregion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combining-code-fragments" class="md-nav__link">
+    Combining code fragments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-files" class="md-nav__link">
+    JSON files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partial-file-naming" class="md-nav__link">
+    Partial file naming
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-code-styling" class="md-nav__link">
+    Source code styling
+  </a>
+  
+    <nav class="md-nav" aria-label="Source code styling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hexadecimals" class="md-nav__link">
+    Hexadecimals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#live-examples" class="md-nav__link">
+    Live examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Live examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#live-example-for-named-stackblitz" class="md-nav__link">
+    Live Example for named StackBlitz
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-label-and-tooltip" class="md-nav__link">
+    Custom label and tooltip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#live-example-from-another-guide" class="md-nav__link">
+    Live example from another guide
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#live-example-without-download" class="md-nav__link">
+    Live Example without download
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#live-example-with-download-only" class="md-nav__link">
+    Live Example with download-only
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedded-live-example" class="md-nav__link">
+    Embedded live example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anchors" class="md-nav__link">
+    Anchors
+  </a>
+  
+    <nav class="md-nav" aria-label="Anchors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-header-anchors" class="md-nav__link">
+    Section header anchors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alerts-and-callouts" class="md-nav__link">
+    Alerts and callouts
+  </a>
+  
+    <nav class="md-nav" aria-label="Alerts and callouts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alerts" class="md-nav__link">
+    Alerts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callouts" class="md-nav__link">
+    Callouts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trees" class="md-nav__link">
+    Trees
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#images" class="md-nav__link">
+    Images
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/wdk-docs/angular-docs/guide/docs-style-guide.md" title="编辑此页" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="angular-documentation-style-guide">Angular documentation style guide<a class="headerlink" href="#angular-documentation-style-guide" title="Permanent link">&para;</a></h1>
+<p>This style guide covers the standards for writing <a href="docs">Angular documentation on angular.io</a>.
+These standards ensure consistency in writing style, Markdown conventions, and code snippets.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Before contributing to the Angular documentation, it is helpful if you are familiar with the following:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Subjects</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>git</code></td>
+<td align="left">For an introduction, see GitHub's <a href="https://guides.github.com/introduction/git-handbook">Git Handbook</a></td>
+</tr>
+<tr>
+<td align="left">GitHub</td>
+<td align="left">For an introduction, see GitHub's <a href="https://guides.github.com/activities/hello-world">Hello World</a></td>
+</tr>
+<tr>
+<td align="left">Markdown</td>
+<td align="left">See GitHub's <a href="https://guides.github.com/features/mastering-markdown">Mastering Markdown</a></td>
+</tr>
+<tr>
+<td align="left">Angular coding style</td>
+<td align="left">See the <a href="guide/styleguide" title="Angular Application Code Style Guide">Angular Style Guide</a></td>
+</tr>
+<tr>
+<td align="left">Google writing style</td>
+<td align="left">The <a href="https://developers.google.com/style">Google Developer Documentation Style Guide</a> is a comprehensive resource that this Angular documentation style guide builds upon</td>
+</tr>
+</tbody>
+</table>
+<h2 id="kinds-of-angular-documentation">Kinds of Angular documentation<a class="headerlink" href="#kinds-of-angular-documentation" title="Permanent link">&para;</a></h2>
+<p>The categories of Angular documentation include:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Angular documentation categories</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="docs">Guides</a></td>
+<td align="left">Much of what's in the <a href="docs">documentation section of angular.io</a>. Guides walk the reader step-by-step through tasks to demonstrate concepts and are often accompanied by a working example. These include <a href="start">Getting Started</a>, <a href="tutorial/tour-of-heroes">Tour of Heroes</a>, and pages about <a href="guide/forms-overview">Forms</a>, <a href="guide/dependency-injection">Dependency Injection</a>, and <a href="guide/http">HttpClient</a>. Contributing members of the community and Angular team members maintain this documentation in <a href="https://daringfireball.net/projects/markdown/syntax" title="Markdown">Markdown</a>.</td>
+</tr>
+<tr>
+<td align="left"><a href="api">API documentation</a></td>
+<td align="left">Reference documents for the <a href="api">Angular Application Programming Interface, or API</a>. These are more succinct than guides and serve as a reference for Angular features. They are especially helpful for people already acquainted with Angular concepts. The <a href="https://angular.io">angular.io</a> infrastructure generates these documents from source code and comments that contributors edit.</td>
+</tr>
+<tr>
+<td align="left"><a href="cli">CLI documentation</a></td>
+<td align="left">The <a href="https://angular.io">angular.io</a> infrastructure generates these documents from CLI source code.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="markdown-and-html">Markdown and HTML<a class="headerlink" href="#markdown-and-html" title="Permanent link">&para;</a></h2>
+<p>While the Angular guides are <a href="https://daringfireball.net/projects/markdown/syntax" title="Markdown">Markdown</a> files, there are some sections within the guides that use HTML.</p>
+<div class="alert is-helpful">
+
+To enable HTML in an Angular guide, **always** follow every opening and closing HTML tag with a blank line.
+
+</div>
+
+<p>Notice the required blank line after the opening <code>&lt;div&gt;</code> in the following example:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;div class="alert is-helpful"&gt;</p>
+<p>&ast;&ast;Always&ast;&ast; follow every opening and closing HTML tag with &ast;a blank line&ast;.</p>
+<p>&lt;/div&gt;</p>
+<p></code-example></p>
+<p>It is customary but not required to precede the closing HTML tag with a blank line as well.</p>
+<h2 id="title">Title<a class="headerlink" href="#title" title="Permanent link">&para;</a></h2>
+<p>Every guide document must have a title, and it should appear at the top of the page.</p>
+<p>Begin the title with the Markdown hash (<code>#</code>) character, which renders as an <code>&lt;h1&gt;</code> in the browser.</p>
+<p><code-example format="html" language="html"></p>
+<p>&num; Angular documentation style guide</p>
+<p></code-example></p>
+<table>
+<thead>
+<tr>
+<th align="left">Title guidance</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">A document can have only one <code>&lt;h1&gt;</code></td>
+<td align="left">Title text should be in <em>Sentence case</em>, which means the first word is capitalized and all other words are lower case. Technical terms that are always capitalized, like "Angular", are the exception. <code-example format="html" language="html"> &num; Deprecation policy in Angular </code-example></td>
+</tr>
+<tr>
+<td align="left">Always follow the title with at least one blank line</td>
+<td align="left">The corresponding text in the left nav is in <em>Title Case</em>, which means that you use capital letters to start the first words and all principal words. Use lower case letters for secondary words such as "in", "of", and "the". You can also shorten the nav title to fit in the column.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sections">Sections<a class="headerlink" href="#sections" title="Permanent link">&para;</a></h2>
+<p>A typical document has sections.</p>
+<p>All section headings are in <em>Sentence case</em>, which means the first word is capitalized and all other words are lower case.</p>
+<p><strong>Always follow a section heading with at least one blank line.</strong></p>
+<h3 id="main-section-heading">Main section heading<a class="headerlink" href="#main-section-heading" title="Permanent link">&para;</a></h3>
+<p>There are usually one or more main sections that may be further divided into secondary sections.</p>
+<p>Begin a main section heading with the Markdown <code>##</code> characters, which renders as an <code>&lt;h2&gt;</code> in the browser.</p>
+<p>Follow main section headings with a blank line and then the content for that heading as in the following example:</p>
+<p><code-example format="html" language="html"></p>
+<p>&num;&num; Main section heading</p>
+<p>Content after a blank line.</p>
+<p></code-example></p>
+<h3 id="secondary-section-heading">Secondary section heading<a class="headerlink" href="#secondary-section-heading" title="Permanent link">&para;</a></h3>
+<p>A secondary section heading is related to a main heading and falls textually within the bounds of that main heading.</p>
+<p>Begin a secondary heading with the Markdown <code>###</code> characters, which renders as an <code>&lt;h3&gt;</code> in the browser.</p>
+<p>Follow a secondary heading by a blank line and then the content for that heading as in the following example:</p>
+<p><code-example format="html" language="html"></p>
+<p>&num;&num;&num; Secondary section heading</p>
+<p>Content after a blank line.</p>
+<p></code-example></p>
+<h3 id="additional-section-headings">Additional section headings<a class="headerlink" href="#additional-section-headings" title="Permanent link">&para;</a></h3>
+<p>While you can use additional section headings, the <a href="#table-of-contents">Table-of-contents (TOC)</a> generator only shows <code>&lt;h2&gt;</code> and <code>&lt;h3&gt;</code> headings in the TOC on the right of the page.</p>
+<p><code-example format="html" language="html"></p>
+<p>&num;&num;&num;&num; The TOC won't display this</p>
+<p>Content after a blank line.</p>
+<p></code-example></p>
+<h2 id="table-of-contents">Table of contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<p>Most pages display a table of contents or TOC.
+The TOC appears in the right panel when the viewport is wide.
+When narrow, the TOC appears in a collapsible region near the top of the page.</p>
+<p>You don't need to create your own TOC by hand because the TOC generator creates one automatically from the page's  <code>&lt;h2&gt;</code> and <code>&lt;h3&gt;</code> headers.</p>
+<p>To exclude a heading from the TOC, create the heading as an <code>&lt;h2&gt;</code> or <code>&lt;h3&gt;</code> element with a class called 'no-toc'.</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;h3 class="no-toc"&gt;</p>
+<p>This heading is not displayed in the TOC</p>
+<p>&lt;/h3&gt;</p>
+<p></code-example></p>
+<p>You can turn off TOC generation for the entire page by writing the title with an <code>&lt;h1&gt;</code> tag and the <code>no-toc</code> class.</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;h1 class="no-toc"&gt;</p>
+<p>A guide without a TOC</p>
+<p>&lt;/h1&gt;</p>
+<p></code-example></p>
+<h2 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Permanent link">&para;</a></h2>
+<p>To generate the navigation links at the top, left, and bottom of the screen, use the JSON configuration file, <code>content/navigation.json</code>.</p>
+<div class="alert is-helpful">
+
+If you have an idea that would result in navigation changes, [file an issue](https://github.com/angular/angular/issues/new/choose) first so that the Angular team and community can discuss the change.
+
+</div>
+
+<p>For a new guide page, edit the <code>SideNav</code> node in <code>navigation.json</code>.
+The <code>SideNav</code> node is an array of navigation nodes.
+Each node is either an item node for a single document or a header node with child nodes.</p>
+<p>Find the header for your page.
+For example, a guide page that describes an Angular feature is probably a child of the <code>Fundamentals</code> header.</p>
+<p><code-example format="json" language="json"></p>
+<p>{
+  "title": "Fundamentals",
+  "tooltip": "The fundamentals of Angular",
+  "children": [ &hellip; ]
+}</p>
+<p></code-example></p>
+<p>A header node child can be an item node or another header node.
+If your guide page belongs under a sub-header, find that sub-header in the JSON.</p>
+<p>Add an item node for your guide page as a child of the appropriate header node as in the following example:</p>
+<p><code-example format="json" language="json"></p>
+<p>{
+  "url": "guide/docs-style-guide",
+  "title": "Doc authors style guide",
+  "tooltip": "Style guide for documentation authors.",
+},</p>
+<p></code-example></p>
+<p>A navigation node has the following properties:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Properties</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>url</code></td>
+<td align="left">The URL of the guide page, which is an item node only.</td>
+</tr>
+<tr>
+<td align="left"><code>title</code></td>
+<td align="left">The text displayed in the side nav.</td>
+</tr>
+<tr>
+<td align="left"><code>tooltip</code></td>
+<td align="left">Text that appears when the reader hovers over the navigation link.</td>
+</tr>
+<tr>
+<td align="left"><code>children</code></td>
+<td align="left">An array of child nodes, which is a header node only.</td>
+</tr>
+<tr>
+<td align="left"><code>hidden</code></td>
+<td align="left">Defined and set <code>true</code> if this is a guide page that should not be displayed in the navigation panel.</td>
+</tr>
+</tbody>
+</table>
+<div class="alert is-critical">
+
+Do not create a node that is both a header and an item node by specifying the `url` property of a header node.
+
+</div>
+
+<h2 id="code-snippets">Code snippets<a class="headerlink" href="#code-snippets" title="Permanent link">&para;</a></h2>
+<p><a href="docs">Angular.io</a> has a custom framework that enables authors to include code snippets directly from working example applications that are automatically tested as part of documentation builds.</p>
+<p>In addition to working code snippets, example code can include terminal commands, a fragment of TypeScript or HTML, or an entire code file.</p>
+<p>Whatever the source, the document viewer renders them as code snippets, either individually with the <a href="#code-example" title="code-example">code-example</a> component or as a tabbed collection with the <a href="#code-tabs" title="code-tabs">code-tabs</a> component.</p>
+<p><a id="code-example"></a></p>
+<h3 id="when-to-use-code-font">When to use code font<a class="headerlink" href="#when-to-use-code-font" title="Permanent link">&para;</a></h3>
+<p>You can display a minimal, inline code snippet with the Markdown backtick syntax.
+Use a single backtick on either side of a term when referring to code or the name of a file in a sentence.
+The following are some examples:</p>
+<ul>
+<li>In the <code>app.component.ts</code>, add a <code>logger()</code> method.</li>
+<li>The <code>name</code> property is <code>Sally</code>.</li>
+<li>Add the component class name to the <code>declarations</code> array.</li>
+</ul>
+<p>The Markdown is as follows:</p>
+<p><code-example format="markdown" language="markdown"></p>
+<p>&ast;   In the <code>app.component.ts</code>, add a <code>logger()</code> method.
+&ast;   The &lt;code class="no-auto-link"&gt;item&lt;/code&gt; property is <code>true</code>.
+&ast;   Add the component class name to the <code>declarations</code> array.</p>
+<p></code-example></p>
+<h3 id="auto-linking-in-code-snippets">Auto-linking in code snippets<a class="headerlink" href="#auto-linking-in-code-snippets" title="Permanent link">&para;</a></h3>
+<p>In certain cases, when you apply backticks around a term, it may auto-link to the API documentation.
+If you do not intend the term to be a link, use the following syntax:</p>
+<p><code-example format="html" language="html"></p>
+<p>The &lt;code class="no-auto-link"&gt;item&lt;/code&gt; property is &grave;true&grave;.</p>
+<p></code-example></p>
+<h3 id="hard-coded-snippets">Hard-coded snippets<a class="headerlink" href="#hard-coded-snippets" title="Permanent link">&para;</a></h3>
+<p>Ideally, you should source code snippets <a href="#from-code-samples">from working sample code</a>, though there are times when an inline snippet is necessary.</p>
+<p>For terminal input and output, place the content between <code>&lt;code-example&gt;</code> tags and set the language attribute to <code>sh</code> as in this example:</p>
+<p><code-example format="shell" language="shell"></p>
+<p>npm start</p>
+<p></code-example></p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;code-example language="shell"&gt;</p>
+<p>npm start</p>
+<p>&lt;/code-example&gt;</p>
+<p></code-example></p>
+<p>Inline, hard-coded snippets like this one are not testable and, therefore, intrinsically unreliable.
+This example belongs to the small set of pre-approved, inline snippets that includes user input in a command shell or the output of some process.</p>
+<p>In all other cases, code snippets should be generated automatically from tested code samples.</p>
+<p>For hypothetical examples such as illustrations of configuration options in a JSON file, use the <code>&lt;code-example&gt;</code> tag with the <code>header</code> attribute to identify the context.</p>
+<p><a id="from-code-samples"></a></p>
+<h3 id="compilable-example-apps">Compilable example apps<a class="headerlink" href="#compilable-example-apps" title="Permanent link">&para;</a></h3>
+<p>One of the Angular documentation design goals is that guide page code snippets be examples of working code.</p>
+<p>Authors meet this goal by displaying code snippets directly from working sample applications, written specifically for these guide pages.</p>
+<p>Find sample applications in sub-folders of the <code>content/examples</code> directory of the <code>angular/angular</code> repository.
+An example folder name is often the same as the guide page it supports.</p>
+<div class="alert is-helpful">
+
+A guide page might not have its own sample code.
+It might refer instead to a sample belonging to another page.
+
+</div>
+
+<p>The Angular CI process runs all end-to-end tests for every Angular PR.
+Angular re-tests the samples after every new version of a sample and every new version of Angular.</p>
+<p>When possible, every snippet of code on a guide page should be derived from a code sample file.
+You tell the Angular documentation engine which code file &mdash;or fragment of a code file&mdash; to display by configuring <code>&lt;code-example&gt;</code> attributes.</p>
+<p><a id="display-whole-file"></a></p>
+<h3 id="displaying-an-entire-code-file">Displaying an entire code file<a class="headerlink" href="#displaying-an-entire-code-file" title="Permanent link">&para;</a></h3>
+<p>This Angular documentation style guide that you are currently reading has its own example application, located in the <code>content/examples/docs-style-guide</code> folder.</p>
+<p>The following <code>&lt;code-example&gt;</code> displays the sample's <code>app.module.ts</code>:</p>
+<p><code-example header="src/app/app.module.ts" path="docs-style-guide/src/app/app.module.ts"></code-example></p>
+<p>The following markup produces that snippet:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;code-example path="docs-style-guide/src/app/app.module.ts" header="src/app/app.module.ts"&gt;&lt;/code-example&gt;</p>
+<p></code-example></p>
+<p>The <code>path</code> attribute identifies the snippet's source file at the example application folder's location within <code>content/examples</code>.
+In this example, that path is  <code>docs-style-guide/src/app/app.module.ts</code>.</p>
+<p>The header tells the reader where to find the file.
+Following convention, set the <code>header</code> attribute to the file's location within the example application's root folder.</p>
+<p>Unless otherwise commented, all code snippets in this page are from sample source code located in the <code>content/examples/docs-style-guide</code> directory.</p>
+<p><a id="region"></a></p>
+<h3 id="displaying-part-of-a-code-file">Displaying part of a code file<a class="headerlink" href="#displaying-part-of-a-code-file" title="Permanent link">&para;</a></h3>
+<p>To include a snippet of code within a sample code file, rather than the entire file, use the <code>&lt;code-example&gt;</code> <code>region</code> attribute.
+The following example focuses on the <code>AppModule</code> class and its <code>@NgModule()</code> metadata:</p>
+<p>&lt;code-example header="src/app/app.module.ts"
+  path="docs-style-guide/src/app/app.module.ts"</p>
+<p>region="class"&gt;</code-example></p>
+<p>To render the above example, the HTML in the Markdown file is as follows:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;code-example
+  path="docs-style-guide/src/app/app.module.ts"
+  header="src/app/app.module.ts"
+  region="class"&gt;&lt;/code-example&gt;</p>
+<p></code-example></p>
+<p>The <code>path</code> points to the file, just as in examples that render the <a href="guide/docs-style-guide#display-whole-file">entire file</a>.
+The <code>region</code> attribute specifies a portion of the source file delineated by an opening <code>#docregion</code> and a closing <code>#enddocregion</code>.</p>
+<p>You can see the <code>class</code> <code>#docregion</code> in the source file below.
+Notice the commented lines <code>#docregion</code> and <code>#enddocregion</code> in <code>content/examples/docs-style-guide/src/app/app.module.ts</code> with the name <code>class</code>.</p>
+<p><code-example header="src/app/app.module.ts"></p>
+<p>import { NgModule }      from '&commat;angular/core';
+import { BrowserModule } from '&commat;angular/platform-browser';
+import { FormsModule }   from '&commat;angular/forms';</p>
+<p>import { AppComponent }  from './app.component';</p>
+<p>// #docregion class
+&commat;NgModule({
+  imports:      [ BrowserModule, FormsModule ],
+  declarations: [ AppComponent ],
+  bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
+// #enddocregion class</p>
+<p></code-example></p>
+<p>The opening and ending <code>#docregion</code> lines designate any lines of code between them as being included in the code snippet.
+This is why the import statements outside of the <code>class</code> <code>#docregion</code> are not in the code snippet.</p>
+<p>For more information on how to prepare example application files for use in guides, see <a href="#source-code-markup">Source code markup</a>.</p>
+<h3 id="code-snippet-options">Code snippet options<a class="headerlink" href="#code-snippet-options" title="Permanent link">&para;</a></h3>
+<p>Specify the <code>&lt;code-example&gt;</code> output with the following attributes:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Attributes</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>path</code></td>
+<td align="left">The path to the file in the <code>content/examples</code> folder.</td>
+</tr>
+<tr>
+<td align="left"><code>header</code></td>
+<td align="left">The header of the code listing. This is the title of the code snippet and can include the path and extra information such as whether the snippet is an excerpt.</td>
+</tr>
+<tr>
+<td align="left"><code>region</code></td>
+<td align="left">Displays the source file fragment with that region name; regions are identified by <code>#docregion</code> markup in the source file. See <a href="#region" title="Displaying a code snippet">Displaying a code snippet</a>.</td>
+</tr>
+<tr>
+<td align="left"><code>linenums</code></td>
+<td align="left">Value may be <code>true</code>, <code>false</code>, or a <code>number</code>. The default is <code>false</code>, which means that the browser displays no line numbers. The <code>number</code> option starts line numbering at the given value. For example, <code>linenums=4</code> sets the starting line number to 4.</td>
+</tr>
+<tr>
+<td align="left"><code>class</code></td>
+<td align="left">Code snippets can be styled with the CSS classes <code>no-box</code> and <code>avoid</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>hideCopy</code></td>
+<td align="left">Hides the copy button.</td>
+</tr>
+<tr>
+<td align="left"><code>language</code></td>
+<td align="left">The source code language such as <code>javascript</code>, <code>html</code>, <code>css</code>, <code>typescript</code>, <code>json</code>, or <code>shell</code>. This attribute only applies to hard-coded examples.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="displaying-bad-code">Displaying bad code<a class="headerlink" href="#displaying-bad-code" title="Permanent link">&para;</a></h3>
+<p>Occasionally, you want to display an example of less than ideal code or design, such as with <strong>avoid</strong> examples in the <a href="guide/styleguide">Angular Style Guide</a>.
+Because it is possible for readers to copy and paste examples of inferior code in their own applications, try to minimize use of such code.</p>
+<p>In cases where you need unacceptable examples, you can set the <code>class</code> to <code>avoid</code> or have the word <code>avoid</code> in the filename of the source file.
+By putting the word <code>avoid</code> in the filename or path, the documentation generator automatically adds the <code>avoid</code> class to the <code>&lt;code-example&gt;</code>.
+Either of these options frames the code snippet in bright red to grab the reader's attention.</p>
+<p>Here's the markup for an "avoid" example in the
+<a href="guide/styleguide#style-05-03" title="Style 05-03: components as elements">Angular Style Guide</a> that uses the word <code>avoid</code> in the path name:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;code-example
+  header="app/heroes/hero-button/hero-button.component.ts"
+  path="styleguide/src/05-03/app/heroes/shared/hero-button/hero-button.component.avoid.ts"
+  region="example"&gt;&lt;/code-example&gt;</p>
+<p></code-example></p>
+<p>Having the word "avoid" in the file name causes the browser to render the code snippet with a red header and border:</p>
+<p><code-example header="app/heroes/hero-button/hero-button.component.ts" path="styleguide/src/05-03/app/heroes/shared/hero-button/hero-button.component.avoid.ts" region="example"></code-example></p>
+<p>Alternatively, the HTML could include the <code>avoid</code> class as in the following:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;code-example
+   class="avoid"
+   header="docs-style-guide/src/app/not-great.component.ts"
+   path="docs-style-guide/src/app/not-great.component.ts"
+  region="not-great"&gt;&lt;/code-example&gt;</p>
+<p></code-example></p>
+<p>Explicitly applying the class <code>avoid</code> causes the same result of a red header and red border:</p>
+<p><code-example header="docs-style-guide/src/app/not-great.component.ts" path="docs-style-guide/src/app/not-great.component.ts" region="not-great" class="avoid"></code-example></p>
+<p><a id="code-tabs"></a></p>
+<h3 id="code-tabs">Code Tabs<a class="headerlink" href="#code-tabs" title="Permanent link">&para;</a></h3>
+<p>Code tabs display code much like <code>code-examples</code> with the added advantage of displaying multiple code samples within a tabbed interface.
+Each tab displays code using a <code>code-pane</code>.</p>
+<h4 id="code-tabs-attributes"><code>code-tabs</code> attributes<a class="headerlink" href="#code-tabs-attributes" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>linenums</code>: The value can be <code>true</code>, <code>false</code>, or a number indicating the starting line number.
+The default is <code>false</code>.</li>
+</ul>
+<h4 id="code-pane-attributes"><code>code-pane</code> attributes<a class="headerlink" href="#code-pane-attributes" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th align="left">Attributes</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>path</code></td>
+<td align="left">A file in the <code>content/examples</code> folder</td>
+</tr>
+<tr>
+<td align="left"><code>header</code></td>
+<td align="left">What displays in the header of a tab</td>
+</tr>
+<tr>
+<td align="left"><code>linenums</code></td>
+<td align="left">Overrides the <code>linenums</code> property at the <code>code-tabs</code> level for this particular pane. The value can be <code>true</code>, <code>false</code>, or a number indicating the starting line number. The default is <code>false</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>The following example displays multiple code tabs, each with its own header.
+It demonstrates showing line numbers in <code>&lt;code-tabs&gt;</code> and <code>&lt;code-pane&gt;</code>.</p>
+<p><code-tabs linenums="true"></p>
+<p><code-pane
+    header="app.component.html"
+    path="docs-style-guide/src/app/app.component.html"></code-pane>
+  <code-pane
+    header="app.component.ts"
+    path="docs-style-guide/src/app/app.component.ts"
+    linenums="false"></code-pane>
+  <code-pane
+    header="app.component.css (heroes)"
+    path="docs-style-guide/src/app/app.component.css"
+    region="heroes"></code-pane>
+    <code-pane header="hero-search/hero-search.component.html" path="toh-pt6/src/app/hero-search/hero-search.component.html"></code-pane></p>
+<p></code-tabs></p>
+<p>The <code>linenums</code> attribute set to <code>true</code> on <code>&lt;code-tabs&gt;</code> explicitly enables numbering for all panes.
+However, the <code>linenums</code> attribute set to <code>false</code> in the second <code>&lt;code-pane&gt;</code> disables line numbering only for itself.</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;code-tabs linenums="true"&gt;
+  &lt;code-pane
+    header="app.component.html"
+    path="docs-style-guide/src/app/app.component.html"&gt;
+  &lt;/code-pane&gt;
+  &lt;code-pane
+    header="app.component.ts"
+    path="docs-style-guide/src/app/app.component.ts"
+    linenums="false"&gt;
+  &lt;/code-pane&gt;
+  &lt;code-pane
+    header="app.component.css (heroes)"
+    path="docs-style-guide/src/app/app.component.css"
+    region="heroes"&gt;
+  &lt;/code-pane&gt;
+  &lt;code-pane
+    header="package.json (scripts)"
+    path="docs-style-guide/package.1.json"&gt;
+  &lt;/code-pane&gt;
+&lt;/code-tabs&gt;</p>
+<p></code-example></p>
+<p><a id="source-code-markup"></a></p>
+<h2 id="preparing-source-code-for-code-snippets">Preparing source code for code snippets<a class="headerlink" href="#preparing-source-code-for-code-snippets" title="Permanent link">&para;</a></h2>
+<p>To display  <code>&lt;code-example&gt;</code> and <code>&lt;code-tabs&gt;</code> snippets, add code snippet markup to sample source code files.</p>
+<div class="alert is-helpful">
+
+The sample source code for this page, located in `content/examples/docs-style-guide`, contains examples of every code snippet markup described in this section.
+
+</div>
+
+<p>Code snippet markup is always in the form of a comment.
+The default <code>#docregion</code> markup for a TypeScript or JavaScript file is as follows:</p>
+<p><code-example format="typescript" language="typescript"></p>
+<p>// #docregion
+&hellip; some TypeScript or JavaScript code &hellip;
+// #enddocregion</p>
+<p></code-example></p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;!-- #docregion --&gt;
+&hellip; some HTML &hellip;
+&lt;!-- #enddocregion --&gt;</p>
+<p></code-example></p>
+<p><code-example format="css" language="css"></p>
+<p>/<em> #docregion </em>/
+&hellip; some CSS &hellip;
+/<em> #enddocregion </em>/</p>
+<p></code-example></p>
+<p>The documentation generation process erases these comments before displaying them in the documentation viewer, StackBlitz, and sample code downloads.</p>
+<div class="alert is-important">
+
+Because JSON does not allow comments, code snippet markup doesn't work in JSON files.
+See the section on [JSON files](#json-files) for more information.
+
+</div>
+
+<h3 id="docregion"><code>#docregion</code><a class="headerlink" href="#docregion" title="Permanent link">&para;</a></h3>
+<p>Use <code>#docregion</code> in source files to mark code for use in <code>&lt;code-example&gt;</code> or <code>&lt;code-tabs&gt;</code> components.</p>
+<p>The <code>#docregion</code> comment begins a code snippet region.
+Every line of code after that comment belongs in the region until the code fragment processor encounters the end of the file or a closing <code>#enddocregion</code>.</p>
+<p>The following <code>src/main.ts</code> is an example of a file with a single <code>#docregion</code> at the top of the file.</p>
+<p><code-example header="src/main.ts" path="docs-style-guide/src/main.ts"></code-example></p>
+<p>As a result, the entire file is in the <code>&lt;code-example&gt;</code>.</p>
+<h3 id="naming-a-docregion">Naming a <code>#docregion</code><a class="headerlink" href="#naming-a-docregion" title="Permanent link">&para;</a></h3>
+<p>To display multiple snippets from different fragments within the same file, give each fragment its own <code>#docregion</code> name as follows, where <code>your-region-name</code> is a hyphenated lowercase string:</p>
+<p><code-example format="typescript" language="typescript"></p>
+<p>// #docregion your-region-name
+&hellip; some code &hellip;
+// #enddocregion your-region-name</p>
+<p></code-example></p>
+<p>Reference this region by name in the <code>region</code> attribute of the <code>&lt;code-example&gt;</code> or <code>&lt;code-pane&gt;</code> as follows:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;code-example
+  path="your-example-app/src/app/your-file.ts"
+  region="your-region-name"&gt;&lt;/code-example&gt;</p>
+<p></code-example></p>
+<p>Because the <code>#docregion</code> with no name is the default region, you do not need to set the <code>region</code> attribute when referring to the default <code>#docregion</code>.</p>
+<h3 id="nesting-a-docregion">Nesting a <code>#docregion</code><a class="headerlink" href="#nesting-a-docregion" title="Permanent link">&para;</a></h3>
+<p>Place a <code>#docregion</code> within another <code>#docregion</code> as in the following example with a nested <code>inner-region</code>:</p>
+<p><code-example format="typescript" language="typescript"></p>
+<p>// #docregion
+&hellip; some code &hellip;
+// #docregion inner-region
+&hellip; more code &hellip;
+// #enddocregion inner-region
+&hellip; yet more code &hellip;
+/// #enddocregion</p>
+<p></code-example></p>
+<h3 id="combining-code-fragments">Combining code fragments<a class="headerlink" href="#combining-code-fragments" title="Permanent link">&para;</a></h3>
+<p>Combine several fragments from the same file into a single code snippet by defining multiple <code>#docregion</code> sections with the same region name.
+The following example defines two nested <code>#docregion</code> sections.</p>
+<p>The inner region, <code>class-skeleton</code>, appears twice &mdash;once to capture the code that opens the class definition and a second time to capture the code that closes the class definition.</p>
+<p><code-example format="typescript" header="src/app/app.component.ts" language="typescript"></p>
+<p>// #docplaster
+&hellip;
+// #docregion class, class-skeleton
+export class AppComponent {
+// #enddocregion class-skeleton
+  title = 'Authors Style Guide Sample';
+  heroes = HEROES;
+  selectedHero: Hero;</p>
+<p>onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
+// #docregion class-skeleton
+}
+// #enddocregion class, class-skeleton</p>
+<p></code-example></p>
+<p>The <code>#docplaster</code> marker tells the processor what text string to use &mdash;that is, the "plaster"&mdash; to join each of the fragments into a single snippet.
+Place the "plaster" text on the same line.
+For example, <code>#docplaster ---</code> would use <code>---</code> as the "plaster" text.
+In the case of the previous file, the "plaster" text is empty so there will be nothing in between each fragment.</p>
+<p>Without <code>#docplaster</code>, the processor inserts the default plaster &mdash;an ellipsis comment&mdash; between the fragments.</p>
+<p>Here are the two corresponding code snippets for side-by-side comparison.</p>
+<p><code-tabs>
+    <code-pane header="app.component.ts (class #docregion)" path="docs-style-guide/src/app/app.component.ts" region="class"></code-pane>
+    <code-pane header="app.component.ts (class-skeleton #docregion)" path="docs-style-guide/src/app/app.component.ts" region="class-skeleton"></code-pane>
+</code-tabs></p>
+<p>The above example also demonstrates that one <code>#docregion</code> or <code>#enddocregion</code> comment can specify two region names, which is a convenient way to start or stop multiple regions on the same code line.
+Alternatively, you could put these comments on separate lines as in the following example:</p>
+<p><code-example header="src/app/app.component.ts"></p>
+<p>// #docplaster
+&hellip;
+// #docregion class
+// #docregion class-skeleton
+export class AppComponent {
+// #enddocregion class-skeleton
+  title = 'Authors Style Guide Sample';
+  heroes = HEROES;
+  selectedHero: Hero;</p>
+<p>onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
+// #docregion class-skeleton
+}
+// #enddocregion class
+// #enddocregion class-skeleton</p>
+<p></code-example></p>
+<h3 id="json-files">JSON files<a class="headerlink" href="#json-files" title="Permanent link">&para;</a></h3>
+<p>The <code>&lt;code-example&gt;</code> component cannot display portions of a JSON file because JSON forbids comments.
+However, you can display an entire JSON file by referencing it in the <code>&lt;code-example&gt;</code> <code>src</code> attribute.</p>
+<p>For large JSON files, you could copy the nodes-of-interest into Markdown backticks, but as it's easy to mistakenly create invalid JSON that way, consider creating a JSON partial file with the fragment you want to display.</p>
+<p>You can't test a partial file nor use it in the application, but at least your editor can confirm that it is syntactically correct.
+You can also store the partial file next to the original, so it is more likely that the author will remember to keep the two in sync.</p>
+<p>Here's an example that excerpts certain scripts from <code>package.json</code> into a partial file named <code>package.1.json</code>.</p>
+<p><code-example header="package.json (selected scripts)" path="docs-style-guide/package.1.json"></code-example></p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;code-example header="package.json (selected scripts)" path="docs-style-guide/package.1.json"&gt;&lt;/code-example&gt;</p>
+<p></code-example></p>
+<p>In some cases, it is preferable to use the name of the full file rather than the partial.
+In this case, the full file is <code>package.json</code> and the partial file is <code>package.1.json</code>.
+Since the focus is generally on the full file rather than the partial, using the name of the file the reader edits, in this example <code>package.json</code>, clarifies which file to work in.</p>
+<h3 id="partial-file-naming">Partial file naming<a class="headerlink" href="#partial-file-naming" title="Permanent link">&para;</a></h3>
+<p>The step-by-step nature of the guides necessitate refactoring, which means there are code snippets that evolve through a guide.</p>
+<p>Use partial files to demonstrate intermediate versions of the final source code with fragments of code that don't appear in the final app.
+The sample naming convention adds a number before the file extension, as follows:</p>
+<p><code-example format="html" language="html"></p>
+<p>package.1.json
+app.component.1.ts
+app.component.2.ts</p>
+<p></code-example></p>
+<p>Remember to exclude these files from StackBlitz by listing them in the <code>stackblitz.json</code> as illustrated here:</p>
+<p><code-example header="stackblitz.json" path="docs-style-guide/stackblitz.json"></code-example></p>
+<h3 id="source-code-styling">Source code styling<a class="headerlink" href="#source-code-styling" title="Permanent link">&para;</a></h3>
+<p>Source code should follow <a href="guide/styleguide">Angular's style guide</a> where possible.</p>
+<h4 id="hexadecimals">Hexadecimals<a class="headerlink" href="#hexadecimals" title="Permanent link">&para;</a></h4>
+<p>Hexadecimal should use the shorthand where possible, and use only lowercase letters.</p>
+<p><a id="live-examples"></a></p>
+<h2 id="live-examples">Live examples<a class="headerlink" href="#live-examples" title="Permanent link">&para;</a></h2>
+<p>Adding <code>&lt;live-example&gt;&lt;/live-example&gt;</code> to a page generates two default links:
+<live-example></live-example>.</p>
+<p>The first is a link to the StackBlitz example, which the default <code>stackblitz.json</code> file defines.
+You can find the <code>stackblitz.json</code> file in the <code>content/examples/example-app</code> directory, where <code>example-app</code> is the sample application folder you're using for the guide.</p>
+<p>By default, the documentation generator uses the name of the guide as the name of the example.
+So, if you're working on <code>router.md</code>, and use <code>&lt;live-example&gt;&lt;/live-example&gt;</code> in the document, the documentation generator looks for <code>content/examples/router</code>.
+Clicking this link opens the code sample on StackBlitz in a new browser tab.</p>
+<p>The second link downloads the sample app.</p>
+<p>Define live examples by one or more <code>stackblitz.json</code> files in the root of a code sample folder.
+Each sample folder usually has a single unnamed definition file, the default <code>stackblitz.json</code>.</p>
+<h3 id="live-example-for-named-stackblitz">Live Example for named StackBlitz<a class="headerlink" href="#live-example-for-named-stackblitz" title="Permanent link">&para;</a></h3>
+<p>You can create additional, named definition files in the form <code>name.stackblitz.json</code>.
+The <a href="guide/testing">Testing</a> guide (<code>aio/content/guide/testing.md</code>) references a named StackBlitz file as follows:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;live-example stackblitz="specs"&gt;Tests&lt;/live-example&gt;</p>
+<p></code-example></p>
+<p>The <code>stackblitz</code> attribute value of <code>specs</code> refers to the <code>examples/testing/specs.stackblitz.json</code> file.
+If you were to leave out the <code>stackblitz</code> attribute, the default would be <code>examples/testing/stackblitz.json</code>.</p>
+<h3 id="custom-label-and-tooltip">Custom label and tooltip<a class="headerlink" href="#custom-label-and-tooltip" title="Permanent link">&para;</a></h3>
+<p>Change the appearance and behavior of the live example with attributes and classes.
+The following example gives the live example anchor a custom label and tooltip by setting the <code>title</code> attribute:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;live-example title="Live Example with title"&gt;&lt;/live-example&gt;</p>
+<p></code-example></p>
+<p>The browser renders the following:</p>
+<p><live-example title="Live Example with title"></live-example></p>
+<p>You can achieve the same effect by putting the label between the <code>&lt;live-example&gt;</code> tags:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;live-example&gt;Live example with content label&lt;/live-example&gt;</p>
+<p></code-example></p>
+<p>The browser renders the following:</p>
+<p><live-example>Live example with content label</live-example></p>
+<h3 id="live-example-from-another-guide">Live example from another guide<a class="headerlink" href="#live-example-from-another-guide" title="Permanent link">&para;</a></h3>
+<p>To link to an example in a folder where the name is not the same as the current guide page, set the <code>name</code> attribute to the name of that folder.</p>
+<p>For example, to include the <a href="guide/router">Router</a> guide example in this style guide, set the <code>name</code> attribute to <code>router</code>, that is, the name of the folder where that example resides.</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;live-example name="router"&gt;Live example from the Router guide&lt;/live-example&gt;</p>
+<p></code-example></p>
+<p><live-example name="router">Live example from the Router guide</live-example></p>
+<h3 id="live-example-without-download">Live Example without download<a class="headerlink" href="#live-example-without-download" title="Permanent link">&para;</a></h3>
+<p>To omit the download link, add the <code>noDownload</code> attribute.</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;live-example noDownload&gt;Just the StackBlitz&lt;/live-example&gt;</p>
+<p></code-example></p>
+<p>The browser renders the following:</p>
+<p><live-example noDownload>Just the StackBlitz</live-example></p>
+<h3 id="live-example-with-download-only">Live Example with download-only<a class="headerlink" href="#live-example-with-download-only" title="Permanent link">&para;</a></h3>
+<p>To omit the live StackBlitz link and only link to the download, add the <code>downloadOnly</code> attribute.</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;live-example downloadOnly&gt;Download only&lt;/live-example&gt;</p>
+<p></code-example></p>
+<p>The browser renders the following:</p>
+<p><live-example downloadOnly>Download only</live-example></p>
+<h3 id="embedded-live-example">Embedded live example<a class="headerlink" href="#embedded-live-example" title="Permanent link">&para;</a></h3>
+<p>By default, a live example link opens a StackBlitz example in a separate browser tab.
+You can embed the StackBlitz example within the guide page by adding the <code>embedded</code> attribute.</p>
+<p>For performance reasons, StackBlitz does not start right away.
+Instead, the <code>&lt;live-example&gt;</code> component renders an image.
+Clicking the image starts the process of launching the embedded StackBlitz within an <code>&lt;iframe&gt;</code>.</p>
+<p>The following is an embedded <code>&lt;live-example&gt;</code> for this guide:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;live-example embedded&gt;&lt;/live-example&gt;</p>
+<p></code-example></p>
+<p>The browser renders the following <code>&lt;iframe&gt;</code> and a <code>&lt;p&gt;</code> with a link to download the example:</p>
+<p><live-example embedded></live-example></p>
+<p><a id="anchors"></a></p>
+<h2 id="anchors">Anchors<a class="headerlink" href="#anchors" title="Permanent link">&para;</a></h2>
+<p>Every section header is also an anchor point.
+Another guide page could add a link to this "Anchors" section with the following:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;div class="alert is-helpful"&gt;</p>
+<p>See the &lsqb;"Anchors"&rsqb;(guide/docs-style-guide#anchors "Style Guide &mdash;Anchors") section for details.</p>
+<p>&lt;/div&gt;</p>
+<p></code-example></p>
+<p>The browser renders the following:</p>
+<div class="alert is-helpful">
+
+See the ["Anchors"](guide/docs-style-guide#anchors "Style Guide &mdash;Anchors") section for details.
+
+</div>
+
+<p>Notice that the above example includes a title of "Style Guide &mdash;Anchors".
+Use titles on anchors to create tooltips and improve UX.</p>
+<p>When navigating within a page, you can omit the page URL when specifying the link that <a href="#anchors" title="Anchors">scrolls up</a> to the beginning of this section, as in the following:</p>
+<p><code-example format="html" language="html"></p>
+<p>&hellip; the link that &lsqb;scrolls up&rsqb;(#anchors "Anchors") to &hellip;</p>
+<p></code-example></p>
+<p><a id="section-anchors"></a></p>
+<h3 id="section-header-anchors">Section header anchors<a class="headerlink" href="#section-header-anchors" title="Permanent link">&para;</a></h3>
+<p>While the documentation generator automatically creates anchors for headers based on the header wording, titles can change, which can potentially break any links to that section.</p>
+<p>To mitigate link breakage, add a custom anchor explicitly, just above the heading or text to which it applies, using the special <code>&lt;a id="name"&gt;&lt;/a&gt;</code> syntax as follows:</p>
+<p><code-example  language="html"></p>
+<p><a id="section-anchors"></a></p>
+<p>&num;&num;&num;&num; Section header anchors</p>
+<p></code-example></p>
+<p>Then reference that anchor like this:</p>
+<p><code-example format="html" language="html"></p>
+<p>This is a &lsqb;link to that custom anchor name&rsqb;(#section-anchors).</p>
+<p></code-example></p>
+<p>The browser renders the following:</p>
+<p>This is a <a href="#section-anchors">link to that custom anchor name</a>.</p>
+<p>When editing a file, don't remove any anchors.
+If you change the document structure, you can move an existing anchor within that same document without breaking a link.
+You can also add more anchors with more appropriate text.</p>
+<div class="alert is-helpful">
+
+As an alternative, you can use the HTML `<a>` tag.
+When using the `<a>` element, set the `id` attribute &mdash;rather than the `name` attribute because the documentation generator does not convert the `name` to the proper link URL.
+For example:
+
+<code-example format="html" language="html">
+
+&lt;a id="anchors"&gt;&lt;/a&gt;
+
+&num;&num; Anchors
+
+</code-example>
+
+</div>
+
+<h2 id="alerts-and-callouts">Alerts and callouts<a class="headerlink" href="#alerts-and-callouts" title="Permanent link">&para;</a></h2>
+<p>Alerts and callouts present warnings, extra detail, or references to related topics.</p>
+<p>An alert or callout should not contain anything essential to understanding the main content.
+Instructions or tutorial steps should be in the main body of a guide rather than in a subsection.</p>
+<h3 id="alerts">Alerts<a class="headerlink" href="#alerts" title="Permanent link">&para;</a></h3>
+<p>Alerts draw attention to short, important points.
+For multi-line content, see <a href="#callouts" title="callouts">callouts</a>.</p>
+<div class="alert is-helpful">
+
+See the [live examples](guide/docs-style-guide#live-examples "Live examples") section for more information.
+
+</div>
+
+<div class="alert is-helpful">
+
+**NOTE**: <br />
+At least one blank line must follow both the opening and closing `<div>` tags.
+A blank line before the closing `</div>` is conventional but not required.
+
+</div>
+
+<p><code-example format="html" language="html"></p>
+<p>&lt;div class="alert is-helpful"&gt;</p>
+<p>See the &lsqb;live examples&rsqb;(guide/docs-style-guide#live-examples "Live examples") section for more information.</p>
+<p>&lt;/div&gt;</p>
+<p></code-example></p>
+<p>There are three different levels for styling the alerts according to the importance of the content.</p>
+<p>Use the following the <code>alert</code> class along with the appropriate <code>is-helpful</code>, <code>is-important</code>, or <code>is-critical</code> CSS class, as follows:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;div class="alert is-helpful"&gt;</p>
+<p>A helpful, informational alert.</p>
+<p>&lt;/div&gt;</p>
+<p></code-example></p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;div class="alert is-important"&gt;</p>
+<p>An important alert.</p>
+<p>&lt;/div&gt;</p>
+<p></code-example></p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;div class="alert is-critical"&gt;</p>
+<p>A critical alert.</p>
+<p>&lt;/div&gt;</p>
+<p></code-example></p>
+<p>The browser renders the following:</p>
+<div class="alert is-helpful">
+
+A helpful, informational alert.
+
+</div>
+
+<div class="alert is-important">
+
+An important alert.
+
+</div>
+
+<div class="alert is-critical">
+
+A critical alert.
+
+</div>
+
+<h3 id="callouts">Callouts<a class="headerlink" href="#callouts" title="Permanent link">&para;</a></h3>
+<p>Callouts, like alerts, highlight important points.
+Use a callout when you need a header and multi-line content.</p>
+<p>If you have more than two paragraphs, consider creating a new page or making it part of the main content.</p>
+<p>Callouts use the same styling levels as alerts.</p>
+<p>Use the CSS class <code>callout</code> in conjunction with the appropriate <code>is-helpful</code>, <code>is-important</code>, or <code>is-critical</code> class.
+The following example uses the <code>is-helpful</code> class:</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;div class="callout is-helpful"&gt;</p>
+<p>&lt;header&gt;A helpful or informational point&lt;/header&gt;</p>
+<p>&ast;&ast;A helpful note&ast;&ast;.
+Use a helpful callout for information requiring explanation.
+Callouts are typically multi-line notes.
+They can also contain code snippets.</p>
+<p>&lt;/div&gt;</p>
+<p></code-example></p>
+<p>The browser renders the three styles as follows:</p>
+<div class="callout is-helpful">
+
+<header>A helpful or informational point</header>
+
+**A helpful note**.
+Use a helpful callout for information requiring explanation.
+Callouts are typically multi-line notes.
+They can also contain code snippets.
+
+</div>
+
+<div class="callout is-important">
+
+<header>An important point</header>
+
+**An important note**.
+Use an important callout for significant information requiring explanation.
+Callouts are typically multi-line notes.
+They can also contain code snippets.
+
+</div>
+
+<div class="callout is-critical">
+
+<header>A critical point</header>
+
+**A critical note**.
+Use a critical callout for compelling information requiring explanation.
+Callouts are typically multi-line notes.
+They can also contain code snippets.
+
+</div>
+
+<p>When using callouts, consider the following points:</p>
+<ul>
+<li>The callout header text style is uppercase</li>
+<li>The header does not render in the table of contents</li>
+<li>You can write the callout body in Markdown</li>
+<li>A blank line separates the <code>&lt;header&gt;</code> tag from the Markdown content</li>
+<li>Avoid using an <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code>, or <code>&lt;h6&gt;</code>, as the CSS for callouts styles the <code>&lt;header&gt;</code> element</li>
+</ul>
+<p>Use callouts sparingly to grab the user's attention.</p>
+<h2 id="trees">Trees<a class="headerlink" href="#trees" title="Permanent link">&para;</a></h2>
+<p>Use trees to represent hierarchical data such as directory structure.</p>
+<div class="filetree">
+  <div class="file">
+    sample-dir
+  </div>
+  <div class="children">
+    <div class="file">
+      src
+    </div>
+    <div class="children">
+      <div class="file">
+        app
+      </div>
+      <div class="children">
+        <div class="file">
+          app.component.ts
+        </div>
+        <div class="file">
+          app.module.ts
+        </div>
+      </div>
+      <div class="file">
+        styles.css
+      </div>
+      <div class="file">
+        tsconfig.json
+      </div>
+    </div>
+    <div class="file">
+      node_modules &hellip;
+    </div>
+    <div class="file">
+      package.json
+    </div>
+  </div>
+</div>
+
+<p>Here is the markup for this file tree.</p>
+<p><code-example format="html" language="html"></p>
+<p>&lt;div class="filetree"&gt;
+    &lt;div class="file"&gt;
+        sample-dir
+    &lt;/div&gt;
+    &lt;div class="children"&gt;
+        &lt;div class="file"&gt;
+          src
+        &lt;/div&gt;
+        &lt;div class="children"&gt;
+            &lt;div class="file"&gt;
+              app
+            &lt;/div&gt;
+            &lt;div class="children"&gt;
+                &lt;div class="file"&gt;
+                  app.component.ts
+                &lt;/div&gt;
+                &lt;div class="file"&gt;
+                  app.module.ts
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="file"&gt;
+              styles.css
+            &lt;/div&gt;
+            &lt;div class="file"&gt;
+              tsconfig.json
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="file"&gt;
+          node_modules &hellip;
+        &lt;/div&gt;
+        &lt;div class="file"&gt;
+          package.json
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</p>
+<p></code-example></p>
+<h2 id="images">Images<a class="headerlink" href="#images" title="Permanent link">&para;</a></h2>
+<p>Store images in the <code>content/images/guide</code> directory in a folder with the <strong>same name</strong> as the guide page.
+Because Angular documentation generation copies these images to <code>generated/images/guide/your-guide-directory</code>, set the image <code>src</code> attribute to the runtime location of <code>generated/images/guide/your-guide-directory</code>.</p>
+<p>For example, images for this "Angular documentation style guide" are in the <code>content/images/guide/docs-style-guide</code> folder, but the <code>src</code> attribute specifies the <code>generated</code> location.</p>
+<p>The following is the <code>src</code> attribute for the "flying hero" image belonging to this guide:</p>
+<p><code-example format="html" language="html"></p>
+<p>src="generated/images/guide/docs-style-guide/flying-hero.png"</p>
+<p></code-example></p>
+<div class="callout is-important">
+
+<header>Use the HTML <code>&lt;img&gt;</code> tag</header>
+
+Specify images using the `<img>` tag.
+**Do not use the Markdown image syntax, `![... ](... )`.**
+
+For accessibility, always set the `alt` attribute with a meaningful description of the image.
+
+Nest the `<img>` tag within a `<div class="lightbox">` tag, which styles the image according to the documentation standard.
+
+<code-example format="html" language="html">
+
+&lt;div class="lightbox"&gt;
+
+&lt;img alt="flying hero" src="generated/images/guide/docs-style-guide/flying-hero.png"&gt;
+
+&lt;/div&gt;
+
+</code-example>
+
+<div class="alert is-helpful">
+
+**NOTE**: <br />
+The HTML `<img>` element does not have a closing tag.
+
+</div>
+
+The browser renders the following:
+<div class="lightbox">
+
+<img alt="flying hero" src="generated/images/guide/docs-style-guide/flying-hero.png">
+
+</div>
+
+</div>
+
+### Image captions and figure captions
+
+A caption appears underneath the image as a concise and comprehensive summary of the image.
+Captions are optional unless you are using numbered figures, such as Figure 1, Figure 2, and so on.
+If you are using numbered figures in a page, follow the guidelines in [Figure captions](https://developers.google.com/style/images#figure-captions) in the Google Developer Documentation Style Guide.
+
+### Image dimensions
+
+The doc generator reads the image dimensions from an image file and adds `width` and `height` attributes to the `<img>` tag automatically.
+
+To control the size of the image, supply your own `width` and `height` attributes.
+
+Here's the "flying hero" markup with a 200px width:
+
+<code-example format="html" language="html">
+
+&lt;div class="lightbox"&gt;
+
+&lt;img alt="flying Angular hero"
+     src="generated/images/guide/docs-style-guide/flying-hero.png"
+     width="200"&gt;
+
+&lt;/div&gt;
+
+</code-example>
+
+The browser renders the following:
+
+<div class="lightbox">
+
+<img alt="flying Angular hero"
+     src="generated/images/guide/docs-style-guide/flying-hero.png"
+     width="200">
+
+</div>
+
+### Wide images
+
+To prevent images overflowing their viewports, **use image widths under 700px**.
+To display a larger image, provide a link to the actual image that the user can click to see the full size image separately, as in this example of `source-map-explorer` output from the "Ahead-of-time Compilation" guide:
+
+<a href="generated/images/guide/docs-style-guide/toh-pt6-bundle.png" title="Click to view larger image">
+
+<div class="lightbox">
+
+<img alt="toh-pt6-bundle" src="generated/images/guide/docs-style-guide/toh-pt6-bundle-700w.png" width="300px">
+
+</div>
+
+</a>
+
+The following is the HTML for creating a link to the image:
+
+<code-example format="html" language="html">
+
+&lt;a href="generated/images/guide/docs-style-guide/toh-pt6-bundle.png" title="Click to view larger image"&gt;
+
+&lt;div class="lightbox"&gt;
+
+&lt;img alt="toh-pt6-bundle" src="generated/images/guide/docs-style-guide/toh-pt6-bundle-700w.png" width="300px"&gt;
+
+&lt;/div&gt;
+
+&lt;/a&gt;
+
+</code-example>
+
+### Image compression
+
+For faster load times, always compress images.
+Consider using an image compression web site such as [tinypng](https://tinypng.com/ "tinypng").
+
+### Floated images
+
+You can float the image to the left or right of text by applying the `class="left"` or `class="right"` attributes respectively.
+For example:
+
+<code-example format="html" language="html">
+
+&lt;img alt="flying Angular hero"
+     class="left"
+     src="generated/images/guide/docs-style-guide/flying-hero.png"
+     width="200"&gt;
+
+This text wraps around to the right of the floating "flying hero" image.
+
+Headings and code-examples automatically clear a floated image.
+If you need to force a piece of text to clear a floating image, add &grave;&lt;br class="clear"&gt;&grave; where the text should break.
+
+&lt;br class="clear"&gt;
+
+</code-example>
+
+The browser renders the following:
+
+<img alt="flying Angular hero"
+     class="left"
+     src="generated/images/guide/docs-style-guide/flying-hero.png"
+     width="200">
+
+This text wraps around to the right of the floating "flying hero" image.
+
+Headings and `<code-example>` components automatically clear a floated image.
+To explicitly clear a floated image, add `<br class="clear">` where the text should break.
+
+<br class="clear">
+
+Generally, you don't wrap a floated image in a `<figure>` element.
+
+### Floats within a subsection
+
+If you have a floated image inside an alert, callout, or a subsection, apply the `clear-fix` class to the `<div>` to ensure that the image doesn't overflow its container.
+For example:
+
+<code-example format="html" language="html">
+
+&lt;div class="alert is-helpful clear-fix"&gt;
+
+&lt;img alt="flying Angular hero"
+     src="generated/images/guide/docs-style-guide/flying-hero.png"
+     class="right"
+     width="100"&gt;
+
+A subsection with **Markdown** formatted text.
+
+&lt;/div&gt;
+
+</code-example>
+
+The browser renders the following:
+
+<div class="alert is-helpful clear-fix">
+
+<img alt="flying Angular hero"
+     class="right"
+     src="generated/images/guide/docs-style-guide/flying-hero.png"
+     width="100">
+
+A subsection with **Markdown** formatted text.
+
+</div>
+
+## Help with documentation style
+
+For specific language and grammar usage, a word list, style, tone, and formatting recommendations, see the [Google Developer Documentation Style Guide](https://developers.google.com/style).
+
+If you have any questions that this style guide doesn't answer or you would like to discuss documentation styles, see the [Angular repo](https://github.com/angular/angular) and [file a documentation issue](https://github.com/angular/angular/issues/new/choose).
+
+<!-- links -->
+
+<!-- external links -->
+
+<!-- end links -->
+
+@reviewed 2022-02-28
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../doc-edit-finish/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Finish up a documentation pull request" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              Finish up a documentation pull request
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../localizing-angular/" class="md-footer__link md-footer__link--next" aria-label="下一页: Angular doc localization guidelines" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              Angular doc localization guidelines
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      版权 &copy; 2022 -  wdk-docs.github.io
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="http://wdk-docs.github.io" target="_blank" rel="noopener" title="wdk-docs.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/wdk-docs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/wdk-docs" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://linkedin.com/in/wdk-docs" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tabs", "navigation.tracking", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

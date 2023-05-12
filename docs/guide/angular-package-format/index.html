@@ -1,0 +1,6089 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Angular 中文文档">
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Angular包格式 - Angualr 文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#angular-package-format" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Angualr 文档" class="md-header__button md-logo" aria-label="Angualr 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Angualr 文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Angular包格式
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/wdk-docs/angular-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wdk-docs/angular-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../what-is-angular/" class="md-tabs__link">
+        入门
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../understanding-angular-overview/" class="md-tabs__link">
+        了解 Angular
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../developer-guide-overview/" class="md-tabs__link md-tabs__link--active">
+        开发者指南
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../security/" class="md-tabs__link">
+        最佳实践
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../deployment/" class="md-tabs__link">
+        Angular 工具
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorial/" class="md-tabs__link">
+        手册
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../update-to-version-16/" class="md-tabs__link">
+        更新和发布
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../architecture/" class="md-tabs__link">
+        参考
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../contributors-guide-overview/" class="md-tabs__link">
+        文档贡献者指南
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Angualr 文档" class="md-nav__button md-logo" aria-label="Angualr 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Angualr 文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/wdk-docs/angular-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wdk-docs/angular-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          入门
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="入门" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-angular/" class="md-nav__link">
+        什么是Angular?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          试用
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="试用" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          试用
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/start-routing/" class="md-nav__link">
+        Adding navigation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/start-data/" class="md-nav__link">
+        Managing data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/start-forms/" class="md-nav__link">
+        Using forms for user input
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/start-deployment/" class="md-nav__link">
+        Deploying an application
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-local/" class="md-nav__link">
+        Setup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          了解 Angular
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="了解 Angular" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          了解 Angular
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../understanding-angular-overview/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          组件
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="组件" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          组件
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component-overview/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lifecycle-hooks/" class="md-nav__link">
+        组件生命周期
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../view-encapsulation/" class="md-nav__link">
+        View encapsulation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component-interaction/" class="md-nav__link">
+        Component interaction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component-styles/" class="md-nav__link">
+        Component styles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inputs-outputs/" class="md-nav__link">
+        Sharing data between child and parent directives and components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-projection/" class="md-nav__link">
+        Content projection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dynamic-component-loader/" class="md-nav__link">
+        Dynamic components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elements/" class="md-nav__link">
+        Angular elements
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          模版
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="模版" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          模版
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-syntax/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interpolation/" class="md-nav__link">
+        Text interpolation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-statements/" class="md-nav__link">
+        Template statements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_5" type="checkbox" id="__nav_2_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_5">
+          Binding
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Binding" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Binding
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binding-overview/" class="md-nav__link">
+        Understanding binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../property-binding/" class="md-nav__link">
+        Property binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../attribute-binding/" class="md-nav__link">
+        Attribute binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-binding/" class="md-nav__link">
+        Class and style binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event-binding/" class="md-nav__link">
+        Event binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../two-way-binding/" class="md-nav__link">
+        Two-way binding
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_6" type="checkbox" id="__nav_2_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_6">
+          Pipes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Pipes" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Pipes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipes-overview/" class="md-nav__link">
+        Understanding pipes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipe-template/" class="md-nav__link">
+        Using a pipe in a template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipes-transform-data/" class="md-nav__link">
+        Transforming data with parameters and chained pipes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-reference-variables/" class="md-nav__link">
+        Template reference variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../svg-in-templates/" class="md-nav__link">
+        SVG as templates
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          指令
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="指令" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          指令
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../built-in-directives/" class="md-nav__link">
+        Built-in directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../attribute-directives/" class="md-nav__link">
+        Attribute directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structural-directives/" class="md-nav__link">
+        Structural directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../directive-composition-api/" class="md-nav__link">
+        Directive composition API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          依赖注入
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="依赖注入" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          依赖注入
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-injection-overview/" class="md-nav__link">
+        Dependency injection in Angular
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-injection/" class="md-nav__link">
+        Understanding dependency injection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-injectable-service/" class="md-nav__link">
+        Creating an injectable service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-injection-providers/" class="md-nav__link">
+        Defining dependency providers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hierarchical-dependency-injection/" class="md-nav__link">
+        Hierarchical injectors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          开发者指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="开发者指南" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          开发者指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-guide-overview/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          独立的
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="独立的" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          独立的
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standalone-components/" class="md-nav__link">
+        独立的组件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standalone-migration/" class="md-nav__link">
+        迁移到独立模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          变化检测
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="变化检测" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          变化检测
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-detection/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-detection-zone-pollution/" class="md-nav__link">
+        Zone pollution
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-detection-slow-computations/" class="md-nav__link">
+        Slow computations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-detection-skipping-subtrees/" class="md-nav__link">
+        Skipping component subtrees
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          路由与导航
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="路由与导航" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          路由与导航
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routing-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../router/" class="md-nav__link">
+        Common routing tasks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../router-tutorial/" class="md-nav__link">
+        Tutorial: routing in single-page applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routing-with-urlmatcher/" class="md-nav__link">
+        Tutorial: creating custom route matches
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../router-tutorial-toh/" class="md-nav__link">
+        Tutorial: adding routing to Tour of Heroes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../router-reference/" class="md-nav__link">
+        Router reference
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          表单
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="表单" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          表单
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forms-overview/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reactive-forms/" class="md-nav__link">
+        Reactive forms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typed-forms/" class="md-nav__link">
+        Strictly typed reactive forms in depth
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../form-validation/" class="md-nav__link">
+        Validate form input
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dynamic-form/" class="md-nav__link">
+        Building dynamic forms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../esbuild/" class="md-nav__link">
+        esbuild-based 构建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../http/" class="md-nav__link">
+        HTTP client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hydration/" class="md-nav__link">
+        Hydration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../image-directive/" class="md-nav__link">
+        图像优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_10" type="checkbox" id="__nav_3_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_10">
+          测试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="测试" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_10">
+          <span class="md-nav__icon md-icon"></span>
+          测试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        Intro to testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-code-coverage/" class="md-nav__link">
+        Code coverage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-services/" class="md-nav__link">
+        Testing services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-components-basics/" class="md-nav__link">
+        Basics of testing components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-components-scenarios/" class="md-nav__link">
+        Component testing scenarios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-attribute-directives/" class="md-nav__link">
+        Testing attribute directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-pipes/" class="md-nav__link">
+        Testing pipes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test-debugging/" class="md-nav__link">
+        Debugging tests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-utility-apis/" class="md-nav__link">
+        Testing utility APIs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11" type="checkbox" id="__nav_3_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_11">
+          国际化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="国际化" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_11">
+          <span class="md-nav__icon md-icon"></span>
+          国际化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11_2" type="checkbox" id="__nav_3_11_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_11_2">
+          Common internationalization tasks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Common internationalization tasks" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Common internationalization tasks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-add-package/" class="md-nav__link">
+        Add the localize package
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-locale-id/" class="md-nav__link">
+        Refer to locales by ID
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-format-data-locale/" class="md-nav__link">
+        Format data based on locale
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-prepare/" class="md-nav__link">
+        Prepare component for translation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-translation-files/" class="md-nav__link">
+        Work with translation files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-merge/" class="md-nav__link">
+        Merge translations into the app
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-common-deploy/" class="md-nav__link">
+        Deploy multiple locales
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-example/" class="md-nav__link">
+        Example Angular application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11_4" type="checkbox" id="__nav_3_11_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_11_4">
+          Optional internationalization practices
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Optional internationalization practices" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_11_4">
+          <span class="md-nav__icon md-icon"></span>
+          Optional internationalization practices
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-optional-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-optional-manual-runtime-locale/" class="md-nav__link">
+        Set the runtime locale manually
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-optional-import-global-variants/" class="md-nav__link">
+        Import global variants of the locale data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-optional-manage-marked-text/" class="md-nav__link">
+        Manage marked text with custom IDs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_12" type="checkbox" id="__nav_3_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_12">
+          动画
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="动画" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_12">
+          <span class="md-nav__icon md-icon"></span>
+          动画
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../animations/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transition-and-triggers/" class="md-nav__link">
+        Transition and Triggers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../complex-animation-sequences/" class="md-nav__link">
+        Complex Sequences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reusable-animations/" class="md-nav__link">
+        Reusable Animations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../route-animations/" class="md-nav__link">
+        Route transition animations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_13" type="checkbox" id="__nav_3_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_13">
+          Service Workers & PWA
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Service Workers & PWA" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_13">
+          <span class="md-nav__icon md-icon"></span>
+          Service Workers & PWA
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-getting-started/" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-shell/" class="md-nav__link">
+        App shell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-communications/" class="md-nav__link">
+        Service worker communication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-notifications/" class="md-nav__link">
+        Service worker notifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-devops/" class="md-nav__link">
+        Service worker in production
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-worker-config/" class="md-nav__link">
+        Service worker configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-worker/" class="md-nav__link">
+        Web workers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../universal/" class="md-nav__link">
+        服务器端渲染
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerendering/" class="md-nav__link">
+        Prerendering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_17" type="checkbox" id="__nav_3_17" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_17">
+          Angular 库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular 库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_17">
+          <span class="md-nav__icon md-icon"></span>
+          Angular 库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/" class="md-nav__link">
+        库概况
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-libraries/" class="md-nav__link">
+        使用已发布的库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-libraries/" class="md-nav__link">
+        创建库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Angular包格式
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Angular包格式
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-specify-a-package-format" class="md-nav__link">
+    Why specify a package format?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-layout" class="md-nav__link">
+    File layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packagejson" class="md-nav__link">
+    package.json
+  </a>
+  
+    <nav class="md-nav" aria-label="package.json">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esm-declaration" class="md-nav__link">
+    ESM declaration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exports" class="md-nav__link">
+    "exports"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legacy-resolution-keys" class="md-nav__link">
+    Legacy resolution keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#side-effects" class="md-nav__link">
+    Side effects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entrypoints-and-code-splitting" class="md-nav__link">
+    Entrypoints and code splitting
+  </a>
+  
+    <nav class="md-nav" aria-label="Entrypoints and code splitting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resolution-of-secondary-entry-points" class="md-nav__link">
+    Resolution of secondary entry points
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readmemd" class="md-nav__link">
+    README.md
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partial-compilation" class="md-nav__link">
+    Partial compilation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimizations" class="md-nav__link">
+    Optimizations
+  </a>
+  
+    <nav class="md-nav" aria-label="Optimizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flattening-of-es-modules" class="md-nav__link">
+    Flattening of ES modules
+  </a>
+  
+    <nav class="md-nav" aria-label="Flattening of ES modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-about-the-defaults-in-packagejson" class="md-nav__link">
+    Note about the defaults in package.json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sideeffects-flag" class="md-nav__link">
+    "sideEffects" flag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#es2022-language-level" class="md-nav__link">
+    ES2022 language level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dts-bundling-type-definition-flattening" class="md-nav__link">
+    d.ts bundling / type definition flattening
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tslib" class="md-nav__link">
+    Tslib
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definition-of-terms" class="md-nav__link">
+    Definition of terms
+  </a>
+  
+    <nav class="md-nav" aria-label="Definition of terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#package" class="md-nav__link">
+    Package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symbol" class="md-nav__link">
+    Symbol
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module" class="md-nav__link">
+    Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esm" class="md-nav__link">
+    ESM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fesm" class="md-nav__link">
+    FESM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-id" class="md-nav__link">
+    Module ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-specifier" class="md-nav__link">
+    Module specifier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-resolution-strategy" class="md-nav__link">
+    Module resolution strategy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-format" class="md-nav__link">
+    Module format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bundle" class="md-nav__link">
+    Bundle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language-level" class="md-nav__link">
+    Language level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entry-point" class="md-nav__link">
+    Entry point
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-import" class="md-nav__link">
+    Deep import
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top-level-import" class="md-nav__link">
+    Top-Level import
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tree-shaking" class="md-nav__link">
+    Tree-shaking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aot-compiler" class="md-nav__link">
+    AOT compiler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flattened-type-definitions" class="md-nav__link">
+    Flattened type definitions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_18" type="checkbox" id="__nav_3_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_18">
+          预览功能
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="预览功能" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_18">
+          <span class="md-nav__icon md-icon"></span>
+          预览功能
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signals/" class="md-nav__link">
+        信号
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rxjs-interop/" class="md-nav__link">
+        RxJS信号互操作
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          最佳实践
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="最佳实践" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          最佳实践
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accessibility/" class="md-nav__link">
+        可访问性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updating/" class="md-nav__link">
+        保持最新的
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../property-binding-best-practices/" class="md-nav__link">
+        属性绑定最佳实践
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lazy-loading-ngmodules/" class="md-nav__link">
+        懒加载功能模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lightweight-injection-tokens/" class="md-nav__link">
+        库的轻量级注入令牌
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Angular 工具
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular 工具" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Angular 工具
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Development workflow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Development workflow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Development workflow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        Deploying applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_2" type="checkbox" id="__nav_5_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_2">
+          AOT compiler
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AOT compiler" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          AOT compiler
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aot-compiler/" class="md-nav__link">
+        Ahead-of-Time compilation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../angular-compiler-options/" class="md-nav__link">
+        Angular compiler options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aot-metadata-errors/" class="md-nav__link">
+        AOT metadata errors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-typecheck/" class="md-nav__link">
+        Template type-checking
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build/" class="md-nav__link">
+        Building & serving
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-builder/" class="md-nav__link">
+        CLI builders
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../language-service/" class="md-nav__link">
+        Language service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devtools/" class="md-nav__link">
+        DevTools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5">
+          Schematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schematics" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Schematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schematics/" class="md-nav__link">
+        Schematics Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schematics-authoring/" class="md-nav__link">
+        Authoring schematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schematics-for-libraries/" class="md-nav__link">
+        Schematics for libraries
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          手册
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="手册" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          手册
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        Angular tutorials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Tutorial: Your first Angular app
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial: Your first Angular app" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial: Your first Angular app
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-01/" class="md-nav__link">
+        Hello world
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-02/" class="md-nav__link">
+        Create home component
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-03/" class="md-nav__link">
+        Create housing location component
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-04/" class="md-nav__link">
+        Create an interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-05/" class="md-nav__link">
+        Add inputs to components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-06/" class="md-nav__link">
+        Add property binding to components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-07/" class="md-nav__link">
+        Add dynamic values to templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-08/" class="md-nav__link">
+        Use *ngFor in templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-09/" class="md-nav__link">
+        Angular services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-10/" class="md-nav__link">
+        Add routing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-11/" class="md-nav__link">
+        Customize the details page
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-12/" class="md-nav__link">
+        Integrate Angular forms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-13/" class="md-nav__link">
+        Add search functionality
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/first-app/first-app-lesson-14/" class="md-nav__link">
+        Add HTTP communication
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Tutorial: Tour of Heroes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial: Tour of Heroes" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial: Tour of Heroes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt0/" class="md-nav__link">
+        Create a project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt1/" class="md-nav__link">
+        1. The hero editor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt2/" class="md-nav__link">
+        2. Display a list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt3/" class="md-nav__link">
+        3. Create a feature component
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt4/" class="md-nav__link">
+        4. Add services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt5/" class="md-nav__link">
+        5. Add navigation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/tour-of-heroes/toh-pt6/" class="md-nav__link">
+        6. Get data from a server
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forms/" class="md-nav__link">
+        Building a template-driven form
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          更新和发布
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="更新和发布" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          更新和发布
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../update-to-version-16/" class="md-nav__link">
+        Update Angular to the latest version
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        Roadmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../releases/" class="md-nav__link">
+        Release practices
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versions/" class="md-nav__link">
+        Version compatibility
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../browser-support/" class="md-nav__link">
+        Browser support
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deprecations/" class="md-nav__link">
+        Deprecations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_7" type="checkbox" id="__nav_7_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_7">
+          Upgrading from AngularJS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Upgrading from AngularJS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_7">
+          <span class="md-nav__icon md-icon"></span>
+          Upgrading from AngularJS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrade/" class="md-nav__link">
+        Upgrade instructions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrade-setup/" class="md-nav__link">
+        Setup for upgrading from AngularJS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrade-performance/" class="md-nav__link">
+        Upgrading for performance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ajs-quick-reference/" class="md-nav__link">
+        AngularJS to Angular concepts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          参考
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="参考" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          参考
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Conceptual reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Conceptual reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Conceptual reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_1" type="checkbox" id="__nav_8_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_1">
+          Angular concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular concepts" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Angular concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        Intro to basic concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture-modules/" class="md-nav__link">
+        Intro to modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture-components/" class="md-nav__link">
+        Intro to components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture-next-steps/" class="md-nav__link">
+        Next steps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binding-syntax/" class="md-nav__link">
+        Binding syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event-binding-concepts/" class="md-nav__link">
+        How event binding works
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-reference-variables/" class="md-nav__link">
+        Template variables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_2" type="checkbox" id="__nav_8_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_2">
+          Workspace and project structure
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workspace and project structure" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Workspace and project structure
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-structure/" class="md-nav__link">
+        Project file structure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace-config/" class="md-nav__link">
+        Workspace configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../npm-packages/" class="md-nav__link">
+        npm dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typescript-configuration/" class="md-nav__link">
+        TypeScript configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strict-mode/" class="md-nav__link">
+        Strict mode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_3" type="checkbox" id="__nav_8_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_3">
+          NgModules
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NgModules" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          NgModules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngmodules/" class="md-nav__link">
+        NgModules introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngmodule-vs-jsmodule/" class="md-nav__link">
+        JS Modules vs NgModules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bootstrapping/" class="md-nav__link">
+        Launching apps with a root module
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frequent-ngmodules/" class="md-nav__link">
+        Frequently used NgModules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-types/" class="md-nav__link">
+        Types of feature modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feature-modules/" class="md-nav__link">
+        Feature modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/" class="md-nav__link">
+        Providing dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../singleton-services/" class="md-nav__link">
+        Singleton services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sharing-ngmodules/" class="md-nav__link">
+        Sharing NgModules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngmodule-api/" class="md-nav__link">
+        NgModule API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngmodule-faq/" class="md-nav__link">
+        NgModule FAQs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_4" type="checkbox" id="__nav_8_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_4">
+          Observables & RxJS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Observables & RxJS" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Observables & RxJS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observables/" class="md-nav__link">
+        Observables overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rx-library/" class="md-nav__link">
+        The RxJS library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observables-in-angular/" class="md-nav__link">
+        Observables in Angular
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-observable-usage/" class="md-nav__link">
+        Practical usage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparing-observables/" class="md-nav__link">
+        Compare to other techniques
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1_5" type="checkbox" id="__nav_8_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1_5">
+          Dependency injection
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dependency injection" data-md-level="3">
+        <label class="md-nav__title" for="__nav_8_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Dependency injection
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-injection-in-action/" class="md-nav__link">
+        DI in action
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" type="checkbox" id="__nav_8_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_2">
+          CLI Command Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CLI Command Reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_2">
+          <span class="md-nav__icon md-icon"></span>
+          CLI Command Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Error reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Error reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Error reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../errors/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_4" type="checkbox" id="__nav_8_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_4">
+          Extended diagnostic reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Extended diagnostic reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_4">
+          <span class="md-nav__icon md-icon"></span>
+          Extended diagnostic reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extended-diagnostics/" class="md-nav__link">
+        Extended Diagnostics Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example-apps-list/" class="md-nav__link">
+        Example applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        Angular glossary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_7" type="checkbox" id="__nav_8_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_7">
+          Angular coding style
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Angular coding style" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_7">
+          <span class="md-nav__icon md-icon"></span>
+          Angular coding style
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        Quick reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../styleguide/" class="md-nav__link">
+        Coding style guide
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          文档贡献者指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="文档贡献者指南" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          文档贡献者指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributors-guide-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2" type="checkbox" id="__nav_9_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_2">
+          Common documentation maintenance tasks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Common documentation maintenance tasks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Common documentation maintenance tasks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-tasks/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reviewing-content/" class="md-nav__link">
+        Review documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updating-search-keywords/" class="md-nav__link">
+        Update search keywords
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_3" type="checkbox" id="__nav_9_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_3">
+          Documentation editing workflow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Documentation editing workflow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_3">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation editing workflow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-update-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-prepare-to-edit/" class="md-nav__link">
+        Prepare to edit documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-select-issue/" class="md-nav__link">
+        Select a documentation issue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-update-start/" class="md-nav__link">
+        Start to edit a documentation topic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-editing/" class="md-nav__link">
+        Make and save changes to a documentation topic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs-lint-errors/" class="md-nav__link">
+        Resolve documentation linter messages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-build-test/" class="md-nav__link">
+        Build and test documentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-pr-prep/" class="md-nav__link">
+        Prepare documentation for a pull request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-pr-open/" class="md-nav__link">
+        Open a documentation pull request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-pr-update/" class="md-nav__link">
+        Update a documentation pull request in progress
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doc-edit-finish/" class="md-nav__link">
+        Finish up a documentation pull request
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs-style-guide/" class="md-nav__link">
+        Documentation style guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../localizing-angular/" class="md-nav__link">
+        Angular doc localization guidelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../localized-documentation/" class="md-nav__link">
+        Localized documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-specify-a-package-format" class="md-nav__link">
+    Why specify a package format?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-layout" class="md-nav__link">
+    File layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packagejson" class="md-nav__link">
+    package.json
+  </a>
+  
+    <nav class="md-nav" aria-label="package.json">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esm-declaration" class="md-nav__link">
+    ESM declaration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exports" class="md-nav__link">
+    "exports"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legacy-resolution-keys" class="md-nav__link">
+    Legacy resolution keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#side-effects" class="md-nav__link">
+    Side effects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entrypoints-and-code-splitting" class="md-nav__link">
+    Entrypoints and code splitting
+  </a>
+  
+    <nav class="md-nav" aria-label="Entrypoints and code splitting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resolution-of-secondary-entry-points" class="md-nav__link">
+    Resolution of secondary entry points
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readmemd" class="md-nav__link">
+    README.md
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partial-compilation" class="md-nav__link">
+    Partial compilation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimizations" class="md-nav__link">
+    Optimizations
+  </a>
+  
+    <nav class="md-nav" aria-label="Optimizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flattening-of-es-modules" class="md-nav__link">
+    Flattening of ES modules
+  </a>
+  
+    <nav class="md-nav" aria-label="Flattening of ES modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-about-the-defaults-in-packagejson" class="md-nav__link">
+    Note about the defaults in package.json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sideeffects-flag" class="md-nav__link">
+    "sideEffects" flag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#es2022-language-level" class="md-nav__link">
+    ES2022 language level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dts-bundling-type-definition-flattening" class="md-nav__link">
+    d.ts bundling / type definition flattening
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tslib" class="md-nav__link">
+    Tslib
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definition-of-terms" class="md-nav__link">
+    Definition of terms
+  </a>
+  
+    <nav class="md-nav" aria-label="Definition of terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#package" class="md-nav__link">
+    Package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symbol" class="md-nav__link">
+    Symbol
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module" class="md-nav__link">
+    Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esm" class="md-nav__link">
+    ESM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fesm" class="md-nav__link">
+    FESM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-id" class="md-nav__link">
+    Module ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-specifier" class="md-nav__link">
+    Module specifier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-resolution-strategy" class="md-nav__link">
+    Module resolution strategy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-format" class="md-nav__link">
+    Module format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bundle" class="md-nav__link">
+    Bundle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language-level" class="md-nav__link">
+    Language level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entry-point" class="md-nav__link">
+    Entry point
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-import" class="md-nav__link">
+    Deep import
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top-level-import" class="md-nav__link">
+    Top-Level import
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tree-shaking" class="md-nav__link">
+    Tree-shaking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aot-compiler" class="md-nav__link">
+    AOT compiler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flattened-type-definitions" class="md-nav__link">
+    Flattened type definitions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/wdk-docs/angular-docs/guide/angular-package-format.md" title="编辑此页" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="angular-package-format">Angular package format<a class="headerlink" href="#angular-package-format" title="Permanent link">&para;</a></h1>
+<p>This document describes the Angular Package Format (APF).
+APF is an Angular specific specification for the structure and format of npm packages that is used by all first-party Angular packages (<code>@angular/core</code>, <code>@angular/material</code>, etc.) and most third-party Angular libraries.</p>
+<p>APF enables a package to work seamlessly under most common scenarios that use Angular.
+Packages that use APF are compatible with the tooling offered by the Angular team as well as wider JavaScript ecosystem.
+It is recommended that third-party library developers follow the same npm package format.</p>
+<div class="alert is-helpful">
+
+APF is versioned along with the rest of Angular, and every major version improves the package format.
+You can find the versions of the specification prior to v13 in this [google doc](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/preview).
+
+</div>
+
+<h2 id="why-specify-a-package-format">Why specify a package format?<a class="headerlink" href="#why-specify-a-package-format" title="Permanent link">&para;</a></h2>
+<p>In today's JavaScript landscape, developers consume packages in many different ways, using many different toolchains (Webpack, rollup, esbuild, etc.).
+These tools may understand and require different inputs - some tools may be able to process the latest ES language version, while others may benefit from directly consuming an older ES version.</p>
+<p>The Angular distribution format supports all of the commonly used development tools and workflows, and adds emphasis on optimizations that result either in smaller application payload size or faster development iteration cycle (build time).</p>
+<p>Developers can rely on Angular CLI and <a href="https://github.com/ng-packagr/ng-packagr">ng-packagr</a> (a build tool Angular CLI uses) to produce packages in the Angular package format.
+See the <a href="guide/creating-libraries">Creating Libraries</a> guide for more details.</p>
+<h2 id="file-layout">File layout<a class="headerlink" href="#file-layout" title="Permanent link">&para;</a></h2>
+<p>The following example shows a simplified version of the <code>@angular/core</code> package's file layout, with an explanation for each file in the package.</p>
+<div class='filetree'>
+    <div class='file'>
+      node_modules/@angular/core
+    </div>
+    <div class='children'>
+        <div class='file'>
+          README.md &nbsp; <!-- // &lt;-- Package README, used by npmjs web UI. -->
+        </div>
+        <div class='file'>
+          package.json &nbsp; <!-- // &lt;-- Primary package.json, describing the package itself as well as all available entrypoints and code formats. This file contains the "exports" mapping used by runtimes and tools to perform module resolution. -->
+        </div>
+        <div class='file'>
+          index.d.ts &nbsp; <!-- // &lt;-- Bundled .d.ts for the primary entrypoint &commat;angular/core. -->
+        </div>
+        <div class='file'>
+          esm2022 &nbsp; <!-- // &lt;-- Tree of &commat;angular/core sources in unflattened ES2022 format. -->
+        </div>
+        <div class='children'>
+            <div class='file'>
+              core.mjs
+            </div>
+            <div class='file'>
+              index.mjs
+            </div>
+            <div class='file'>
+              public_api.mjs
+            </div>
+            <div class='file'>
+              testing &nbsp; <!-- // &lt;-- Tree of the &commat;angular/core/testing entrypoint in unflattened ES2022 format. -->
+            </div>
+        </div>
+        <div class='file'>
+          fesm2022 &nbsp; <!-- // &lt;-- Code for all entrypoints in flattened \(FESM\) ES2022 format, along with sourcemaps. -->
+        </div>
+        <div class='children'>
+            <div class='file'>
+              core.mjs
+            </div>
+            <div class='file'>
+              core.mjs.map
+            </div>
+            <div class='file'>
+              testing.mjs
+            </div>
+            <div class='file'>
+              testing.mjs.map
+            </div>
+        </div>
+        <div class='file'>
+          testing &nbsp; <!-- // &lt;-- Directory representing the "testing" entrypoint. -->
+        </div>
+        <div class='children'>
+            <div class='file'>
+              index.d.ts &nbsp; <!-- // &lt;-- Bundled .d.ts for the &commat;angular/core/testing entrypoint. -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>This table describes the file layout under <code>node_modules/@angular/core</code> annotated to describe the purpose of files and directories:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Files</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>README.md</code></td>
+<td align="left">Package README, used by npmjs web UI.</td>
+</tr>
+<tr>
+<td align="left"><code>package.json</code></td>
+<td align="left">Primary <code>package.json</code>, describing the package itself as well as all available entrypoints and code formats. This file contains the "exports" mapping used by runtimes and tools to perform module resolution.</td>
+</tr>
+<tr>
+<td align="left"><code>index.d.ts</code></td>
+<td align="left">Bundled <code>.d.ts</code> for the primary entrypoint <code>@angular/core</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>esm2022/</code> <br /> &nbsp;&nbsp;─ <code>core.mjs</code> <br /> &nbsp;&nbsp;─ <code>index.mjs</code> <br /> &nbsp;&nbsp;─ <code>public_api.mjs</code></td>
+<td align="left">Tree of <code>@angular/core</code> sources in unflattened ES2022 format.</td>
+</tr>
+<tr>
+<td align="left"><code>esm2022/testing/</code></td>
+<td align="left">Tree of the <code>@angular/core/testing</code> entrypoint in unflattened ES2022 format.</td>
+</tr>
+<tr>
+<td align="left"><code>fesm2022/</code> <br /> &nbsp;&nbsp;─ <code>core.mjs</code> <br /> &nbsp;&nbsp;─ <code>core.mjs.map</code> <br /> &nbsp;&nbsp;─ <code>testing.mjs</code> <br /> &nbsp;&nbsp;─ <code>testing.mjs.map</code></td>
+<td align="left">Code for all entrypoints in flattened (FESM) ES2022 format, along with source maps.</td>
+</tr>
+<tr>
+<td align="left"><code>testing/</code></td>
+<td align="left">Directory representing the "testing" entrypoint.</td>
+</tr>
+<tr>
+<td align="left"><code>testing/index.d.ts</code></td>
+<td align="left">Bundled <code>.d.ts</code> for the <code>@angular/core/testing</code> entrypoint.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="packagejson"><code>package.json</code><a class="headerlink" href="#packagejson" title="Permanent link">&para;</a></h2>
+<p>The primary <code>package.json</code> contains important package metadata, including the following:</p>
+<ul>
+<li>It <a href="#esm-declaration">declares</a> the package to be in EcmaScript Module (ESM) format</li>
+<li>It contains an <a href="#exports"><code>"exports"</code> field</a> which defines the available source code formats of all entrypoints</li>
+<li>
+<p>It contains <a href="#legacy-resolution-keys">keys</a> which define the available source code formats of the primary <code>@angular/core</code> entrypoint, for tools which do not understand <code>"exports"</code>.
+    These keys are considered deprecated, and could be removed as the support for <code>"exports"</code> rolls out across the ecosystem.</p>
+</li>
+<li>
+<p>It declares whether the package contains <a href="#side-effects">side effects</a></p>
+</li>
+</ul>
+<h3 id="esm-declaration">ESM declaration<a class="headerlink" href="#esm-declaration" title="Permanent link">&para;</a></h3>
+<p>The top-level <code>package.json</code> contains the key:</p>
+<p><code-example language="javascript"></p>
+<p>{
+  "type": "module"
+}</p>
+<p></code-example></p>
+<p>This informs resolvers that code within the package is using EcmaScript Modules as opposed to CommonJS modules.</p>
+<h3 id="exports"><code>"exports"</code><a class="headerlink" href="#exports" title="Permanent link">&para;</a></h3>
+<p>The <code>"exports"</code> field has the following structure:</p>
+<p><code-example language="javascript"></p>
+<p>"exports": {
+  "./schematics/<em>": {
+    "default": "./schematics/</em>.js"
+  },
+  "./package.json": {
+    "default": "./package.json"
+  },
+  ".": {
+    "types": "./core.d.ts",
+    "esm": "./esm2022/core.mjs",
+    "esm2022": "./esm2022/core.mjs",
+    "default": "./fesm2022/core.mjs"
+  },
+  "./testing": {
+    "types": "./testing/testing.d.ts",
+    "esm": "./esm2022/testing/testing.mjs",
+    "esm2022": "./esm2022/testing/testing.mjs",
+    "default": "./fesm2022/testing.mjs"
+  }
+}</p>
+<p></code-example></p>
+<p>Of primary interest are the <code>"."</code> and the <code>"./testing"</code> keys, which define the available code formats for the <code>@angular/core</code> primary entrypoint and the <code>@angular/core/testing</code> secondary entrypoint, respectively.
+For each entrypoint, the available formats are:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Formats</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Typings (<code>.d.ts</code> files)</td>
+<td align="left"><code>.d.ts</code> files are used by TypeScript when depending on a given package.</td>
+</tr>
+<tr>
+<td align="left"><code>es2022</code></td>
+<td align="left">ES2022 code flattened into a single source file.</td>
+</tr>
+<tr>
+<td align="left"><code>esm2022</code></td>
+<td align="left">ES2022 code in unflattened source files (this format is included for experimentation - see <a href="#note-about-the-defaults-in-packagejson">this discussion of defaults</a> for details).</td>
+</tr>
+<tr>
+<td align="left"><code>default</code></td>
+<td align="left">ES2022 code flattened into a single source.</td>
+</tr>
+</tbody>
+</table>
+<p>Tooling that is aware of these keys may preferentially select a desirable code format from <code>"exports"</code>.</p>
+<p>Libraries may want to expose additional static files which are not captured by the exports of the JavaScript-based entry-points such as Sass mixins or pre-compiled CSS.</p>
+<p>For more information, see <a href="guide/creating-libraries#managing-assets-in-a-library">Managing assets in a library</a>.</p>
+<h3 id="legacy-resolution-keys">Legacy resolution keys<a class="headerlink" href="#legacy-resolution-keys" title="Permanent link">&para;</a></h3>
+<p>In addition to <code>"exports"</code>, the top-level <code>package.json</code> also defines legacy module resolution keys for resolvers that don't support <code>"exports"</code>.
+For <code>@angular/core</code> these are:</p>
+<p><code-example language="javascript"></p>
+<p>{
+  "module": "./fesm2022/core.mjs",
+  "typings": "./core.d.ts",
+}</p>
+<p></code-example></p>
+<p>As shown in the preceding code snippet, a module resolver can use these keys to load a specific code format.</p>
+<h3 id="side-effects">Side effects<a class="headerlink" href="#side-effects" title="Permanent link">&para;</a></h3>
+<p>The last function of <code>package.json</code> is to declare whether the package has <a href="#sideeffects-flag">side effects</a>.</p>
+<p><code-example language="javascript"></p>
+<p>{
+  "sideEffects": false
+}</p>
+<p></code-example></p>
+<p>Most Angular packages should not depend on top-level side effects, and thus should include this declaration.</p>
+<h2 id="entrypoints-and-code-splitting">Entrypoints and code splitting<a class="headerlink" href="#entrypoints-and-code-splitting" title="Permanent link">&para;</a></h2>
+<p>Packages in the Angular Package Format contain one primary entrypoint and zero or more secondary entrypoints (for example, <code>@angular/common/http</code>).
+Entrypoints serve several functions.</p>
+<ol>
+<li>
+<p>They define the module specifiers from which users import code (for example, <code>@angular/core</code> and <code>@angular/core/testing</code>).</p>
+<p>Users typically perceive these entrypoints as distinct groups of symbols, with different purposes or capability.</p>
+<p>Specific entrypoints might only be used for special purposes, such as testing.
+Such APIs can be separated out from the primary entrypoint to reduce the chance of them being used accidentally or incorrectly.</p>
+</li>
+<li>
+<p>They define the granularity at which code can be lazily loaded.</p>
+<p>Many modern build tools are only capable of "code splitting" (aka lazy loading) at the ES Module level.
+The Angular Package Format uses primarily a single "flat" ES Module per entry point. This means that most build tooling is not able to split code with a single entry point into multiple output chunks.</p>
+</li>
+</ol>
+<p>The general rule for APF packages is to use entrypoints for the smallest sets of logically connected code possible.
+For example, the Angular Material package publishes each logical component or set of components as a separate entrypoint - one for Button, one for Tabs, etc.
+This allows each Material component to be lazily loaded separately, if desired.</p>
+<p>Not all libraries require such granularity.
+Most libraries with a single logical purpose should be published as a single entrypoint.
+<code>@angular/core</code> for example uses a single entrypoint for the runtime, because the Angular runtime is generally used as a single entity.</p>
+<h3 id="resolution-of-secondary-entry-points">Resolution of secondary entry points<a class="headerlink" href="#resolution-of-secondary-entry-points" title="Permanent link">&para;</a></h3>
+<p>Secondary entrypoints can be resolved via the <code>"exports"</code> field of the <code>package.json</code> for the package.</p>
+<h2 id="readmemd">README.md<a class="headerlink" href="#readmemd" title="Permanent link">&para;</a></h2>
+<p>The README file in the Markdown format that is used to display description of a package on npm and GitHub.</p>
+<p>Example README content of &commat;angular/core package:</p>
+<p><code-example language="html"></p>
+<p>Angular
+&equals;&equals;&equals;&equals;&equals;&equals;&equals;</p>
+<p>The sources for this package are in the main <a href="https://github.com/angular/angular">Angular</a> repo.Please file issues and pull requests against that repo.</p>
+<p>License: MIT</p>
+<p></code-example></p>
+<h2 id="partial-compilation">Partial compilation<a class="headerlink" href="#partial-compilation" title="Permanent link">&para;</a></h2>
+<p>Libraries in the Angular Package Format must be published in "partial compilation" mode.
+This is a compilation mode for <code>ngc</code> which produces compiled Angular code that is not tied to a specific Angular runtime version, in contrast to the full compilation used for applications, where the Angular compiler and runtime versions must match exactly.</p>
+<p>To partially compile Angular code, use the <code>compilationMode</code> flag in the <code>angularCompilerOptions</code> property of your <code>tsconfig.json</code>:</p>
+<p><code-example language="javascript"></p>
+<p>{
+  &hellip;
+  "angularCompilerOptions": {
+    "compilationMode": "partial",
+  }
+}</p>
+<p></code-example></p>
+<p>Partially compiled library code is then converted to fully compiled code during the application build process by the Angular CLI.</p>
+<p>If your build pipeline does not use the Angular CLI then refer to the <a href="guide/creating-libraries#consuming-partial-ivy-code-outside-the-angular-cli">Consuming partial ivy code outside the Angular CLI</a> guide.</p>
+<h2 id="optimizations">Optimizations<a class="headerlink" href="#optimizations" title="Permanent link">&para;</a></h2>
+<h3 id="flattening-of-es-modules">Flattening of ES modules<a class="headerlink" href="#flattening-of-es-modules" title="Permanent link">&para;</a></h3>
+<p>The Angular Package Format specifies that code be published in "flattened" ES module format.
+This significantly reduces the build time of Angular applications as well as download and parse time of the final application bundle.
+Please check out the excellent post <a href="https://nolanlawson.com/2016/08/15/the-cost-of-small-modules">"The cost of small modules"</a> by Nolan Lawson.</p>
+<p>The Angular compiler can generate index ES module files. Tools like Rollup can use these files to generate flattened modules in a <em>Flattened ES Module</em> (FESM) file format.</p>
+<p>FESM is a file format created by flattening all ES Modules accessible from an entrypoint into a single ES Module.
+It's formed by following all imports from a package and copying that code into a single file while preserving all public ES exports and removing all private imports.</p>
+<p>The abbreviated name, FESM, pronounced <em>phe-som</em>, can be followed by a number such as FESM2020.
+The number refers to the language level of the JavaScript inside the module.
+Accordingly a FESM2022 file would be ESM+ES2022 and include import/export statements and ES2022 source code.</p>
+<p>To generate a flattened ES Module index file, use the following configuration options in your tsconfig.json file:</p>
+<p><code-example language="javascript"></p>
+<p>{
+  "compilerOptions": {
+    &hellip;
+    "module": "esnext",
+    "target": "es2022",
+    &hellip;
+  },
+  "angularCompilerOptions": {
+    &hellip;
+    "flatModuleOutFile": "my-ui-lib.js",
+    "flatModuleId": "my-ui-lib"
+  }
+}</p>
+<p></code-example></p>
+<p>Once the index file (for example, <code>my-ui-lib.js</code>) is generated by ngc, bundlers and optimizers like Rollup can be used to produce the flattened ESM file.</p>
+<h4 id="note-about-the-defaults-in-packagejson">Note about the defaults in package.json<a class="headerlink" href="#note-about-the-defaults-in-packagejson" title="Permanent link">&para;</a></h4>
+<p>As of webpack v4, the flattening of ES modules optimization should not be necessary for webpack users. It should be possible to get better code-splitting without flattening of modules in webpack.
+In practice, size regressions can still be seen when using unflattened modules as input for webpack v4.
+This is why <code>module</code> and <code>es2022</code> package.json entries still point to FESM files.
+This issue is being investigated. It is expected to switch the <code>module</code> and <code>es2022</code> package.json entry points to unflattened files after the size regression issue is resolved.
+The APF currently includes unflattened ESM2022 code for the purpose of validating such a future change.</p>
+<h3 id="sideeffects-flag">"sideEffects" flag<a class="headerlink" href="#sideeffects-flag" title="Permanent link">&para;</a></h3>
+<p>By default, EcmaScript Modules are side-effectful: importing from a module ensures that any code at the top level of that module should run.
+This is often undesirable, as most side-effectful code in typical modules is not truly side-effectful, but instead only affects specific symbols.
+If those symbols are not imported and used, it's often desirable to remove them in an optimization process known as tree-shaking, and the side-effectful code can prevent this.</p>
+<p>Build tools such as Webpack support a flag which allows packages to declare that they do not depend on side-effectful code at the top level of their modules, giving the tools more freedom to tree-shake code from the package.
+The end result of these optimizations should be smaller bundle size and better code distribution in bundle chunks after code-splitting.
+This optimization can break your code if it contains non-local side-effects - this is however not common in Angular applications and it's usually a sign of bad design.
+The recommendation is for all packages to claim the side-effect free status by setting the <code>sideEffects</code> property to <code>false</code>, and that developers follow the <a href="/guide/styleguide">Angular Style Guide</a> which naturally results in code without non-local side-effects.</p>
+<p>More info: <a href="https://github.com/webpack/webpack/tree/master/examples/side-effects">webpack docs on side effects</a></p>
+<h3 id="es2022-language-level">ES2022 language level<a class="headerlink" href="#es2022-language-level" title="Permanent link">&para;</a></h3>
+<p>ES2022 Language level is now the default language level that is consumed by Angular CLI and other tooling.
+The Angular CLI down-levels the bundle to a language level that is supported by all targeted browsers at application build time.</p>
+<h3 id="dts-bundling-type-definition-flattening">d.ts bundling / type definition flattening<a class="headerlink" href="#dts-bundling-type-definition-flattening" title="Permanent link">&para;</a></h3>
+<p>As of APF v8 it is now preferred to run <a href="https://api-extractor.com">API Extractor</a>, to bundle TypeScript definitions so that the entire API appears in a single file.</p>
+<p>In prior APF versions each entry point would have a <code>src</code> directory next to the .d.ts entry point and this directory contained individual d.ts files matching the structure of the original source code.
+While this distribution format is still allowed and supported, it is highly discouraged because it confuses tools like IDEs that then offer incorrect autocompletion, and allows users to depend on deep-import paths which are typically not considered to be public API of a library or a package.</p>
+<h3 id="tslib">Tslib<a class="headerlink" href="#tslib" title="Permanent link">&para;</a></h3>
+<p>As of APF v10, it is recommended to add tslib as a direct dependency of your primary entry-point.
+This is because the tslib version is tied to the TypeScript version used to compile your library.</p>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://unpkg.com/browse/@angular/core@13.0.0-rc.0">@angular/core package</a></li>
+<li><a href="https://unpkg.com/browse/@angular/material@13.0.0-rc.0">@angular/material package</a></li>
+</ul>
+<h2 id="definition-of-terms">Definition of terms<a class="headerlink" href="#definition-of-terms" title="Permanent link">&para;</a></h2>
+<p>The following terms are used throughout this document intentionally.
+In this section are the definitions of all of them to provide additional clarity.</p>
+<h4 id="package">Package<a class="headerlink" href="#package" title="Permanent link">&para;</a></h4>
+<p>The smallest set of files that are published to NPM and installed together, for example <code>@angular/core</code>.
+This package includes a manifest called package.json, compiled source code, typescript definition files, source maps, metadata, etc.
+The package is installed with <code>npm install @angular/core</code>.</p>
+<h4 id="symbol">Symbol<a class="headerlink" href="#symbol" title="Permanent link">&para;</a></h4>
+<p>A class, function, constant, or variable contained in a module and optionally made visible to the external world via a module export.</p>
+<h4 id="module">Module<a class="headerlink" href="#module" title="Permanent link">&para;</a></h4>
+<p>Short for ECMAScript Modules.
+A file containing statements that import and export symbols.
+This is identical to the definition of modules in the ECMAScript spec.</p>
+<h4 id="esm">ESM<a class="headerlink" href="#esm" title="Permanent link">&para;</a></h4>
+<p>Short for ECMAScript Modules (see above).</p>
+<h4 id="fesm">FESM<a class="headerlink" href="#fesm" title="Permanent link">&para;</a></h4>
+<p>Short for Flattened ES Modules and consists of a file format created by flattening all ES Modules accessible from an entry point into a single ES Module.</p>
+<h4 id="module-id">Module ID<a class="headerlink" href="#module-id" title="Permanent link">&para;</a></h4>
+<p>The identifier of a module used in the import statements (for example, <code>@angular/core</code>).
+The ID often maps directly to a path on the filesystem, but this is not always the case due to various module resolution strategies.</p>
+<h4 id="module-specifier">Module specifier<a class="headerlink" href="#module-specifier" title="Permanent link">&para;</a></h4>
+<p>A module identifier (see above).</p>
+<h4 id="module-resolution-strategy">Module resolution strategy<a class="headerlink" href="#module-resolution-strategy" title="Permanent link">&para;</a></h4>
+<p>Algorithm used to convert Module IDs to paths on the filesystem.
+Node.js has one that is well specified and widely used, TypeScript supports several module resolution strategies, <a href="https://developers.google.com/closure/compiler">Closure Compiler</a> has yet another strategy.</p>
+<h4 id="module-format">Module format<a class="headerlink" href="#module-format" title="Permanent link">&para;</a></h4>
+<p>Specification of the module syntax that covers at minimum the syntax for the importing and exporting from a file.
+Common module formats are CommonJS (CJS, typically used for Node.js applications) or ECMAScript Modules (ESM).
+The module format indicates only the packaging of the individual modules, but not the JavaScript language features used to make up the module content.
+Because of this, the Angular team often uses the language level specifier as a suffix to the module format, (for example, ESM+ES2022 specifies that the module is in ESM format and contains ES2022 code).</p>
+<h4 id="bundle">Bundle<a class="headerlink" href="#bundle" title="Permanent link">&para;</a></h4>
+<p>An artifact in the form of a single JS file, produced by a build tool (for example, <a href="https://webpack.js.org">Webpack</a> or <a href="https://rollupjs.org">Rollup</a>) that contains symbols originating in one or more modules.
+Bundles are a browser-specific workaround that reduce network strain that would be caused if browsers were to start downloading hundreds if not tens of thousands of files.
+Node.js typically doesn't use bundles.
+Common bundle formats are UMD and System.register.</p>
+<h4 id="language-level">Language level<a class="headerlink" href="#language-level" title="Permanent link">&para;</a></h4>
+<p>The language of the code (ES2022).
+Independent of the module format.</p>
+<h4 id="entry-point">Entry point<a class="headerlink" href="#entry-point" title="Permanent link">&para;</a></h4>
+<p>A module intended to be imported by the user.
+It is referenced by a unique module ID and exports the public API referenced by that module ID.
+An example is <code>@angular/core</code> or <code>@angular/core/testing</code>.
+Both entry points exist in the <code>@angular/core</code> package, but they export different symbols.
+A package can have many entry points.</p>
+<h4 id="deep-import">Deep import<a class="headerlink" href="#deep-import" title="Permanent link">&para;</a></h4>
+<p>A process of retrieving symbols from modules that are not Entry Points.
+These module IDs are usually considered to be private APIs that can change over the lifetime of the project or while the bundle for the given package is being created.</p>
+<h4 id="top-level-import">Top-Level import<a class="headerlink" href="#top-level-import" title="Permanent link">&para;</a></h4>
+<p>An import coming from an entry point.
+The available top-level imports are what define the public API and are exposed in "&commat;angular/name" modules, such as <code>@angular/core</code> or <code>@angular/common</code>.</p>
+<h4 id="tree-shaking">Tree-shaking<a class="headerlink" href="#tree-shaking" title="Permanent link">&para;</a></h4>
+<p>The process of identifying and removing code not used by an application - also known as dead code elimination.
+This is a global optimization performed at the application level using tools like <a href="https://rollupjs.org">Rollup</a>, <a href="https://developers.google.com/closure/compiler">Closure Compiler</a>, or <a href="https://github.com/terser/terser">Terser</a>.</p>
+<h4 id="aot-compiler">AOT compiler<a class="headerlink" href="#aot-compiler" title="Permanent link">&para;</a></h4>
+<p>The Ahead of Time Compiler for Angular.</p>
+<h4 id="flattened-type-definitions">Flattened type definitions<a class="headerlink" href="#flattened-type-definitions" title="Permanent link">&para;</a></h4>
+<p>The bundled TypeScript definitions generated from <a href="https://api-extractor.com">API Extractor</a>.</p>
+<!-- links -->
+
+<!-- external links -->
+
+<!-- end links -->
+
+<p>@reviewed 2023-03-06</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../creating-libraries/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 创建库" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              创建库
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../signals/" class="md-footer__link md-footer__link--next" aria-label="下一页: 信号" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              信号
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      版权 &copy; 2022 -  wdk-docs.github.io
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="http://wdk-docs.github.io" target="_blank" rel="noopener" title="wdk-docs.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/wdk-docs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/wdk-docs" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://linkedin.com/in/wdk-docs" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tabs", "navigation.tracking", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
