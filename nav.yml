@@ -1,0 +1,263 @@
+nav:
+  # - Introduction: docs
+  - 入门:
+      - 什么是Angular?: guide/what-is-angular.md
+      - 试用:
+          - Getting started: start/index.md
+          - Adding navigation: start/start-routing.md
+          - Managing data: start/start-data.md
+          - Using forms for user input: start/start-forms.md
+          - Deploying an application: start/start-deployment.md
+      - Setup: guide/setup-local.md
+  - 了解 Angular:
+      - 概述: guide/understanding-angular-overview.md
+      - 组件:
+          - 概述: guide/component-overview.md
+          - 组件生命周期: guide/lifecycle-hooks.md
+          - View encapsulation: guide/view-encapsulation.md
+          - Component interaction: guide/component-interaction.md
+          - Component styles: guide/component-styles.md
+          - Sharing data between child and parent directives and components: guide/inputs-outputs.md
+          - Content projection: guide/content-projection.md
+          - Dynamic components: guide/dynamic-component-loader.md
+          - Angular elements: guide/elements.md
+      - 模版:
+          - Overview: guide/template-overview.md
+          - Introduction: guide/template-syntax.md
+          - Text interpolation: guide/interpolation.md
+          - Template statements: guide/template-statements.md
+          - Binding:
+              - Understanding binding: guide/binding-overview.md
+              - Property binding: guide/property-binding.md
+              - Attribute binding: guide/attribute-binding.md
+              - Class and style binding: guide/class-binding.md
+              - Event binding: guide/event-binding.md
+              - Two-way binding: guide/two-way-binding.md
+          - Pipes:
+              - Understanding pipes: guide/pipes-overview.md
+              - Using a pipe in a template: guide/pipe-template.md
+              - Transforming data with parameters and chained pipes: guide/pipes-transform-data.md
+          - Template reference variables: guide/template-reference-variables.md
+          - SVG as templates: guide/svg-in-templates.md
+      - 指令:
+          - Built-in directives: guide/built-in-directives.md
+          - Attribute directives: guide/attribute-directives.md
+          - Structural directives: guide/structural-directives.md
+          - Directive composition API: guide/directive-composition-api.md
+      - 依赖注入:
+          - Dependency injection in Angular: guide/dependency-injection-overview.md
+          - Understanding dependency injection: guide/dependency-injection.md
+          - Creating an injectable service: guide/creating-injectable-service.md
+          - Defining dependency providers: guide/dependency-injection-providers.md
+          - Hierarchical injectors: guide/hierarchical-dependency-injection.md
+  - 开发者指南:
+      - 概述: guide/developer-guide-overview.md
+      - 独立的:
+          - 独立的组件: guide/standalone-components.md
+          - 迁移到独立模式: guide/standalone-migration.md
+      - 变化检测:
+          - Overview: guide/change-detection.md
+          - Zone pollution: guide/change-detection-zone-pollution.md
+          - Slow computations: guide/change-detection-slow-computations.md
+          - Skipping component subtrees: guide/change-detection-skipping-subtrees.md
+      - 路由与导航:
+          - Overview: guide/routing-overview.md
+          - Common routing tasks: guide/router.md
+          - "Tutorial: routing in single-page applications": guide/router-tutorial.md
+          - "Tutorial: creating custom route matches": guide/routing-with-urlmatcher.md
+          - "Tutorial: adding routing to Tour of Heroes": guide/router-tutorial-toh.md
+          - Router reference: guide/router-reference.md
+      - 表单:
+          - Introduction: guide/forms-overview.md
+          - Reactive forms: guide/reactive-forms.md
+          - Strictly typed reactive forms in depth: guide/typed-forms.md
+          - Validate form input: guide/form-validation.md
+          - Building dynamic forms: guide/dynamic-form.md
+      - esbuild-based 构建: guide/esbuild.md
+      - HTTP client: guide/http.md
+      - Hydration: guide/hydration.md
+      - 图像优化: guide/image-directive.md
+      - 测试:
+          - Intro to testing: guide/testing.md
+          - Code coverage: guide/testing-code-coverage.md
+          - Testing services: guide/testing-services.md
+          - Basics of testing components: guide/testing-components-basics.md
+          - Component testing scenarios: guide/testing-components-scenarios.md
+          - Testing attribute directives: guide/testing-attribute-directives.md
+          - Testing pipes: guide/testing-pipes.md
+          - Debugging tests: guide/test-debugging.md
+          - Testing utility APIs: guide/testing-utility-apis.md
+      - 国际化:
+          - Overview: guide/i18n-overview.md
+          - Common internationalization tasks:
+              - Overview: guide/i18n-common-overview.md
+              - Add the localize package: guide/i18n-common-add-package.md
+              - Refer to locales by ID: guide/i18n-common-locale-id.md
+              - Format data based on locale: guide/i18n-common-format-data-locale.md
+              - Prepare component for translation: guide/i18n-common-prepare.md
+              - Work with translation files: guide/i18n-common-translation-files.md
+              - Merge translations into the app: guide/i18n-common-merge.md
+              - Deploy multiple locales: guide/i18n-common-deploy.md
+          - Example Angular application: guide/i18n-example.md
+          - Optional internationalization practices:
+              - Overview: guide/i18n-optional-overview.md
+              - Set the runtime locale manually: guide/i18n-optional-manual-runtime-locale.md
+              - Import global variants of the locale data: guide/i18n-optional-import-global-variants.md
+              - Manage marked text with custom IDs: guide/i18n-optional-manage-marked-text.md
+      - 动画:
+          - Introduction: guide/animations.md
+          - Transition and Triggers: guide/transition-and-triggers.md
+          - Complex Sequences: guide/complex-animation-sequences.md
+          - Reusable Animations: guide/reusable-animations.md
+          - Route transition animations: guide/route-animations.md
+      - Service Workers & PWA:
+          - Introduction: guide/service-worker-intro.md
+          - Getting started: guide/service-worker-getting-started.md
+          - App shell: guide/app-shell.md
+          - Service worker communication: guide/service-worker-communications.md
+          - Service worker notifications: guide/service-worker-notifications.md
+          - Service worker in production: guide/service-worker-devops.md
+          - Service worker configuration: guide/service-worker-config.md
+      - Web workers: guide/web-worker.md
+      - 服务器端渲染: guide/universal.md
+      - Prerendering: guide/prerendering.md
+      - Angular 库:
+          - 库概况: guide/libraries.md
+          - 使用已发布的库: guide/using-libraries.md
+          - 创建库: guide/creating-libraries.md
+          - Angular包格式: guide/angular-package-format.md
+      - 预览功能:
+          - 信号: guide/signals.md
+          - RxJS信号互操作: guide/rxjs-interop.md
+  - 最佳实践:
+      - 安全: guide/security.md
+      - 可访问性: guide/accessibility.md
+      - 保持最新的: guide/updating.md
+      - 属性绑定最佳实践: guide/property-binding-best-practices.md
+      - 懒加载功能模块: guide/lazy-loading-ngmodules.md
+      - 库的轻量级注入令牌: guide/lightweight-injection-tokens.md
+  - Angular 工具:
+      - Development workflow:
+          - Deploying applications: guide/deployment.md
+          - AOT compiler:
+              - Ahead-of-Time compilation: guide/aot-compiler.md
+              - Angular compiler options: guide/angular-compiler-options.md
+              - AOT metadata errors: guide/aot-metadata-errors.md
+              - Template type-checking: guide/template-typecheck.md
+          - Building & serving: guide/build.md
+      - CLI builders: guide/cli-builder.md
+      - Language service: guide/language-service.md
+      - DevTools: guide/devtools.md
+      - Schematics:
+          - Schematics Overview: guide/schematics.md
+          - Authoring schematics: guide/schematics-authoring.md
+          - Schematics for libraries: guide/schematics-for-libraries.md
+  - 手册:
+      - tutorial/index.md
+      - "Tutorial: Your first Angular app":
+          - Introduction: tutorial/first-app/index.md
+          - Hello world: tutorial/first-app/first-app-lesson-01.md
+          - Create home component: tutorial/first-app/first-app-lesson-02.md
+          - Create housing location component: tutorial/first-app/first-app-lesson-03.md
+          - Create an interface: tutorial/first-app/first-app-lesson-04.md
+          - Add inputs to components: tutorial/first-app/first-app-lesson-05.md
+          - Add property binding to components: tutorial/first-app/first-app-lesson-06.md
+          - Add dynamic values to templates: tutorial/first-app/first-app-lesson-07.md
+          - Use *ngFor in templates: tutorial/first-app/first-app-lesson-08.md
+          - Angular services: tutorial/first-app/first-app-lesson-09.md
+          - Add routing: tutorial/first-app/first-app-lesson-10.md
+          - Customize the details page: tutorial/first-app/first-app-lesson-11.md
+          - Integrate Angular forms: tutorial/first-app/first-app-lesson-12.md
+          - Add search functionality: tutorial/first-app/first-app-lesson-13.md
+          - Add HTTP communication: tutorial/first-app/first-app-lesson-14.md
+      - "Tutorial: Tour of Heroes":
+          - Introduction: tutorial/tour-of-heroes/index.md
+          - Create a project: tutorial/tour-of-heroes/toh-pt0.md
+          - 1. The hero editor: tutorial/tour-of-heroes/toh-pt1.md
+          - 2. Display a list: tutorial/tour-of-heroes/toh-pt2.md
+          - 3. Create a feature component: tutorial/tour-of-heroes/toh-pt3.md
+          - 4. Add services: tutorial/tour-of-heroes/toh-pt4.md
+          - 5. Add navigation: tutorial/tour-of-heroes/toh-pt5.md
+          - 6. Get data from a server: tutorial/tour-of-heroes/toh-pt6.md
+      - Building a template-driven form: guide/forms.md
+  - 更新和发布:
+      - Update Angular to the latest version: guide/update-to-version-16.md
+      - Roadmap: guide/roadmap.md
+      - Release practices: guide/releases.md
+      - Version compatibility: guide/versions.md
+      - Browser support: guide/browser-support.md
+      - Deprecations: guide/deprecations.md
+      - Upgrading from AngularJS:
+          - Upgrade instructions: guide/upgrade.md
+          - Setup for upgrading from AngularJS: guide/upgrade-setup.md
+          - Upgrading for performance: guide/upgrade-performance.md
+          - AngularJS to Angular concepts: guide/ajs-quick-reference.md
+  - 参考:
+      - Conceptual reference:
+          - Angular concepts:
+              - Intro to basic concepts: guide/architecture.md
+              - Intro to modules: guide/architecture-modules.md
+              - Intro to components: guide/architecture-components.md
+              - Next steps: guide/architecture-next-steps.md
+              - Binding syntax: guide/binding-syntax.md
+              - How event binding works: guide/event-binding-concepts.md
+              - Template variables: guide/template-reference-variables.md
+          - Workspace and project structure:
+              - Project file structure: guide/file-structure.md
+              - Workspace configuration: guide/workspace-config.md
+              - npm dependencies: guide/npm-packages.md
+              - TypeScript configuration: guide/typescript-configuration.md
+              - Strict mode: guide/strict-mode.md
+          - NgModules:
+              - NgModules introduction: guide/ngmodules.md
+              - JS Modules vs NgModules: guide/ngmodule-vs-jsmodule.md
+              - Launching apps with a root module: guide/bootstrapping.md
+              - Frequently used NgModules: guide/frequent-ngmodules.md
+              - Types of feature modules: guide/module-types.md
+              - Feature modules: guide/feature-modules.md
+              - Providing dependencies: guide/providers.md
+              - Singleton services: guide/singleton-services.md
+              - Sharing NgModules: guide/sharing-ngmodules.md
+              - NgModule API: guide/ngmodule-api.md
+              - NgModule FAQs: guide/ngmodule-faq.md
+          - Observables & RxJS:
+              - Observables overview: guide/observables.md
+              - The RxJS library: guide/rx-library.md
+              - Observables in Angular: guide/observables-in-angular.md
+              - Practical usage: guide/practical-observable-usage.md
+              - Compare to other techniques: guide/comparing-observables.md
+          - Dependency injection:
+              - DI in action: guide/dependency-injection-in-action.md
+      - CLI Command Reference:
+          - Overview: cli/index.md
+      # - API reference: api.md
+      - Error reference:
+          - Overview: errors/index.md
+      - Extended diagnostic reference:
+          - Extended Diagnostics Overview: extended-diagnostics/index.md
+      - Example applications: guide/example-apps-list.md
+      - Angular glossary: guide/glossary.md
+      - Angular coding style:
+          - Quick reference: guide/cheatsheet.md
+          - Coding style guide: guide/styleguide.md
+  - 文档贡献者指南:
+      - Overview: guide/contributors-guide-overview.md
+      - Common documentation maintenance tasks:
+          - Overview: guide/doc-tasks.md
+          - Review documentation: guide/reviewing-content.md
+          - Update search keywords: guide/updating-search-keywords.md
+      - Documentation editing workflow:
+          - Overview: guide/doc-update-overview.md
+          - Prepare to edit documentation: guide/doc-prepare-to-edit.md
+          - Select a documentation issue: guide/doc-select-issue.md
+          - Start to edit a documentation topic: guide/doc-update-start.md
+          - Make and save changes to a documentation topic: guide/doc-editing.md
+          - Resolve documentation linter messages: guide/docs-lint-errors.md
+          - Build and test documentation: guide/doc-build-test.md
+          - Prepare documentation for a pull request: guide/doc-pr-prep.md
+          - Open a documentation pull request: guide/doc-pr-open.md
+          - Update a documentation pull request in progress: guide/doc-pr-update.md
+          - Finish up a documentation pull request: guide/doc-edit-finish.md
+      - Documentation style guide: guide/docs-style-guide.md
+      - Angular doc localization guidelines: guide/localizing-angular.md
+      - Localized documentation: guide/localized-documentation.md
